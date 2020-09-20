@@ -17,13 +17,13 @@
     <div class="form-group">
         <label for="username" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-5">
-            <input id="username" class="form-control" type="text" th:value="${session.username}" name="username">
+            <input id="username" class="form-control" type="text" th:value="${session.username}" name="username" readonly="readonly">
         </div>
     </div>
     <div class="form-group">
         <label for="password" class="col-sm-2 control-label">用户密码</label>
         <div class="col-sm-5">
-            <input id="password" class="form-control" type="text" th:value="${loginUsers.userPassword}" name="password" readonly="readonly">
+            <input id="password" class="form-control" type="text" th:value="${loginUsers.userPassword}" name="password">
         </div>
     </div>
     <div class="form-group">
@@ -39,9 +39,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="className" class="col-sm-2 control-label">班级</label>
+        <label for="userClassName" class="col-sm-2 control-label">班级</label>
         <div class="col-sm-5">
-            <input type="text" id="className" class="form-control"  name="className" th:value="${loginUsers.userClassName}">
+            <input type="text" id="userClassName" class="form-control"  name="userClassName" th:value="${loginUsers.userClassName}">
         </div>
     </div>
     <div class="form-group">

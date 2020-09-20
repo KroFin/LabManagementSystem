@@ -37,8 +37,8 @@
                 <div class="col-4 navbar-nav text-center pr-0 d-none d-lg-block"><a class="navbar-brand mr-0" href="#">IOT实验室综合管理系统</a></div>
                 <div class="col-4 pr-lg-0">
                     <ul class="navbar-nav justify-content-end">
-                        <li class="nav-item"><a class="nav-link" href="#" th:text="${session.username}">XX</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="#{/logout}">登出</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#b" th:text="${session.username}">XX</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">登出</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,7 +61,6 @@
                 <div class="col-md-12 column">
                     <iframe id="iframe-page-content" src="/device_change" width="100%" frameborder="no" border="0" marginwidth="0"
                             marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>
-
                 </div>
             </div>
         </div>
