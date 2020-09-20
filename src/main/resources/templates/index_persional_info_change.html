@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+</head>
+<body>
+<form action="/changePersonalInfo" method="post" id="changePersonalInfo">
+    <div class="form-group">
+        <label for="user_id_number" class="col-sm-12 control-label"></label>
+        <div class="col-sm-5">
+            <input id="user_id_number" class="form-control" type="text" name="user_id_number" style="display: none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">用户名</label>
+        <div class="col-sm-5">
+            <input id="username" class="form-control" type="text" th:value="${session.username}" name="username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">用户密码</label>
+        <div class="col-sm-5">
+            <input id="password" class="form-control" type="text" th:value="${loginUsers.userPassword}" name="password" readonly="readonly">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userIdNumber" class="col-sm-2 control-label">学号</label>
+        <div class="col-sm-5">
+            <input type="text" id="userIdNumber" class="form-control"  name="userIdNumber" th:value="${loginUsers.userIdNumber}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userPhone" class="col-sm-2 control-label">手机号</label>
+        <div class="col-sm-5">
+            <input type="text" id="userPhone" class="form-control"  name="userPhone" th:value="${loginUsers.userPhone}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="className" class="col-sm-2 control-label">班级</label>
+        <div class="col-sm-5">
+            <input type="text" id="className" class="form-control"  name="className" th:value="${loginUsers.userClassName}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userLimit" class="col-sm-2 control-label">用户权限</label>
+        <div class="col-sm-5">
+            <input type="text" id="userLimit" class="form-control"  name="userLimit" readonly="readonly" th:value="${loginUsers.userLimit}">
+        </div>
+    </div>
+    <button onclick="changedPersonalInfo()" class="btn btn-primary col-md-3" style="float: right">确定</button>
+</form>
+</body>
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/popper/popper.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function changedPersonalInfo(){
+        var serializeArray = $("#changedPersonalInfo").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/changedPersonalInfo",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            }
+        });
+    }
+</script>
+</html>

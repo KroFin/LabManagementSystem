@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IOT实验室综合管理系统-登陆</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <div class="container-fluid">
+    
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand d-lg-none" href="#">IOT实验室综合管理系统</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigations-02"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-md-center" id="navigations-02">
+          <div class="row w-100">
+            <div class="col-4 pl-lg-0">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#">首页<span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#">F&Q</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">技术支持</a></li>
+              </ul>
+            </div>
+            <div class="col-4 navbar-nav text-center pr-0 d-none d-lg-block"><a class="navbar-brand mr-0" href="#">IOT实验室综合管理系统</a></div>
+          </div>
+        </div>
+      </nav>
+    
+      <section>
+        <div class="container text-center">
+          <div class="row align-items-lg-center justify-content-center" style="height: 80vh">
+            <form action="/login" method="post" class="col-md-5 col-lg-4">
+                <label class="sr-only" for="input2-signin-02">用户名</label>
+                <input class="form-control my-3 bg-light" id="input2-signin-02" type="text" placeholder="用户名/邮箱" name="username">
+                <label class="sr-only" for="input3-signin-02">密码</label>
+                <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="密码" name="password">
+                <div class="d-flex">
+                  <button class="btn btn-outline-primary btn-block py-2 mr-3" type="submit">登陆</button>
+                  <button class="btn btn-primary btn-block py-2 mt-0"><a href="/register" style="color: #ffffff ; text-decoration: none">注册</a></button>
+                </div>
+              <p class="text-secondary text-muted mt-3">注册后我们会默认您同意我们的<a href="#">用户守则</a> 和 <a href="#">隐私条例</a>.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    
+      <footer class="py-3">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center flex-column flex-md-row border-bottom pb-2">
+            <ul class="nav order-2 order-md-1">
+              <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Enterprise</a></li>
+            </ul>
+            <h5 class="mr-0 mr-md-5 mb-0 order-1 order-md-2"><a href="#">Pied Piper</a></h5>
+            <ul class="nav order-3 order-md-3">
+              <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">ICO</a></li>
+            </ul>
+          </div>
+          <div class="d-flex justify-content-center mt-2">
+            <p class="mb-0 mt-2 small text-muted">&copy; 2020 Pied Piper. All right reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/popper/popper.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

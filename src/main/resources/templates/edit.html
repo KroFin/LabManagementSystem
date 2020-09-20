@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+</head>
+<body class="container">
+    <form action="/change_device_info" method="post" id="changeDeviceInfo">
+        <div class="form-group">
+            <label for="deviceId" class="col-sm-12 control-label"></label>
+            <div class="col-sm-5">
+                <input id="deviceId" class="form-control" type="text" th:value="${deviceInfoRows.deviceId}" name="deviceId" style="display: none">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="deviceName" class="col-sm-2 control-label">设备名称</label>
+            <div class="col-sm-5">
+                <input id="deviceName" class="form-control" type="text" th:value="${deviceInfoRows.deviceName}" name="deviceName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="deviceType" class="col-sm-2 control-label">设备类型</label>
+            <div class="col-sm-5">
+                <input id="deviceType" class="form-control" type="text" th:value="${deviceInfoRows.deviceType}" name="deviceType">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="deviceNumber" class="col-sm-2 control-label">设备数量</label>
+            <div class="col-sm-5">
+                <input type="text" id="deviceNumber" class="form-control" th:value="${deviceInfoRows.deviceNumber}" name="deviceNumber">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="deviceComment" class="col-sm-2 control-label">备注</label>
+            <div class="col-sm-5">
+                <input id="deviceComment" class="form-control" type="text" th:value="${deviceInfoRows.deviceComment}" name="deviceComment">
+            </div>
+        </div>
+        <button onclick="change()" class="btn btn-primary col-md-3" style="float: right">确定</button>
+<!--        <a class="btn btn-info" th:href="${'/CDI/'+deviceInfoRows.deviceId}">Reset</a>-->
+    </form>
+</body>
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/popper/popper.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function change(){
+        var serializeArray = $("#changeDeviceInfo").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/change_device_info",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            }
+        });
+    }
+</script>
+</html>

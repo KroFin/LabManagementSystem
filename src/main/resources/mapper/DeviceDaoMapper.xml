@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotdreamclub.demo.dao.DeviceMapper">
+    <resultMap id="deviceMap" type="com.iotdreamclub.demo.entity.DeviceInfo">
+        <id column="device_id" property="deviceId"/>
+        <result column="device_name" property="deviceName"/>
+        <result column="device_type" property="deviceType"/>
+        <result column="device_number" property="deviceNumber"/>
+        <result column="device_comment" property="deviceComment"/>
+    </resultMap>
+    <resultMap id="deviceLendMap" type="com.iotdreamclub.demo.entity.DeviceLend">
+        <result column="lend_people" property="lendPeople"/>
+        <result column="lend_device" property="lendDevice"/>
+        <result column="lend_time" property="lendTime"/>
+    </resultMap>
+    <update id="addDeviceNumber" >
+        update tb_device_info set device_number = device_number + 1 where device_id = #{deviceId}
+    </update>
+    <insert id="addNewDevice">
+        insert tb_device_info value (null ,#{deviceName},#{deviceType},#{deviceNumber},#{deviceComment})
+    </insert>
+
+    <update id="deCrease" >
+        update tb_device_info set device_number = device_number - 1 where device_id = #{deviceId}
+    </update>
+    <update id="changeDeviceInfo">
+        update tb_device_info set device_name = #{deviceName}, device_type =  #{deviceType}, device_number = #{deviceNumber} , device_comment = #{deviceComment}  where device_id = #{deviceId}
+    </update>
+    <delete id="deleteDevice">
+        delete from tb_device_info where device_id = #{deviceId}
+    </delete>
+    <select id="selectAll" parameterType="java.util.ArrayList" resultType="com.iotdreamclub.demo.entity.DeviceInfo">
+        select * from tb_device_info
+    </select>
+    <select id="selectByDeviceId" resultType="com.iotdreamclub.demo.entity.DeviceInfo">
+        select * from tb_device_info where device_id = #{deviceId}
+    </select>
+
+
+
+    <select id="selectAllLendInfo" resultType="com.iotdreamclub.demo.entity.DeviceLend">
+        select * from tb_device_lend
+    </select>
+    <insert id="addDeviceLendInfo">
+        insert tb_device_lend value (#{lendPeople},#{lendDevice},#{lendTime})
+    </insert>
+</mapper>

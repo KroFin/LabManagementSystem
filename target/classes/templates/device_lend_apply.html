@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+</head>
+<body class="container">
+    <form action="/insertLendInfo" method="post" id="insertLendInfo">
+        <div class="form-group">
+            <label for="deviceId" class="col-sm-12 control-label"></label>
+            <div class="col-sm-5">
+                <input id="deviceId" class="form-control" type="text" th:value="${deviceInfoLends.deviceId}" name="deviceId" style="display: none">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lendPeople" class="col-sm-2 control-label">借用人</label>
+            <div class="col-sm-5">
+                <input id="lendPeople" class="form-control" type="text" th:value="${session.username}" name="lendPeople">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lendName" class="col-sm-2 control-label">设备名称</label>
+            <div class="col-sm-5">
+                <input id="lendName" class="form-control" type="text" th:value="${deviceInfoLends.deviceName}" name="lendName" readonly="readonly">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lendTime" class="col-sm-2 control-label">借用时间</label>
+            <div class="col-sm-5">
+                <input type="date" id="lendTime" class="form-control"  name="lendTime">
+            </div>
+        </div>
+        <button onclick="lend()" class="btn btn-primary col-md-3" style="float: right">确定</button>
+<!--        <a class="btn btn-info" th:href="${'/CDI/'+deviceInfoRows.deviceId}">Reset</a>-->
+    </form>
+</body>
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/popper/popper.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function lend(){
+        var serializeArray = $("#insertLendInfo").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/insertLendInfo",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            }
+        });
+    }
+</script>
+</html>

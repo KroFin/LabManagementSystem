@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotdreamclub.demo.dao.RoleMapper">
+    <resultMap id="roleMap" type="com.iotdreamclub.demo.entity.Role">
+        <id column="role_id" property="roleId"/>
+        <result column="role_name" property="roleName"/>
+        <result column="role_type" property="roleType"/>
+    </resultMap>
+    <select id="selectRoleByAccount" resultType="com.iotdreamclub.demo.entity.Role" parameterType="java.lang.String">
+        select r.role_id roleId,role_name roleName , role_type roleType from tb_user u join tb_role r on u.user_limit = r.role_type
+        and u.user_name = #{account}
+    </select>
+
+
+</mapper>

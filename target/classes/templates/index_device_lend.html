@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>借用人</th>
+        <th>设备名称</th>
+        <th>借用时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="deviceLend:${deviceLends}">
+        <td th:text="${deviceLend.lendPeople}">Tanmay</td>
+        <td th:text="${deviceLend.lendDevice}">Bangalore</td>
+        <td th:text="${deviceLend.lendTime}">560001</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/popper/popper.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+</html>

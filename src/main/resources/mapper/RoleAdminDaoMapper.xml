@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotdreamclub.demo.dao.RoleModuleMapper">
+    <resultMap id="roleModuleMap" type="com.iotdreamclub.demo.entity.RoleModule">
+        <result column="role_module_id" property="roleModuleId"/>
+        <result column="role_module_type" property="roleModuleType"/>
+    </resultMap>
+    <select id="selectAllByLimit" resultType="com.iotdreamclub.demo.entity.RoleModule" parameterType="java.util.ArrayList">
+        select role_module_type from tb_role_module where role_module_id = #{roleModuleId}
+    </select>
+</mapper>

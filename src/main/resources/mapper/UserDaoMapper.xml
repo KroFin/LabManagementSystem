@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotdreamclub.demo.dao.UserDao">
+    <resultMap id="userMap" type="com.iotdreamclub.demo.entity.User">
+        <result property="userName" column="user_name"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="userIdNumber" column="user_id_number"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userClassName" column="user_class_name"/>
+        <result property="userLimit" column="user_limit"/>
+    </resultMap>
+
+    <insert id="register" parameterType="java.lang.String">
+        insert tb_user value (#{username},#{password},null,null,null,'2')
+    </insert>
+
+    <update id="changePersonalInfomation" parameterType="java.lang.String" >
+        update tb_user set
+        user_password = #{password} ,
+        user_id_number = #{userIdNumber} ,
+        user_phone = #{userPhone} ,
+        user_class_name = #{userClassName} ,
+        user_limit = #{userLimit}
+        Where user_name = #{username}
+    </update>
+
+    <select id="login" resultMap="userMap" parameterType="java.lang.String">
+        select * from tb_user where user_name = #{username} and user_password = #{password}
+    </select>
+    <select id="selectUserByName" resultType="java.lang.String" resultMap="userMap">
+        select * from tb_user where user_name = #{username}
+    </select>
+    <select id="selectLimitByName" resultType="java.lang.String" resultMap="userMap">
+        select user_limit from tb_user where user_name = #{username}
+    </select>
+    <select id="selectAll" resultType="com.iotdreamclub.demo.entity.User" parameterType="java.util.ArrayList">
+        select * from tb_user
+    </select>
+</mapper>

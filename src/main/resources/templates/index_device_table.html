@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <style type="text/css">
+        .modal-backdrop {
+            opacity: 0 !important;
+            filter: alpha(opacity=0) !important;
+        }
+    </style>
+</head>
+<body>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                设备编号
+                            </th>
+                            <th>
+                                设备名称
+                            </th>
+                            <th>
+                                设备类型
+                            </th>
+                            <th>
+                                设备数量
+                            </th>
+                            <th>
+                                注释
+                            </th>
+                            <th>
+                                操作
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr th:each="deviceInfos:${deviceInfo}">
+                            <td th:text="${deviceInfos.deviceId}" class="deviceId">
+                                1
+                            </td>
+                            <td th:text="${deviceInfos.deviceName}">
+                                TB - Monthly
+                            </td>
+                            <td th:text="${deviceInfos.deviceType}">
+                                01/04/2012
+                            </td>
+                            <td th:text="${deviceInfos.deviceNumber}" class="deviceNumber">
+                                Default
+                            </td>
+                            <td th:text="${deviceInfos.deviceComment}">
+                                XX
+                            </td>
+                            <td>
+                                <a th:href="${'/CDI/'+deviceInfos.deviceId}" th:if="${session.limit} ne 2">修改</a>
+                                <a th:href="${'/borrowDevice/'+deviceInfos.deviceId}" th:if="${session.limit} ne 1">借用</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} ne 2">添加新的设备</button>
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content" >
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">新增</h4>
+                                </div>
+                                <form class="modal-body" action="/addNewDevice" method="post" id="addnewdevice">
+                                    <div class="form-group">
+                                        <label for="deviceName">设备名称</label>
+                                        <input type="text" name="deviceName" class="form-control" id="deviceName" placeholder="设备名称">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deviceType">设备类型</label>
+                                        <input type="text" name="deviceType" class="form-control" id="deviceType" placeholder="设备类型">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deviceNumber">设备数量</label>
+                                        <input type="number" name="deviceNumber" class="form-control" id="deviceNumber" placeholder="设备数量">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deviceComment">注释</label>
+                                        <input type="text" name="deviceComment" class="form-control" id="deviceComment" placeholder="注释">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                                        <button onclick="subm()" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+</body>
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/popper/popper.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+    $("#btn_add").click(function () {
+        $("#myModalLabel").text("");
+        $('#myModal').modal();
+    });
+
+    function subm(){
+        var serializeArray = $("#addnewdevice").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/addNewDevice",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            },
+        });
+    }
+
+    function change(){
+        var serializeArray = $("#changeDeviceInfo").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/change_device_info",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            },
+        });
+    }
+
+    $(":button").click(function () {
+
+        var deviceId = $(this).parent().parent().find(".deviceId").text();
+        var deviceNumber = $(this).parent().parent().find(".deviceNumber").text();
+        if (parseInt(deviceNumber) === 0){
+            alert("数量为0");
+            return;
+        }
+        var t = $(this);
+        $.get("http://localhost:8080/add_device_number?deviceId="+deviceId,
+            function (resp) {
+                if (resp === "success"){
+                    t.parent().parent().find(".deviceNumber").text(deviceNumber - 1);
+                }
+            });
+    });
+
+</script>
+</html>
