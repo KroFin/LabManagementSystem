@@ -87,3 +87,41 @@ echo Start Success!
 ## 项目注解
 
 本项目为前后端分离项目，核心框架为SpingBoot，安全框架为 Apache Shiro，数据持久层为MyBatis，数据库为Mysql，使用的数据连接池为JDBC，相关框架的版本号在上方均有标注，如果对项目依赖有问题，可以在项目的目录中寻找pom文件，即可解惑。
+
+### 项目代码预览
+```
+├─controller(页面控制)
+│  ├─BillController
+│  ├─DeviceController
+│  ├─IndexController
+│  ├─IndexController
+│  └─UserController
+├─dao(后端函数方法)
+│  ├─BillMapper
+│  ├─DeviceMapper
+│  ├─RoleMapper
+│  ├─RoleModuleMapper
+│  └─UserDao
+├─entity(实体类)
+│  ├─Bill
+│  ├─DeviceInfo
+│  ├─Role
+│  ├─Role
+│  └─User
+├─Service(服务层接口)
+│  ├─BillService
+│  ├─DeviceService
+│  ├─RoleModuleService
+│  └─UserService
+└─其他
+   ├─ShiroConfig(shiro安全框架配置参数)
+   └─UserRealm(登陆安全检测参数)
+```
+
+### 项目功能
+ 
+* 实验室设备管理
+* 实验室人员管理
+* 实验室资金记录
+* 设备借入借出记录
+* 个人信息管理
