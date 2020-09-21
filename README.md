@@ -82,6 +82,8 @@ echo Start Success!
 
 ![alldone](https://github.com/SteveMiller233/LabManagementSystem/blob/master/screenshot/run%20successed.png)
 
+![ok了家人们](https://github.com/SteveMiller233/LabManagementSystem/blob/master/screenshot/ok.png)
+
 ## 项目注解
 
 本项目为前后端分离项目，核心框架为SpingBoot，安全框架为 Apache Shiro，数据持久层为MyBatis，数据库为Mysql，使用的数据连接池为JDBC，相关框架的版本号在上方均有标注，如果对项目依赖有问题，可以在项目的目录中寻找pom文件，即可解惑。
