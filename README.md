@@ -125,3 +125,28 @@ echo Start Success!
 * 实验室资金记录
 * 设备借入借出记录
 * 个人信息管理
+
+### 浏览器兼容
+|[<img src="https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |[<img src="https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera
+| --------- | --------- | --------- | --------- | --------- |--------- |
+|IE 10+| Edge| last 15 versions| last 15 versions| last 10 versions| last 15 versions
+
+## 作者备注
+
+首先，本项目写的极其简单，适用于javaweb初学者初期学习所用，如果想要更高阶的javaweb学习项目请参考下面位大神的项目。
+
+https://github.com/febsteam
+
+![KroFin](https://blog.krofin.icu/img/code.png)
+
+### KroFin
+
+入门摄影爱好者/自由视频制作者/苦逼程序员/200斤屌丝肥宅
+
+Adobe⭕/ Jetbrains⭕/ Android Studio⭕/ Visual Studio ❌
+
+欢迎关注我的个人推特
+
+[KroFn]:https://twitter.com/huangkefan233
+ 
+如果我的代码帮助你完成了作业，请为我点一个关注。
