@@ -7,16 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
     <link rel="icon" href="favicon.ico">
-
-    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-123456789",
-            enable_page_level_ads: true
-        });
-    </script>
 
 </head>
 <body>
@@ -37,13 +29,15 @@
                 <div class="col-4 navbar-nav text-center pr-0 d-none d-lg-block"><a class="navbar-brand mr-0" href="#">IOT实验室综合管理系统</a></div>
                 <div class="col-4 pr-lg-0">
                     <ul class="navbar-nav justify-content-end">
-                        <li class="nav-item"><a class="nav-link" href="#b" th:text="${session.username}">XX</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" th:text="${session.username}">XX</a></li>
                         <li class="nav-item"><a class="nav-link" href="/logout">登出</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
+
+
 
     <div class="container" style="margin-top: 10vh">
         <div class="row">
@@ -66,11 +60,30 @@
         </div>
     </div>
 
+    <footer class="py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-column flex-md-row border-bottom pb-2">
+                <ul class="nav order-2 order-md-1">
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/SteveMiller233/LabManagementSystem">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://blog.krofin.icu">KroFin.icu</a></li>
+                </ul>
+                <h5 class="mr-0 mr-md-5 mb-0 order-1 order-md-2">IOTDreamClub</h5>
+                <ul class="nav order-3 order-md-3">
+                    <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://www.apache.org/licenses/LICENSE-2.0.txt">Licenses</a></li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <p class="mb-0 mt-2 small text-muted">&copy; 2020 IOTDreamClub. All right reserved.</p>
+            </div>
+        </div>
+    </footer>
+
 </div>
 
-<script src="js/jquery/jquery.min.js"></script>
-<script src="js/popper/popper.min.js"></script>
-<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(function() {
         var height=document.documentElement.clientHeight;

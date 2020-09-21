@@ -88,7 +88,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-oxm:5.2.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.ws:spring-ws-core:3.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.ws:spring-xml:3.0.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-s:unknown" level="project" />
     <orderEntry type="library" name="Maven: com.baomidou:mybatis-plus-boot-starter:3.3.1.tmp" level="project" />
     <orderEntry type="library" name="Maven: com.baomidou:mybatis-plus:3.3.1.tmp" level="project" />
     <orderEntry type="library" name="Maven: com.baomidou:mybatis-plus-extension:3.3.1.tmp" level="project" />

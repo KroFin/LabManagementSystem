@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>edit</title>
     <base th:href="${#request.getContextPath()+'/'}">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
 </head>
 <body class="container">
     <form action="/change_device_info" method="post" id="changeDeviceInfo">
@@ -42,9 +42,9 @@
 <!--        <a class="btn btn-info" th:href="${'/CDI/'+deviceInfoRows.deviceId}">Reset</a>-->
     </form>
 </body>
-<script src="js/jquery/jquery.min.js"></script>
-<script src="js/popper/popper.min.js"></script>
-<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript">
     function change(){
         var serializeArray = $("#changeDeviceInfo").serializeArray();
