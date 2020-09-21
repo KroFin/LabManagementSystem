@@ -25,8 +25,15 @@
 
 ### 3.按照图示先点击右侧Maven工具栏，再在Lifecycle下拉菜单中选中图示三个选项，最后点击最上方的绿色按钮打成jar包
 
+![Build](https://github.com/SteveMiller233/LabManagementSystem/blob/master/screenshot/Build.png)
+
 ### 4.使用相关虚拟机连接软件，将jar包上传至服务器中
+
 (ps：服务器要求必须要有java环境且jdk版本在1.8及以上)
+
+![upload](https://github.com/SteveMiller233/LabManagementSystem/blob/master/screenshot/upload.png)
+
+![ServerJDKVersion](https://github.com/SteveMiller233/LabManagementSystem/blob/master/screenshot/ServerJDKVersion.png)
 
 ### 5.创建start.sh文件，输入下面的shell指令并保存，后再使用./start命令启动项目
 
@@ -60,6 +67,7 @@ nohup java -jar ./$RESOURCE_NAME --spring.profiles.active=test &
 echo $! > tpid
 echo Start Success!
 ```
+
 (ps：如果你懒，在shell文件夹下我给你写好了一个，你自己上传运行即可)
 
 (pps：shell代码其实是我抄的，来源：https://blog.csdn.net/whh18254122507/article/details/78011713?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight)
@@ -68,7 +76,11 @@ echo Start Success!
 
 ### 6.如果你使用的是国内代理商的服务器，请在安全组配置中开放相关端口，宝塔面板同理
 
+![port](https://github.com/SteveMiller233/LabManagementSystem/blob/master/screenshot/port.png)
+
 ### 7.最后在浏览器的地址栏使用你的IP+/端口号访问网页即可
+
+![alldone](https://github.com/SteveMiller233/LabManagementSystem/blob/master/screenshot/run%20successed.png)
 
 ## 项目注解
 
