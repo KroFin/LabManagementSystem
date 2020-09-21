@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48866f2b-2018-45e1-8a06-ea41d887bafc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/screenshot/Build.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/ServerJDKVersion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/port.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot/upload.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shell/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="48866f2b-2018-45e1-8a06-ea41d887bafc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -612,7 +603,7 @@
       <workItem from="1600597118623" duration="1007000" />
       <workItem from="1600598316472" duration="35000" />
       <workItem from="1600598379506" duration="7166000" />
-      <workItem from="1600646846491" duration="13024000" />
+      <workItem from="1600646846491" duration="13637000" />
     </task>
     <servers />
   </component>
@@ -649,7 +640,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159576000" />
+    <option name="totallyTimeSpent" value="160189000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -663,7 +654,7 @@
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.19349681" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.19349681" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -673,7 +664,7 @@
       <window_info id="Web" order="7" sideWeight="0.5008347" side_tool="true" weight="0.15565032" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.4002169" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.4002169" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.27982646" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
