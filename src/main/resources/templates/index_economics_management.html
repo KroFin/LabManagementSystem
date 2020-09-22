@@ -12,7 +12,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="setparentheight()">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -94,6 +94,10 @@
                 }
             },
         });
+    }
+
+    function setparentheight(){
+        parent.document.all(self.name).height=document.body.scrollHeight;
     }
 </script>
 </html>

@@ -39,7 +39,7 @@
 
 
     <select id="selectAllLendInfo" resultType="com.iotdreamclub.demo.entity.DeviceLend">
-        select * from tb_device_lend
+        select * from tb_device_lend order by lend_time desc
     </select>
     <select id="checkDeviceNumber" resultType="java.lang.Integer">
         select device_number from tb_device_info where device_id = #{deviceId}

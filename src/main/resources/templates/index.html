@@ -51,16 +51,16 @@
                 </div>
             </div>
 
-            <div class="row clearfix col-lg-10">
-                <div class="col-md-12 column">
-                    <iframe id="iframe-page-content" src="/device_change" width="100%" frameborder="no" border="0" marginwidth="0"
-                            marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>
-                </div>
+            <div class="row col-lg-10 container-fluid">
+<!--                    <iframe id="iframe-page-content" src="/device_change" width="100%" frameborder="no" border="0" marginwidth="0"-->
+<!--                            marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>-->
+                    <iframe src="/device_change" id="iframe-page-content" name="iframe-page-content" frameborder="0"  hspace="0" vspace="0"
+                             style="padding: 0; margin: 0;border: 0; width: 100%;"></iframe>
             </div>
         </div>
     </div>
 
-    <footer class="py-3">
+    <footer class="py-3" style="margin-top: 10vh">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center flex-column flex-md-row border-bottom pb-2">
                 <ul class="nav order-2 order-md-1">
@@ -69,7 +69,7 @@
                 </ul>
                 <h5 class="mr-0 mr-md-5 mb-0 order-1 order-md-2">IOTDreamClub</h5>
                 <ul class="nav order-3 order-md-3">
-                    <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/SteveMiller233/LabManagementSystem/blob/master/README.md">Support</a></li>
                     <li class="nav-item"><a class="nav-link" href="http://www.apache.org/licenses/LICENSE-2.0.txt">Licenses</a></li>
                 </ul>
             </div>
@@ -85,14 +85,13 @@
 <script src="../static/js/popper/popper.min.js"></script>
 <script src="../static/js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript">
-    $(function() {
-        var height=document.documentElement.clientHeight;
-        document.getElementById('iframe-page-content').style.height=height+'px';
-    });
+    // $(function() {
+    //     var height=document.documentElement.clientHeight;
+    //     document.getElementById('iframe-page-content').style.height=height+'px';
+    // });
     var menuClick = function(menuUrl) {
         $("#iframe-page-content").attr('src',menuUrl);
     };
-
 
 </script>
 </body>

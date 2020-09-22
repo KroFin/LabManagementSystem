@@ -6,7 +6,7 @@
     <base th:href="${#request.getContextPath()+'/'}">
     <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
 </head>
-<body class="container">
+<body class="container" onload="setparentheight()">
     <form action="/change_device_info" method="post" id="changeDeviceInfo">
         <div class="form-group">
             <label for="deviceId" class="col-sm-12 control-label"></label>
@@ -60,6 +60,10 @@
                 }
             }
         });
+    }
+
+    function setparentheight(){
+        parent.document.all(self.name).height=document.body.scrollHeight;
     }
 </script>
 </html>

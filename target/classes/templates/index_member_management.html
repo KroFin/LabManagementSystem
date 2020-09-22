@@ -6,7 +6,7 @@
     <base th:href="${#request.getContextPath()+'/'}">
     <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
 </head>
-<body>
+<body onload="setparentheight()">
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -58,4 +58,9 @@
 <script src="../static/js/jquery/jquery.min.js"></script>
 <script src="../static/js/popper/popper.min.js"></script>
 <script src="../static/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function setparentheight(){
+        parent.document.all(self.name).height=document.body.scrollHeight;
+    }
+</script>
 </html>

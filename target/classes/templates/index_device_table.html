@@ -13,7 +13,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="setparentheight()">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -145,18 +145,8 @@
 
 
     });
-
-        function checkDeviceNumber(){
-            var flag=true;
-            var message=;
-            if(message!=='null'){
-                alert(message);
-                flag=false;
-            }
-            return flag;
+        function setparentheight(){
+            parent.document.all(self.name).height=document.body.scrollHeight;
         }
-
-</script>
-
 </script>
 </html>
