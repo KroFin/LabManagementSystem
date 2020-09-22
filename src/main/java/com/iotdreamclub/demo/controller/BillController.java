@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Date;
 
+//资金管理相关操作
+
 @Controller
 public class BillController {
 

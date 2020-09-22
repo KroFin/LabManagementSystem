@@ -143,19 +143,7 @@
 
     $(":button").click(function () {
 
-        var deviceId = $(this).parent().parent().find(".deviceId").text();
-        var deviceNumber = $(this).parent().parent().find(".deviceNumber").text();
-        if (parseInt(deviceNumber) === 0){
-            alert("数量为0");
-            return;
-        }
-        var t = $(this);
-        $.get("http://localhost:8080/add_device_number?deviceId="+deviceId,
-            function (resp) {
-                if (resp === "success"){
-                    t.parent().parent().find(".deviceNumber").text(deviceNumber - 1);
-                }
-            });
+
     });
 
 </script>

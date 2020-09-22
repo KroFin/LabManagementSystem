@@ -53,6 +53,11 @@ public class DeviceServiceImpl  extends ServiceImpl<DeviceMapper,DeviceInfo> imp
     }
 
     @Override
+    public int checkDeviceNumber(Long deviceId) {
+        return deviceMapper.checkDeviceNumber(deviceId);
+    }
+
+    @Override
     public List<DeviceLend> selectAllLendInfo() {
         return deviceMapper.selectAllLendInfo();
     }

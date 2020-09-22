@@ -11,9 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//主要页面管理
+
 @Controller
 public class PageController {
 
+
+    //默认页面
 
     @RequestMapping("/")
     public String DefaultPage(){
