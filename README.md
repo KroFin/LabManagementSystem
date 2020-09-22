@@ -99,19 +99,19 @@ echo Start Success!
 ├─dao(后端函数方法)
 │  ├─BillMapper
 │  ├─DeviceMapper
-│  ├─RoleMapper
-│  ├─RoleModuleMapper
+│  ├─RoleMapper(废案)
+│  ├─RoleModuleMapper(废案)
 │  └─UserDao
 ├─entity(实体类)
 │  ├─Bill
 │  ├─DeviceInfo
-│  ├─Role
-│  ├─Role
+│  ├─Role(废案)
+│  ├─RoleModule(废案)
 │  └─User
 ├─Service(服务层接口)
 │  ├─BillService
 │  ├─DeviceService
-│  ├─RoleModuleService
+│  ├─RoleModuleService(废案)
 │  └─UserService
 └─其他
    ├─ShiroConfig(shiro安全框架配置参数)
@@ -145,8 +145,6 @@ https://github.com/febsteam
 
 Adobe⭕/ Jetbrains⭕/ Android Studio⭕/ Visual Studio ❌
 
-欢迎关注我的个人推特
-
-[KroFn]:https://twitter.com/huangkefan233
+欢迎关注我的个人推特[KroFin](https://twitter.com/huangkefan233)
  
 如果我的代码帮助你完成了作业，请为我点一个关注。
