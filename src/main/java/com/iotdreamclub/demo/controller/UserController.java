@@ -4,7 +4,7 @@ import com.iotdreamclub.demo.entity.User;
 import com.iotdreamclub.demo.service.RoleModuleService;
 import com.iotdreamclub.demo.service.UserService;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -53,21 +54,48 @@ public class UserController {
     }
 
     @RequestMapping(value = "login",method = RequestMethod.POST)
-    public String login(Model model, HttpSession session, String username , String password){
+    public String login(Model model, HttpSession session, String username , String password , RedirectAttributes redirectAttributes , HttpServletResponse response) throws IOException {
         UsernamePasswordToken token = new UsernamePasswordToken();
         token.setUsername(username);
         token.setPassword(password.toCharArray());
+        token.setRememberMe(true);
         Subject subject = SecurityUtils.getSubject();
         if (!subject.isAuthenticated()){
+            try {
+                subject.login(token);
+                String limit = userService.selectLimitByName(username).getUserLimit();
+                session.setAttribute("limit",limit);
+                session.setAttribute("username",username);
+                model.addAttribute("loginUser",userService.selectUserByName(username));
+                return "redirect:/index";
+            } catch ( UnknownAccountException uae ) {
+                System.out.println("用户名不存在");
+            } catch ( IncorrectCredentialsException ice ) {
+                System.out.println("密码错误");
+            } catch ( LockedAccountException lae ) {
+                System.out.println("用户被锁定，不能登录");
+            } catch ( AuthenticationException ae ) {
+                System.out.println("严重的错误");
+            }
+            //redirectAttributes.addFlashAttribute("msg", "密码错误");
+            response.setContentType("text/html; charset=UTF-8"); //转码
+            PrintWriter out = response.getWriter();
+            out.flush();
+            out.println("<script>");
+            out.println("alert('密码错误');");
+            out.println("history.back();");
+            out.println("</script>");
+            return "redirect:/login";
+        }
+        else {
             subject.login(token);
             String limit = userService.selectLimitByName(username).getUserLimit();
             session.setAttribute("limit",limit);
             session.setAttribute("username",username);
             model.addAttribute("loginUser",userService.selectUserByName(username));
+            model.addAttribute("msg","已经登陆");
             return "redirect:/index";
         }
-        model.addAttribute("msg","登陆出错");
-        return "forward:/login";
     }
 
     @RequestMapping(value = "register",method = RequestMethod.POST)

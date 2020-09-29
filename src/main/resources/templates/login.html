@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>IOT实验室综合管理系统-登陆</title>
     <meta charset="utf-8">
@@ -37,6 +37,7 @@
                 <input class="form-control my-3 bg-light" id="input2-signin-02" type="text" placeholder="用户名/邮箱" name="username">
                 <label class="sr-only" for="input3-signin-02">密码</label>
                 <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="密码" name="password">
+                <p th:text="${msg}"></p>
                 <div class="d-flex">
                   <button class="btn btn-outline-primary btn-block py-2 mr-3" type="submit">登陆</button>
                   <button class="btn btn-primary btn-block py-2 mt-0"><a href="/register" style="color: #ffffff ; text-decoration: none">注册</a></button>

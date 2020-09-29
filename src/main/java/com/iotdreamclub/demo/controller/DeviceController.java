@@ -98,16 +98,16 @@ public class DeviceController {
 
     //删除设备
 
-    @RequestMapping("deleteDevice")
+    @RequestMapping("deleteDevice/{deviceId}")
     @ResponseBody
-    public String deleteDevice(long deviceId){
+    public String deleteDevice(@PathVariable Long deviceId ,HttpServletResponse response){
+        deviceService.deleteDevice(deviceId);
         try {
-            deviceService.deleteDevice(deviceId);
-            return "success";
+            response.sendRedirect("/device_change");
         }catch (Exception e){
             e.printStackTrace();
-            return "failed";
         }
+        return " ";
     }
 
     //普通用户借用设备登记

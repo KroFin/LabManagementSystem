@@ -18,9 +18,6 @@
                         <thead>
                         <tr>
                             <th>
-                                设备编号
-                            </th>
-                            <th>
                                 设备名称
                             </th>
                             <th>
@@ -40,9 +37,6 @@
                         <tbody>
 
                         <tr th:each="deviceInfos:${deviceInfo}">
-                            <td th:text="${deviceInfos.deviceId}" class="deviceId">
-                                1
-                            </td>
                             <td th:text="${deviceInfos.deviceName}">
                                 TB - Monthly
                             </td>
@@ -56,7 +50,8 @@
                                 XX
                             </td>
                             <td>
-                                <a th:href="${'/CDI/'+deviceInfos.deviceId}" th:if="${session.limit} ne 2">修改</a>
+                                <a th:href="${'/CDI/'+deviceInfos.deviceId}" th:if="${session.limit} ne 2" onclick="reloadPage()">修改</a>
+                                <a th:href="${'/deleteDevice/'+deviceInfos.deviceId}" th:if="${session.limit} ne 2">删除</a>
                                 <a th:href="${'/borrowDevice/'+deviceInfos.deviceId}" th:if="${session.limit} ne 1">借用</a>
                             </td>
                         </tr>
@@ -90,7 +85,7 @@
                                         <input type="text" name="deviceComment" class="form-control" id="deviceComment" placeholder="注释">
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                                        <button onclick="deleteItem()" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
                                         <button onclick="subm()" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
                                     </div>
                                 </form>
@@ -108,6 +103,26 @@
         $("#myModalLabel").text("");
         $('#myModal').modal();
     });
+
+    function reloadPage(){
+        location.reload()
+    }
+
+    function deleteItem() {
+        var serializeArray = $("#addnewdevice").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/deleteDevice",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            },
+        });
+    }
 
     function subm(){
         var serializeArray = $("#addnewdevice").serializeArray();

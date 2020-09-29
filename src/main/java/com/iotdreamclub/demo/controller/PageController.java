@@ -19,11 +19,6 @@ public class PageController {
 
     //默认页面
 
-    @RequestMapping("/")
-    public String DefaultPage(){
-        return "login";
-    }
-
     @RequestMapping("login")
     public String login(){
         return "login";
