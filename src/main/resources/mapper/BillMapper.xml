@@ -12,8 +12,11 @@
     <insert id="add">
         insert tb_bill_info value (null,#{billMoney},#{billType},#{billComment},#{billTime},#{billBalance})
     </insert>
+    <delete id="deleteBillInfo">
+        delete from tb_bill_info where bill_id = #{billId}
+    </delete>
     <select id="selectAllBill" resultType="com.iotdreamclub.demo.entity.Bill">
-        select * from tb_bill_info
+        select * from tb_bill_info GROUP by bill_time desc , bill_id desc
     </select>
     <select id="sumBillMoney" resultType="java.lang.Float">
         select sum(bill_money) from tb_bill_info

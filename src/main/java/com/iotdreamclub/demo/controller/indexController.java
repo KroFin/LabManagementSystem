@@ -2,11 +2,9 @@ package com.iotdreamclub.demo.controller;
 
 import com.iotdreamclub.demo.entity.Bill;
 import com.iotdreamclub.demo.entity.DeviceLend;
+import com.iotdreamclub.demo.entity.MatchBillInfo;
 import com.iotdreamclub.demo.entity.RoleModule;
-import com.iotdreamclub.demo.service.BillService;
-import com.iotdreamclub.demo.service.DeviceService;
-import com.iotdreamclub.demo.service.RoleModuleService;
-import com.iotdreamclub.demo.service.UserService;
+import com.iotdreamclub.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +30,9 @@ public class indexController {
 
     @Autowired
     private BillService billService;
+
+    @Autowired
+    private MatchBillService matchBillService;
 
     @RequestMapping("index")
     public String hello(HttpSession session , Model model){
@@ -73,6 +74,15 @@ public class indexController {
         List<Bill> bills = billService.selectAll();
         model.addAttribute("bill",bills);
         return "index_economics_management";
+    }
+
+    //竞赛经费管理
+
+    @RequestMapping("index_match_economics_management")
+    public String matchEconomicsManagement(Model model){
+        List<MatchBillInfo> matchBillInfo = matchBillService.selectAll();
+        model.addAttribute("bill",matchBillInfo);
+        return "index_match_economics_management";
     }
 
     //经费消耗表单打印

@@ -1,17 +1,16 @@
 package com.iotdreamclub.demo.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.iotdreamclub.demo.entity.Bill;
+import com.iotdreamclub.demo.entity.MatchBillInfo;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Map;
 
 @Repository
-public interface BillMapper extends BaseMapper<Bill> {
+public interface MatchBillMapper {
     void add(float billMoney , int billType , String billComment , Date billTime , float billBalance);
-    List<Bill> selectAllBill();
+    List<MatchBillInfo> selectAllBill();
     float sumBillMoney();
-    void deleteBillInfo(Long deviceId);
+    void deleteBillInfo(Long billId);
 }

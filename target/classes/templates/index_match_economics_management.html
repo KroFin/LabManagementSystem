@@ -30,7 +30,7 @@
             <td th:text="${bills.billTime}">560001</td>
             <td th:text="${bills.billBalance}">560001</td>
             <td>
-                <a th:href="${'/deleteBillInfo/'+bills.billId}">删除</a>
+                <a th:href="${'/deleteMatchBillInfo/'+bills.billId}">删除</a>
             </td>
         </tr>
         </tbody>
@@ -45,7 +45,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel"></h4>
                 </div>
-                <form class="modal-body" action="/addNewRecord" method="post" id="addNewRecord">
+                <form class="modal-body" action="/addNewMatchRecord" method="post" id="addNewMatchRecord">
                     <div class="form-group">
                         <label for="billType">收入/支出</label>
                         <input type="number" name="billType" class="form-control" id="billType" list="billTypeList" placeholder="收入 = 1/支出 = 2">
@@ -85,11 +85,11 @@
     });
 
     function subm(){
-        var serializeArray = $("#addNewRecord").serializeArray();
+        var serializeArray = $("#addNewMatchRecord").serializeArray();
         $.ajax({
             type:"POST",
             dataType:"json",
-            url:"/addNewRecord",
+            url:"/addNewMatchRecord",
             data:serializeArray,
             success: function (result) {
                 console.log(result);

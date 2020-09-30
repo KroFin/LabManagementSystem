@@ -9,4 +9,5 @@ public interface BillService {
     void add(float billMoney , int billType , String billComment , Date billTime , float billBalance);
     List<Bill> selectAll();
     float sumBillMoney();
+    void deleteBillInfo(Long deviceId);
 }

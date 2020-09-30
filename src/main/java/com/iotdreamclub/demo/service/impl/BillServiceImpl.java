@@ -29,4 +29,9 @@ public class BillServiceImpl implements BillService {
     public float sumBillMoney() {
         return billMapper.sumBillMoney();
     }
+
+    @Override
+    public void deleteBillInfo(Long deviceId) {
+        billMapper.deleteBillInfo(deviceId);
+    }
 }

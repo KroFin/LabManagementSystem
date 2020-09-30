@@ -58,7 +58,6 @@ public class UserController {
         UsernamePasswordToken token = new UsernamePasswordToken();
         token.setUsername(username);
         token.setPassword(password.toCharArray());
-        token.setRememberMe(true);
         Subject subject = SecurityUtils.getSubject();
         if (!subject.isAuthenticated()){
             try {

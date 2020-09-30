@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.iotdreamclub.demo.dao.BillMapper">
-    <resultMap id="billMap" type="com.iotdreamclub.demo.entity.Bill">
+<mapper namespace="com.iotdreamclub.demo.dao.MatchBillMapper">
+    <resultMap id="billMap" type="com.iotdreamclub.demo.entity.MatchBillInfo">
         <id column="bill_id" property="billId"/>
         <result column="bill_money" property="billMoney"/>
         <result column="bill_type" property="billType"/>
@@ -10,15 +10,15 @@
         <result column="bill_balance" property="billBalance"/>
     </resultMap>
     <insert id="add">
-        insert tb_bill_info value (null,#{billMoney},#{billType},#{billComment},#{billTime},#{billBalance})
+        insert tb_match_bill_info value (null,#{billMoney},#{billType},#{billComment},#{billTime},#{billBalance})
     </insert>
     <delete id="deleteBillInfo">
-        delete from tb_bill_info where bill_id = #{billId}
+        delete from tb_match_bill_info where bill_id = #{billId}
     </delete>
-    <select id="selectAllBill" resultType="com.iotdreamclub.demo.entity.Bill">
-        select * from tb_bill_info GROUP by bill_time desc , bill_id desc
+    <select id="selectAllBill" resultType="com.iotdreamclub.demo.entity.MatchBillInfo">
+        select * from tb_match_bill_info GROUP by bill_time desc , bill_id desc
     </select>
     <select id="sumBillMoney" resultType="java.lang.Float">
-        select sum(bill_money) from tb_bill_info
+        select sum(bill_money) from tb_match_bill_info
     </select>
 </mapper>
