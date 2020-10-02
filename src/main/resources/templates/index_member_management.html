@@ -7,58 +7,66 @@
     <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
 </head>
 <body onload="setparentheight()">
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>
-            姓名
-        </th>
-        <th>
-            登陆账号密码
-        </th>
-        <th>
-            学号
-        </th>
-        <th>
-            电话号码
-        </th>
-        <th>
-            班级
-        </th>
-        <th>
-            权限
-        </th>
-    </tr>
-    </thead>
-    <tbody>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>
+                姓名
+            </th>
+            <th>
+                登陆账号密码
+            </th>
+            <th>
+                学号
+            </th>
+            <th>
+                电话号码
+            </th>
+            <th>
+                班级
+            </th>
+            <th>
+                权限
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+        </thead>
+        <tbody>
 
-    <tr th:each="member:${Members}">
-        <td th:text="${member.userName}">
-            1
-        </td>
-        <td th:text="${member.getUserPassword()}">
-            TB - Monthly
-        </td>
-        <td th:text="${member.userIdNumber}">
-            01/04/2012
-        </td>
-        <td th:text="${member.userPhone}">
-            Default
-        </td>
-        <td th:text="${member.userClassName}">
-            XX
-        </td>
-        <td th:text="${member.userLimit}">
-            XX
-        </td>
-    </tr>
-    </tbody>
-</table>
+        <tr th:each="member:${Members}">
+            <td th:text="${member.userName}" id="memberName">
+                1
+            </td>
+            <td th:text="${member.getUserPassword()}">
+                TB - Monthly
+            </td>
+            <td th:text="${member.userIdNumber}">
+                01/04/2012
+            </td>
+            <td th:text="${member.userPhone}">
+                Default
+            </td>
+            <td th:text="${member.userClassName}">
+                XX
+            </td>
+            <td th:text="${member.userLimit}">
+                XX
+            </td>
+            <td>
+                <a th:href="${'/CUI/' + member.getUserName()}">修改</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 </body>
 <script src="../static/js/jquery/jquery.min.js"></script>
 <script src="../static/js/popper/popper.min.js"></script>
 <script src="../static/js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript">
+
     function setparentheight(){
         parent.document.all(self.name).height=document.body.scrollHeight;
     }

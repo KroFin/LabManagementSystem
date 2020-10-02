@@ -9,6 +9,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,9 +31,34 @@ public class UserController {
     @Autowired
     private RoleModuleService roleModuleService;
 
+    @RequestMapping("CUI/{username}")
+    public String cui(@PathVariable String username , Model model){
+        User user = userService.selectUserByName(username);
+        model.addAttribute("users",user);
+        return "edit_change_user_info";
+    }
+
+    @RequestMapping("change_User_Info")
+    @ResponseBody
+    public String changeUserInfo(String password,
+                                 String userIdNumber, String userPhone,
+                                 String userClassName, String userLimit,
+                                 HttpServletResponse response, String username){
+        userService.changePersonalInfomation(username , password , userIdNumber , userPhone , userClassName , userLimit);
+        try {
+            response.sendRedirect("member_management");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     @RequestMapping("changePersonalInfo")
     @ResponseBody
-    public String changePersonalInfo(String username, String password ,String userIdNumber , String userPhone , String userClassName , String userLimit , HttpServletResponse response){
+    public String changePersonalInfo(String username, String password ,
+                                     String userIdNumber , String userPhone ,
+                                     String userClassName , String userLimit ,
+                                     HttpServletResponse response){
         userService.changePersonalInfomation(username , password , userIdNumber , userPhone , userClassName , userLimit);
         try {
             response.setContentType("text/html; charset=UTF-8");

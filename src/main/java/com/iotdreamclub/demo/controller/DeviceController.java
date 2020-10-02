@@ -45,8 +45,6 @@ public class DeviceController {
         return "edit";
     }
 
-
-
     @RequestMapping("change_device_info")
     @ResponseBody
     public String changeDeviceInfo(String deviceName, String deviceType, Integer deviceNumber, String deviceComment , Long deviceId , HttpServletResponse response){

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+</head>
+<body class="container" onload="setparentheight()">
+<form action="/change_User_Info" method="post" id="changeUserInfo">
+    <div class="form-group">
+        <label for="username" class="col-sm-12 control-label">用户名</label>
+        <div class="col-sm-5">
+            <input id="username" class="form-control" type="text" th:value="${users.userName}" name="username" readonly="readonly">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-5">
+            <input id="password" class="form-control" type="text" th:value="${users.userPassword}" name="password">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userIdNumber" class="col-sm-2 control-label">学号</label>
+        <div class="col-sm-5">
+            <input id="userIdNumber" class="form-control" type="text" th:value="${users.userIdNumber}" name="userIdNumber">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userPhone" class="col-sm-2 control-label">手机号</label>
+        <div class="col-sm-5">
+            <input type="text" id="userPhone" class="form-control" th:value="${users.userPhone}" name="userPhone">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userClassName" class="col-sm-2 control-label">班级名</label>
+        <div class="col-sm-5">
+            <input id="userClassName" class="form-control" type="text" th:value="${users.userClassName}" name="userClassName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="userLimit" class="col-sm-2 control-label">权限</label>
+        <div class="col-sm-5">
+            <input id="userLimit" class="form-control" type="text" th:value="${users.userLimit}" name="userLimit">
+        </div>
+    </div>
+    <button onclick="changeUserInfo()" class="btn btn-primary col-md-3" style="float: right">确定</button>
+</form>
+</body>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function changeUserInfo(){
+        var serializeArray = $("#changeUserInfo").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/change_User_Info",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            }
+        });
+    }
+
+    function setparentheight(){
+        parent.document.all(self.name).height=document.body.scrollHeight;
+    }
+</script>
+</html>

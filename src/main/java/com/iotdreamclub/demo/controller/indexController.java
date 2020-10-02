@@ -1,9 +1,6 @@
 package com.iotdreamclub.demo.controller;
 
-import com.iotdreamclub.demo.entity.Bill;
-import com.iotdreamclub.demo.entity.DeviceLend;
-import com.iotdreamclub.demo.entity.MatchBillInfo;
-import com.iotdreamclub.demo.entity.RoleModule;
+import com.iotdreamclub.demo.entity.*;
 import com.iotdreamclub.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,6 +43,13 @@ public class indexController {
 
     @RequestMapping("member_management")
     public String memberManagement(Model model){
+        List<User> users = userService.selectAll();
+        for (User user : users){
+            String userLimit = user.getUserLimit();
+            if (userLimit.equals("1")){
+                userLimit = "管理员";
+            }
+        }
         model.addAttribute("Members",userService.selectAll());
         return "index_member_management";
     }
