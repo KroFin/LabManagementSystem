@@ -1,6 +1,7 @@
 package com.iotdreamclub.demo;
 
 import com.iotdreamclub.demo.dao.DeviceMapper;
+import com.iotdreamclub.demo.dao.MatchMapper;
 import com.iotdreamclub.demo.dao.RoleMapper;
 import com.iotdreamclub.demo.dao.RoleModuleMapper;
 import com.iotdreamclub.demo.entity.DeviceInfo;
@@ -25,6 +26,9 @@ public class RoleTest {
     @Autowired
     private DeviceMapper deviceMapper;
 
+    @Autowired
+    private MatchMapper matchMapper;
+
     @Test
     public void testRoleSelectByUsername(){
         List<RoleModule> roleModules = roleModuleMapper.selectAllByLimit("1");
@@ -43,7 +47,7 @@ public class RoleTest {
     }
 
     @Test
-    public void testDeviceLendInfoInsert(){
-
+    public void testCreateNewBillTable(){
+        matchMapper.createNewMatchBillTable("testTable");
     }
 }

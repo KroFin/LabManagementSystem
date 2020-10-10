@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotdreamclub.demo.dao.MatchMapper">
+    <resultMap id="matchMap" type="com.iotdreamclub.demo.entity.Match">
+        <id property="matchId" column="match_id"/>
+        <result property="matchName" column="match_name"/>
+        <result property="matchTime" column="match_time"/>
+    </resultMap>
+    <update id="createNewMatchBillTable">
+        create table tb_match_bill_info_#{matchName}(
+            bill_id int(11) NOT NULL AUTO_INCREMENT primary key COMMENT '主键',
+            bill_money float(10, 2) NULL DEFAULT NULL COMMENT '金额',
+            bill_type int(1) NOT NULL COMMENT '类型 1 收入 2 支出',
+            bill_comment varchar(255) COMMENT '备注',
+            bill_time date not null comment '交易时间',
+            bill_balance float(10, 2) null default null comment '余额'
+        )
+    </update>
+    <insert id="addNewMatchInfo">
+        insert tb_match values (null ,#{matchName} , #{matchTime})
+    </insert>
+    <select id="showListOfMatch" resultType="com.iotdreamclub.demo.entity.Match">
+        select * from tb_match
+    </select>
+</mapper>
