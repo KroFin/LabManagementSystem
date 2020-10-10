@@ -7,7 +7,7 @@
         <result property="matchTime" column="match_time"/>
     </resultMap>
     <update id="createNewMatchBillTable">
-        create table tb_match_bill_info_#{matchName}(
+        create table tb_match_bill_info_ #{matchName}(
             bill_id int(11) NOT NULL AUTO_INCREMENT primary key COMMENT '主键',
             bill_money float(10, 2) NULL DEFAULT NULL COMMENT '金额',
             bill_type int(1) NOT NULL COMMENT '类型 1 收入 2 支出',
