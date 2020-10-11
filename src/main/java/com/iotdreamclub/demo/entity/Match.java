@@ -1,10 +1,13 @@
 package com.iotdreamclub.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 
+@TableName("tb_match")
 public class Match {
 
   private long matchId;
   private String matchName;
+  private String matchNameFormat;
   private java.sql.Date matchTime;
 
 
@@ -23,6 +26,15 @@ public class Match {
 
   public void setMatchName(String matchName) {
     this.matchName = matchName;
+  }
+
+
+  public String getMatchNameFormat() {
+    return matchNameFormat;
+  }
+
+  public void setMatchNameFormat(String matchNameFormat) {
+    this.matchNameFormat = matchNameFormat;
   }
 
 

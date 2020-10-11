@@ -8,7 +8,9 @@ import java.util.List;
 
 @Repository
 public interface MatchMapper {
-    void addNewMatchInfo(String matchName , Date matchTime);
-    void createNewMatchBillTable(String matchName);
+    void addNewMatchInfo(String matchName , Date matchTime ,String matchNameFormat);
+    void createNewMatchBillTable(String matchNameFormat);
     List<Match> showListOfMatch();
+
+    void initializeTabel(String matchNameFormat);
 }

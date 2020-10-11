@@ -811,12 +811,13 @@
     <table id="204" parent="2" name="tb_device_lend"/>
     <table id="205" parent="2" name="tb_match"/>
     <table id="206" parent="2" name="tb_match_bill_info"/>
-    <table id="207" parent="2" name="tb_role"/>
-    <table id="208" parent="2" name="tb_role_admin"/>
-    <table id="209" parent="2" name="tb_role_member"/>
-    <table id="210" parent="2" name="tb_role_module"/>
-    <table id="211" parent="2" name="tb_user"/>
-    <column id="212" parent="202" name="bill_id">
+    <table id="207" parent="2" name="tb_match_bill_info_20201010205333"/>
+    <table id="208" parent="2" name="tb_role"/>
+    <table id="209" parent="2" name="tb_role_admin"/>
+    <table id="210" parent="2" name="tb_role_member"/>
+    <table id="211" parent="2" name="tb_role_module"/>
+    <table id="212" parent="2" name="tb_user"/>
+    <column id="213" parent="202" name="bill_id">
       <Position>1</Position>
       <Comment>主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -824,96 +825,96 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="213" parent="202" name="bill_money">
+    <column id="214" parent="202" name="bill_money">
       <Position>2</Position>
       <Comment>金额</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="202" name="bill_type">
+    <column id="215" parent="202" name="bill_type">
       <Position>3</Position>
       <Comment>类型 1 收入 2 支出</Comment>
       <DataType>int(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="202" name="bill_comment">
+    <column id="216" parent="202" name="bill_comment">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="202" name="bill_time">
+    <column id="217" parent="202" name="bill_time">
       <Position>5</Position>
       <Comment>交易时间</Comment>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="217" parent="202" name="bill_balance">
+    <column id="218" parent="202" name="bill_balance">
       <Position>6</Position>
       <Comment>余额</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="218" parent="202" name="PRIMARY">
+    <key id="219" parent="202" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>bill_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="219" parent="203" name="device_id">
+    <column id="220" parent="203" name="device_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="220" parent="203" name="device_name">
+    <column id="221" parent="203" name="device_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="221" parent="203" name="device_type">
+    <column id="222" parent="203" name="device_type">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="222" parent="203" name="device_number">
+    <column id="223" parent="203" name="device_number">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="223" parent="203" name="device_comment">
+    <column id="224" parent="203" name="device_comment">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="224" parent="203" name="PRIMARY">
+    <key id="225" parent="203" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>device_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="225" parent="204" name="lend_people">
+    <column id="226" parent="204" name="lend_people">
       <Position>1</Position>
       <Comment>借用人</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="226" parent="204" name="lend_device">
+    <column id="227" parent="204" name="lend_device">
       <Position>2</Position>
       <Comment>设备名称</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="227" parent="204" name="lend_time">
+    <column id="228" parent="204" name="lend_time">
       <Position>3</Position>
       <Comment>借用时间</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="228" parent="205" name="match_id">
+    <column id="229" parent="205" name="match_id">
       <Position>1</Position>
       <Comment>比赛Id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -921,25 +922,32 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="229" parent="205" name="match_name">
+    <column id="230" parent="205" name="match_name">
       <Position>2</Position>
       <Comment>比赛名称</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="230" parent="205" name="match_time">
+    <column id="231" parent="205" name="match_name_format">
       <Position>3</Position>
+      <Comment>格式化后的比赛名称(代称)</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="232" parent="205" name="match_time">
+      <Position>4</Position>
       <Comment>比赛日期</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="231" parent="205" name="PRIMARY">
+    <key id="233" parent="205" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>match_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="232" parent="206" name="bill_id">
+    <column id="234" parent="206" name="bill_id">
       <Position>1</Position>
       <Comment>主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -947,182 +955,227 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="206" name="bill_money">
+    <column id="235" parent="206" name="bill_money">
       <Position>2</Position>
       <Comment>金额</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="206" name="bill_type">
+    <column id="236" parent="206" name="bill_type">
       <Position>3</Position>
       <Comment>类型 1 收入 2 支出</Comment>
       <DataType>int(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="206" name="bill_comment">
+    <column id="237" parent="206" name="bill_comment">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="206" name="bill_time">
+    <column id="238" parent="206" name="bill_time">
       <Position>5</Position>
       <Comment>交易时间</Comment>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="206" name="bill_balance">
+    <column id="239" parent="206" name="bill_balance">
       <Position>6</Position>
       <Comment>余额</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="238" parent="206" name="PRIMARY">
+    <key id="240" parent="206" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>bill_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="239" parent="207" name="role_id">
+    <column id="241" parent="207" name="bill_id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="207" name="bill_money">
+      <Position>2</Position>
+      <Comment>金额</Comment>
+      <DataType>float(10,2 digit)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="207" name="bill_type">
+      <Position>3</Position>
+      <Comment>类型 1 收入 2 支出</Comment>
+      <DataType>int(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="207" name="bill_comment">
+      <Position>4</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="207" name="bill_time">
+      <Position>5</Position>
+      <Comment>交易时间</Comment>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="246" parent="207" name="bill_balance">
+      <Position>6</Position>
+      <Comment>余额</Comment>
+      <DataType>float(10,2 digit)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="247" parent="207" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bill_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="248" parent="208" name="role_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="207" name="role_name">
+    <column id="249" parent="208" name="role_name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="207" name="role_type">
+    <column id="250" parent="208" name="role_type">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="242" parent="207" name="PRIMARY">
+    <key id="251" parent="208" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>role_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="243" parent="208" name="admin_role_id">
+    <column id="252" parent="209" name="admin_role_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="208" name="admin_role_type">
+    <column id="253" parent="209" name="admin_role_type">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="208" name="admin_role_device_controller">
+    <column id="254" parent="209" name="admin_role_device_controller">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="208" name="admin_role_economics_management">
+    <column id="255" parent="209" name="admin_role_economics_management">
       <Position>4</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="208" name="admin_role_member_management">
+    <column id="256" parent="209" name="admin_role_member_management">
       <Position>5</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="208" name="admin_role_personal_change">
+    <column id="257" parent="209" name="admin_role_personal_change">
       <Position>6</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="249" parent="208" name="PRIMARY">
+    <key id="258" parent="209" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>admin_role_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="250" parent="209" name="member_role_id">
+    <column id="259" parent="210" name="member_role_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="209" name="member_role_type">
+    <column id="260" parent="210" name="member_role_type">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="209" name="member_role_device_controller">
+    <column id="261" parent="210" name="member_role_device_controller">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="209" name="member_role_personal_change">
+    <column id="262" parent="210" name="member_role_personal_change">
       <Position>4</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="254" parent="209" name="PRIMARY">
+    <key id="263" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>member_role_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="255" parent="210" name="role_module_id">
+    <column id="264" parent="211" name="role_module_id">
       <Position>1</Position>
       <DataType>varchar(5)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="210" name="role_module_type">
+    <column id="265" parent="211" name="role_module_type">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="211" name="user_name">
+    <column id="266" parent="212" name="user_name">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="211" name="user_password">
+    <column id="267" parent="212" name="user_password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="211" name="user_id_number">
+    <column id="268" parent="212" name="user_id_number">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="211" name="user_phone">
+    <column id="269" parent="212" name="user_phone">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="211" name="user_class_name">
+    <column id="270" parent="212" name="user_class_name">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="211" name="user_limit">
+    <column id="271" parent="212" name="user_limit">
       <Position>6</Position>
       <DataType>varchar(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="263" parent="211" name="PRIMARY">
+    <key id="272" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_name</ColNames>
       <Primary>1</Primary>

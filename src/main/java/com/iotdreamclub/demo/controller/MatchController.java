@@ -12,6 +12,7 @@ import java.util.List;
 
 @Controller
 public class MatchController {
+
     @Autowired
     private MatchService matchService;
 
@@ -23,7 +24,9 @@ public class MatchController {
 
     @RequestMapping("createNewMatchBillTable")
     public void createNewMatchBillTable(String matchName , Date matchTime){
-        matchService.createNewMatchBillTable(matchName);
-        matchService.addNewMatchInfo(matchName , matchTime);
+        String matchNameFormat = matchService.formatDateInfo(matchTime);
+        matchService.createNewMatchBillTable(matchNameFormat);
+        matchService.initializeTabel(matchNameFormat);
+        matchService.addNewMatchInfo(matchName , matchTime , matchNameFormat);
     }
 }

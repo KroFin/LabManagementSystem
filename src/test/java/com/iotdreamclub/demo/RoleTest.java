@@ -13,12 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RoleTest {
+
+    public static final String dateFormat = "yyyyMMddHHmmss";
 
     @Autowired
     private RoleModuleMapper roleModuleMapper;
@@ -48,6 +51,7 @@ public class RoleTest {
 
     @Test
     public void testCreateNewBillTable(){
-        matchMapper.createNewMatchBillTable("testTable");
+        SimpleDateFormat dateNow = new SimpleDateFormat(dateFormat);
+        matchMapper.createNewMatchBillTable(dateNow.format(new Date()));
     }
 }
