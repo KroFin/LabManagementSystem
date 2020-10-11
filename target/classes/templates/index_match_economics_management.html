@@ -20,7 +20,7 @@
             <th>备注</th>
             <th>时间</th>
             <th>余额</th>
-            <th>操作</th>
+            <th th:if="${session.limit} ne 2">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -29,14 +29,14 @@
             <td th:text="${bills.billComment}">Bangalore</td>
             <td th:text="${bills.billTime}">560001</td>
             <td th:text="${bills.billBalance}">560001</td>
-            <td>
+            <td >
                 <a th:href="${'/deleteMatchBillInfo/'+bills.billId}">删除</a>
             </td>
         </tr>
         </tbody>
     </table>
 
-    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} ne 2">添加新的交易记录</button>
+    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit eq 1}">添加新的交易记录</button>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
