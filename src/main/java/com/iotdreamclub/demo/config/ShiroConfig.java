@@ -38,7 +38,7 @@ public class ShiroConfig {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
         factoryBean.setSecurityManager(securityManager);
         factoryBean.setLoginUrl("login");
-        factoryBean.setUnauthorizedUrl("failed.html");
+        factoryBean.setUnauthorizedUrl("404.html");
         Map<String,String> map = new LinkedHashMap<>();
         map.put("/login.html","anon");   //anon 不拦截，authc 拦截
         map.put("/register.html","anon");
