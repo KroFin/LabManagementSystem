@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface RoleMapper extends BaseMapper<RoleMapper> {
     List<Role> selectRoleByAccount(String account);
+    List<Role> selectAllRoleByTable();
 }

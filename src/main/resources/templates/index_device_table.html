@@ -50,15 +50,15 @@
                                 XX
                             </td>
                             <td>
-                                <a th:href="${'/CDI/'+deviceInfos.deviceId}" th:if="${session.limit} ne 2" onclick="reloadPage()">修改</a>
-                                <a th:href="${'/deleteDevice/'+deviceInfos.deviceId}" th:if="${session.limit} ne 2">删除</a>
-                                <a th:href="${'/borrowDevice/'+deviceInfos.deviceId}" th:if="${session.limit} ne 1">借用</a>
+                                <a th:href="${'/CDI/'+deviceInfos.deviceId}" th:if="${session.limit} == 1" onclick="reloadPage()">修改</a>
+                                <a th:href="${'/deleteDevice/'+deviceInfos.deviceId}" th:if="${session.limit} == 1">删除</a>
+                                <a th:href="${'/borrowDevice/'+deviceInfos.deviceId}" th:if="${session.limit} != 1">借用</a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
 
-                    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} ne 2">添加新的设备</button>
+                    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} == 1">添加新的设备</button>
 
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">

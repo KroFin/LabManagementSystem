@@ -1,7 +1,9 @@
 package com.iotdreamclub.demo.controller;
 
+import com.iotdreamclub.demo.entity.Role;
 import com.iotdreamclub.demo.entity.User;
 import com.iotdreamclub.demo.service.RoleModuleService;
+import com.iotdreamclub.demo.service.RoleService;
 import com.iotdreamclub.demo.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -19,11 +21,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 //用户管理操作函数
 
 @Controller
 public class UserController {
+
+    @Autowired
+    private RoleService roleService;
 
     @Autowired
     private UserService userService;
@@ -34,6 +40,8 @@ public class UserController {
     @RequestMapping("CUI/{username}")
     public String cui(@PathVariable String username , Model model){
         User user = userService.selectUserByName(username);
+        List<Role> roleList = roleService.selectAllRoleByTable();
+        model.addAttribute("roleLists",roleList);
         model.addAttribute("users",user);
         return "edit_change_user_info";
     }

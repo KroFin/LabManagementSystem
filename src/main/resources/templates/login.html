@@ -37,10 +37,9 @@
                 <input class="form-control my-3 bg-light" id="input2-signin-02" type="text" placeholder="用户名/邮箱" name="username">
                 <label class="sr-only" for="input3-signin-02">密码</label>
                 <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="密码" name="password">
-                <p th:text="${msg}"></p>
                 <div class="d-flex">
-                  <button class="btn btn-outline-primary btn-block py-2 mr-3" type="submit">登陆</button>
-                  <button class="btn btn-primary btn-block py-2 mt-0"><a href="/register" style="color: #ffffff ; text-decoration: none">注册</a></button>
+                  <button class="btn btn-primary btn-block py-2 mr-3" type="submit">登陆</button>
+                  <button class="btn btn-outline-primary btn-block py-2 mt-0" onclick="jumpToRegister()" type="button">注册</button>
                 </div>
               <p class="text-secondary text-muted mt-3">注册后我们会默认您同意我们的<a href="#">用户守则</a> 和 <a href="#">隐私条例</a>.</p>
             </form>
@@ -71,5 +70,10 @@
     <script src="../static/js/jquery/jquery.min.js"></script>
     <script src="../static/js/popper/popper.min.js"></script>
     <script src="../static/js/bootstrap/bootstrap.min.js"></script>
+    <script>
+      function jumpToRegister() {
+        window.location.href="/register"
+      }
+    </script>
   </body>
 </html>

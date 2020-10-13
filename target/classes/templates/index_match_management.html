@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+</head>
+<body>
+    <table class="table table-striped">
+        <tr>
+            <th>比赛名称</th>
+            <th>比赛代号</th>
+            <th>比赛时间</th>
+        </tr>
+        <tr th:each="matchList:${matchLists}">
+            <td th:text="${matchList.getMatchName()}"></td>
+            <td th:text="${matchList.getMatchNameFormat()}"></td>
+            <td th:text="${matchList.getMatchTime()}"></td>
+        </tr>
+    </table>
+</body>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+</html>

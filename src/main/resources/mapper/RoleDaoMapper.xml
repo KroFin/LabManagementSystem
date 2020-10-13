@@ -10,6 +10,9 @@
         select r.role_id roleId,role_name roleName , role_type roleType from tb_user u join tb_role r on u.user_limit = r.role_type
         and u.user_name = #{account}
     </select>
+    <select id="selectAllRoleByTable" resultType="com.iotdreamclub.demo.entity.Role">
+        select * from tb_role
+    </select>
 
 
 </mapper>

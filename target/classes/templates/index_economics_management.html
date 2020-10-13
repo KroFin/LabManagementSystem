@@ -36,7 +36,7 @@
         </tbody>
     </table>
 
-    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} ne 2">添加新的交易记录</button>
+    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} == 1 or ${session.limit} == 4">添加新的交易记录</button>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">

@@ -41,10 +41,27 @@
     <div class="form-group">
         <label for="userLimit" class="col-sm-2 control-label">权限</label>
         <div class="col-sm-5">
-            <input id="userLimit" class="form-control" type="text" th:value="${users.userLimit}" name="userLimit">
+            <input id="userLimit" class="form-control" type="text" th:value="${users.userLimit}" name="userLimit" list="userLimitList">
+            <datalist id="userLimitList">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </datalist>
         </div>
     </div>
     <button onclick="changeUserInfo()" class="btn btn-primary col-md-3" style="float: right">确定</button>
+
+    <table class="table table-striped">
+        <tr>
+            <th>权限名</th>
+            <th>权限代号</th>
+        </tr>
+        <tr th:each="roleList:${roleLists}">
+            <td th:text="${roleList.getRoleName()}"></td>
+            <td th:text="${roleList.getRoleType()}"></td>
+        </tr>
+    </table>
 </form>
 </body>
 <script src="../static/js/jquery/jquery.min.js"></script>

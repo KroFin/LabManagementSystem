@@ -16,10 +16,11 @@ public class MatchController {
     @Autowired
     private MatchService matchService;
 
-    @RequestMapping("showListOfMatch")
-    public void showListOfMatch(Model model){
+    @RequestMapping("index_match_management")
+    public String showListOfMatch(Model model){
         List<Match> matchList = matchService.showListOfMatch();
         model.addAttribute("matchLists",matchList);
+        return "index_match_management";
     }
 
     @RequestMapping("createNewMatchBillTable")
