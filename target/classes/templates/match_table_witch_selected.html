@@ -32,7 +32,7 @@
         <td >
             <a th:href="${'/deleteMatchBillInfo/'+bill.billId}">删除</a>
         </td>
-    </tr>s
+    </tr>
     </tbody>
 </table>
 
@@ -84,12 +84,28 @@
         $('#myModal').modal();
     });
 
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
     function subm(){
         var serializeArray = $("#addNewMatchRecord").serializeArray();
         $.ajax({
             type:"POST",
             dataType:"json",
-            url:"/addNewMatchRecord",
+            url:"/addNewMatchRecord/" + getCookie("matchNameFormat"),
             data:serializeArray,
             success: function (result) {
                 console.log(result);
