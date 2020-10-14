@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+    <style type="text/css">
+        .modal-backdrop {
+            opacity: 0 !important;
+            filter: alpha(opacity=0) !important;
+        }
+    </style>
+</head>
+<body onload="setparentheight()">
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>+收入/-支出</th>
+        <th>备注</th>
+        <th>时间</th>
+        <th>余额</th>
+        <th th:if="${session.limit} eq 1">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bill:${bills}">
+        <td th:text="${bill.billMoney}">Tanmay</td>
+        <td th:text="${bill.billComment}">Bangalore</td>
+        <td th:text="${bill.billTime}">560001</td>
+        <td th:text="${bill.billBalance}">560001</td>
+        <td >
+            <a th:href="${'/deleteMatchBillInfo/'+bill.billId}">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} == 1 or ${session.limit} == 3">添加新的交易记录</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <form class="modal-body" action="/addNewMatchRecord" method="post" id="addNewMatchRecord">
+                <div class="form-group">
+                    <label for="billType">收入/支出</label>
+                    <input type="number" name="billType" class="form-control" id="billType" list="billTypeList" placeholder="收入 = 1/支出 = 2">
+                    <datalist id = "billTypeList">
+                        <option>1</option>
+                        <option>2</option>
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="billMoney">金额</label>
+                    <input type="text" name="billMoney" class="form-control" id="billMoney" placeholder="金额">
+                </div>
+                <div class="form-group">
+                    <label for="billComment">注释</label>
+                    <input type="text" name="billComment" class="form-control" id="billComment" placeholder="注释">
+                </div>
+                <div class="form-group">
+                    <label for="billTime">时间</label>
+                    <input type="date" name="billTime" class="form-control" id="billTime" placeholder="时间">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                    <button onclick="subm()" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $("#btn_add").click(function () {
+        $("#myModalLabel").text("");
+        $('#myModal').modal();
+    });
+
+    function subm(){
+        var serializeArray = $("#addNewMatchRecord").serializeArray();
+        $.ajax({
+            type:"POST",
+            dataType:"json",
+            url:"/addNewMatchRecord",
+            data:serializeArray,
+            success: function (result) {
+                console.log(result);
+                if (result.resultCode === 200){
+                    alert("SUCCESS")
+                }
+            },
+        });
+    }
+
+    function setparentheight(){
+        var modalHeight = document.getElementById("#myModal");
+        parent.document.all(self.name).height=document.body.scrollHeight + modalHeight.height;
+    }
+</script>
+</html>

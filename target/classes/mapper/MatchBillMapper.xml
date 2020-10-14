@@ -13,12 +13,12 @@
         insert tb_match_bill_info value (null,#{billMoney},#{billType},#{billComment},#{billTime},#{billBalance})
     </insert>
     <delete id="deleteBillInfo">
-        delete from tb_match_bill_info where bill_id = #{billId}
+        delete from tb_match_bill_info_10010 where bill_id = #{billId}
     </delete>
     <select id="selectAllBill" resultType="com.iotdreamclub.demo.entity.MatchBillInfo">
-        select * from tb_match_bill_info GROUP by bill_time desc , bill_id desc
+        select * from tb_match_bill_info_10010 GROUP by bill_time desc , bill_id desc
     </select>
     <select id="sumBillMoney" resultType="java.lang.Float">
-        select sum(bill_money) from tb_match_bill_info
+        select sum(bill_money) from tb_match_bill_info_10010
     </select>
 </mapper>

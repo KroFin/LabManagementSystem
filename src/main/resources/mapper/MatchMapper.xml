@@ -26,5 +26,19 @@
     <select id="showListOfMatch" resultType="com.iotdreamclub.demo.entity.Match">
         select * from tb_match
     </select>
+    <select id="selectedMatchTablle" resultType="com.iotdreamclub.demo.entity.Bill">
+        select * from tb_match_bill_info_${matchNameFormat}
+    </select>
+
+    <insert id="add">
+        insert tb_match_bill_info_${matchNameFormat} value (null,#{billMoney},#{billType},#{billComment},#{billTime},#{billBalance})
+    </insert>
+    <delete id="deleteBillInfo">
+        delete from tb_match_bill_info_${matchNameFormat} where bill_id = #{billId}
+    </delete>
+
+    <select id="sumBillMoney" resultType="java.lang.Float">
+        select sum(bill_money) from tb_match_bill_info_${matchNameFormat}
+    </select>
 
 </mapper>

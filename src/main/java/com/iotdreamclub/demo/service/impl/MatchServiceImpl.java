@@ -1,7 +1,9 @@
 package com.iotdreamclub.demo.service.impl;
 
 import com.iotdreamclub.demo.dao.MatchMapper;
+import com.iotdreamclub.demo.entity.Bill;
 import com.iotdreamclub.demo.entity.Match;
+import com.iotdreamclub.demo.entity.MatchBillInfo;
 import com.iotdreamclub.demo.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,13 +37,33 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
+    public List<Bill> selectedMatchTablle(String matchNameFormat) {
+        return matchMapper.selectedMatchTablle(matchNameFormat);
+    }
+
+    @Override
     public void initializeTabel(String matchNameFormat) {
         matchMapper.initializeTabel(matchNameFormat);
     }
 
     @Override
-    public String formatDateInfo(Date matchTime) {
+    public String formatDateInfo(java.util.Date matchTime) {
         DateFormat dateFormat01 = new SimpleDateFormat(dateFormat);
-        return dateFormat01.format(matchTime);
+        return dateFormat01.format(new java.util.Date());
+    }
+
+    @Override
+    public void add(float billMoney, int billType, String billComment, Date billTime, float billBalance) {
+        matchMapper.add(billMoney,billType,billComment,billTime,billBalance);
+    }
+
+    @Override
+    public float sumBillMoney(String matchNameFormat) {
+        return matchMapper.sumBillMoney(matchNameFormat);
+    }
+
+    @Override
+    public void deleteBillInfo(Long billId) {
+        matchMapper.deleteBillInfo(billId);
     }
 }
