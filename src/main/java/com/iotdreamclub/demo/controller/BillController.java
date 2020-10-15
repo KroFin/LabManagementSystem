@@ -71,6 +71,7 @@ public class BillController {
             response.setContentType("text/html; charset=UTF-8"); //转码
             PrintWriter out = response.getWriter();
             out.flush();
+            
             out.println("<script>");
             out.println("alert('权限不足无法操作');");
             out.println("history.back();");
