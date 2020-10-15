@@ -16,10 +16,12 @@ public interface MatchMapper {
     List<Match> showListOfMatch();
 
     List<Bill> selectedMatchTablle(String matchNameFormat);
+    void deleteMatchTable(String matchNameFormat);
+    void deleteMatchInfo(String matchNameFormat);
 
     void initializeTabel(String matchNameFormat);
 
-    void add(float billMoney , int billType , String billComment , Date billTime , float billBalance);
+    void add(String matchNameFormat,float billMoney , int billType , String billComment , Date billTime , float billBalance);
     float sumBillMoney(String matchNameFormat);
     void deleteBillInfo(Long billId);
 }

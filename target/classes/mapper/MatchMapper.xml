@@ -27,7 +27,7 @@
         select * from tb_match
     </select>
     <select id="selectedMatchTablle" resultType="com.iotdreamclub.demo.entity.Bill">
-        select * from tb_match_bill_info_${matchNameFormat}
+        select * from tb_match_bill_info_${matchNameFormat} order by bill_id desc
     </select>
 
     <insert id="add">
@@ -35,6 +35,12 @@
     </insert>
     <delete id="deleteBillInfo">
         delete from tb_match_bill_info_${matchNameFormat} where bill_id = #{billId}
+    </delete>
+    <delete id="deleteMatchTable">
+        drop table tb_match_bill_info_${matchNameFormat}
+    </delete>
+    <delete id="deleteMatchInfo">
+        delete from tb_match where match_name_format = #{matchNameFormat}
     </delete>
 
     <select id="sumBillMoney" resultType="java.lang.Float">

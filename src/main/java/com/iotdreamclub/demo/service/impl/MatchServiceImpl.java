@@ -42,6 +42,16 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
+    public void deleteMatchTable(String matchNameFormat) {
+        matchMapper.deleteMatchTable(matchNameFormat);
+    }
+
+    @Override
+    public void deleteMatchInfo(String matchNameFormat) {
+        matchMapper.deleteMatchInfo(matchNameFormat);
+    }
+
+    @Override
     public void initializeTabel(String matchNameFormat) {
         matchMapper.initializeTabel(matchNameFormat);
     }
@@ -53,8 +63,8 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public void add(float billMoney, int billType, String billComment, Date billTime, float billBalance) {
-        matchMapper.add(billMoney,billType,billComment,billTime,billBalance);
+    public void add(String matchNameFormat,float billMoney, int billType, String billComment, Date billTime, float billBalance) {
+        matchMapper.add(matchNameFormat,billMoney,billType,billComment,billTime,billBalance);
     }
 
     @Override

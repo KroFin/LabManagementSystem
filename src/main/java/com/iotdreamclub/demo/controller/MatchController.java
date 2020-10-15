@@ -3,6 +3,7 @@ package com.iotdreamclub.demo.controller;
 import com.iotdreamclub.demo.entity.Bill;
 import com.iotdreamclub.demo.entity.Match;
 import com.iotdreamclub.demo.service.MatchService;
+import org.apache.ibatis.annotations.Param;
 import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,6 +43,13 @@ public class MatchController {
         response.sendRedirect("/index_match_management");
     }
 
+    @RequestMapping("deleteMatchTable/{matchNameFormat}")
+    public String deleteMatchTable(@PathVariable String matchNameFormat){
+        matchService.deleteMatchTable(matchNameFormat);
+        matchService.deleteMatchInfo(matchNameFormat);
+        return "index_match_management";
+    }
+
     @RequestMapping("showSelectedMatchTable/{matchNameFormat}")
     public String showSelectedMatchTable(@PathVariable String matchNameFormat , Model model , HttpServletRequest request ,HttpServletResponse response){
         List<Bill> bill = matchService.selectedMatchTablle(matchNameFormat);
@@ -72,14 +80,14 @@ public class MatchController {
         if (billType == 1){
             float billBalance = matchService.sumBillMoney(matchNameFormat) + billMoney;
             System.out.println(billBalance);
-            //matchService.add(billMoney,billType,billComment,billTime,billBalance);
+            matchService.add(matchNameFormat,billMoney,billType,billComment,billTime,billBalance);
             response.sendRedirect("/index_match_management/"+matchNameFormat);
             return "success";
         }
         billMoney = billMoney - billMoney*2;
         float billBalance = matchService.sumBillMoney(matchNameFormat) + billMoney;
-        matchService.add(billMoney,billType,billComment,billTime,billBalance);
-        response.sendRedirect("/showSelectedMatchTable");
+        matchService.add(matchNameFormat,billMoney,billType,billComment,billTime,billBalance);
+        response.sendRedirect("/index_match_management/"+matchNameFormat);
         return "success";
     }
 }
