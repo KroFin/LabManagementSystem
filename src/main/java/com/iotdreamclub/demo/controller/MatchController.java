@@ -44,10 +44,14 @@ public class MatchController {
     }
 
     @RequestMapping("deleteMatchTable/{matchNameFormat}")
-    public String deleteMatchTable(@PathVariable String matchNameFormat){
+    public void deleteMatchTable(@PathVariable String matchNameFormat ,HttpServletResponse response){
         matchService.deleteMatchTable(matchNameFormat);
         matchService.deleteMatchInfo(matchNameFormat);
-        return "index_match_management";
+        try {
+            response.sendRedirect("/index_match_management");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping("showSelectedMatchTable/{matchNameFormat}")
@@ -62,7 +66,8 @@ public class MatchController {
             }
         }
         Cookie cookie = new Cookie("matchNameFormat",matchNameFormat);
-        cookie.setMaxAge(5 * 60);
+        cookie.setMaxAge(60 * 60);
+        cookie.setPath("/");
         response.addCookie(cookie);
         model.addAttribute("bills",bill);
         return "match_table_witch_selected";
@@ -81,13 +86,33 @@ public class MatchController {
             float billBalance = matchService.sumBillMoney(matchNameFormat) + billMoney;
             System.out.println(billBalance);
             matchService.add(matchNameFormat,billMoney,billType,billComment,billTime,billBalance);
-            response.sendRedirect("/index_match_management/"+matchNameFormat);
+            response.sendRedirect("/showSelectedMatchTable/"+matchNameFormat);
             return "success";
         }
         billMoney = billMoney - billMoney*2;
         float billBalance = matchService.sumBillMoney(matchNameFormat) + billMoney;
         matchService.add(matchNameFormat,billMoney,billType,billComment,billTime,billBalance);
-        response.sendRedirect("/index_match_management/"+matchNameFormat);
+        response.sendRedirect("/showSelectedMatchTable/"+matchNameFormat);
         return "success";
+    }
+
+    @RequestMapping("deleteMatchBillInfo/{bill_id}")
+    @ResponseBody
+    public void deleteMatchBillInfo(@PathVariable Long bill_id ,
+                                    String matchNameFormat,
+                                    HttpServletResponse response,
+                                    HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies){
+            if (cookie.getName().equals("matchNameFormat")){
+                matchNameFormat = cookie.getValue();
+            }
+        }
+        matchService.deleteMatchBillInfo(matchNameFormat, bill_id);
+        try {
+            response.sendRedirect("/showSelectedMatchTable/"+matchNameFormat);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

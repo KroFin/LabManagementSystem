@@ -33,7 +33,7 @@
     <insert id="add">
         insert tb_match_bill_info_${matchNameFormat} value (null,#{billMoney},#{billType},#{billComment},#{billTime},#{billBalance})
     </insert>
-    <delete id="deleteBillInfo">
+    <delete id="deleteMatchBillInfo">
         delete from tb_match_bill_info_${matchNameFormat} where bill_id = #{billId}
     </delete>
     <delete id="deleteMatchTable">

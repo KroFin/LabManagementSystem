@@ -23,5 +23,5 @@ public interface MatchMapper {
 
     void add(String matchNameFormat,float billMoney , int billType , String billComment , Date billTime , float billBalance);
     float sumBillMoney(String matchNameFormat);
-    void deleteBillInfo(Long billId);
+    void deleteMatchBillInfo(String matchNameFormat ,Long billId);
 }

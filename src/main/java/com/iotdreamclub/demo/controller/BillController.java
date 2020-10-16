@@ -87,16 +87,16 @@ public class BillController {
         return " ";
     }
 
-    @RequestMapping("deleteMatchBillInfo/{matchBillId}")
-    @ResponseBody
-    public String deleteMatchBillInfo(@PathVariable Long matchBillId , HttpServletResponse response){
-        matchBillService.deleteBillInfo(matchBillId);
-        try {
-            response.sendRedirect("/index_match_economics_management");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return " ";
-    }
+//    @RequestMapping("deleteMatchBillInfo/{matchBillId}")
+//    @ResponseBody
+//    public String deleteMatchBillInfo(@PathVariable Long matchBillId , HttpServletResponse response){
+//        matchBillService.deleteBillInfo(matchBillId);
+//        try {
+//            response.sendRedirect("/index_match_economics_management");
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return " ";
+//    }
 
 }

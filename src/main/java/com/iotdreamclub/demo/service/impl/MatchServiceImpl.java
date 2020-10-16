@@ -73,7 +73,7 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public void deleteBillInfo(Long billId) {
-        matchMapper.deleteBillInfo(billId);
+    public void deleteMatchBillInfo(String matchNameFormat,Long billId) {
+        matchMapper.deleteMatchBillInfo(matchNameFormat,billId);
     }
 }
