@@ -20,11 +20,22 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * 本控制类负责新的比赛数据表的添加和修改
+ * 于2020/10/16日创建并完成所有功能函数的编写
+ */
+
 @Controller
 public class MatchController {
 
     @Autowired
     private MatchService matchService;
+
+    /**
+     *
+     * 返回整个比赛目录列表
+     *
+     */
 
     @RequestMapping("index_match_management")
     public String showListOfMatch(Model model){
@@ -32,6 +43,8 @@ public class MatchController {
         model.addAttribute("matchLists",matchList);
         return "index_match_management";
     }
+
+    //创建新的比赛数据表
 
     @RequestMapping("createNewMatchBillTable")
     @ResponseBody
@@ -43,6 +56,8 @@ public class MatchController {
         response.sendRedirect("/index_match_management");
     }
 
+    //删除比赛数据表
+
     @RequestMapping("deleteMatchTable/{matchNameFormat}")
     public void deleteMatchTable(@PathVariable String matchNameFormat ,HttpServletResponse response){
         matchService.deleteMatchTable(matchNameFormat);
@@ -53,6 +68,8 @@ public class MatchController {
             e.printStackTrace();
         }
     }
+
+    //进入选中的比赛表进行编辑
 
     @RequestMapping("showSelectedMatchTable/{matchNameFormat}")
     public String showSelectedMatchTable(@PathVariable String matchNameFormat , Model model , HttpServletRequest request ,HttpServletResponse response){
@@ -72,6 +89,8 @@ public class MatchController {
         model.addAttribute("bills",bill);
         return "match_table_witch_selected";
     }
+
+    //添加选中的表中的数据
 
     @RequestMapping("addNewMatchRecord/{matchNameFormat}")
     @ResponseBody
@@ -95,6 +114,8 @@ public class MatchController {
         response.sendRedirect("/showSelectedMatchTable/"+matchNameFormat);
         return "success";
     }
+
+    //删除选中的表中的一行数据
 
     @RequestMapping("deleteMatchBillInfo/{bill_id}")
     @ResponseBody
