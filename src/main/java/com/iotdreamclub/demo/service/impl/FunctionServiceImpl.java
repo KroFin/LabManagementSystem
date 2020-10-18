@@ -1,11 +1,12 @@
 package com.iotdreamclub.demo.service.impl;
 
 import com.iotdreamclub.demo.service.FunctionService;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
-
+@Service
 public class FunctionServiceImpl implements FunctionService {
     @Override
     public String getCookieValue(String cookieName , HttpServletRequest request) {
@@ -16,5 +17,10 @@ public class FunctionServiceImpl implements FunctionService {
             }
         }
         return null;
+    }
+
+    @Override
+    public void getDeviceInfoAPi() {
+
     }
 }
