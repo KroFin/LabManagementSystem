@@ -37,16 +37,38 @@
 
 ### 5.创建start.sh文件，输入下面的shell指令并保存，后再使用./start命令启动项目
 
+start.sh
+
 ```
 #!/bin/sh
-RESOURCE_NAME=resource-0.0.1-SNAPSHOT.jar
- 
+
+RESOURCE_NAME=demo-0.0.1-SNAPSHOT.jar
+
+tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
+if [ ${tpid} ]; then
+    echo 'App is running.'
+else
+    echo 'App is NOT running.'
+fi
+
+rm -f tpid
+nohup java -jar ./$RESOURCE_NAME --spring.profiles.active=test &
+echo $! > tpid
+echo Start Success!
+```
+stop.sh
+
+```
+#!/bin/sh
+RESOURCE_NAME=demo-0.0.1-SNAPSHOT.jar
+
 tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
 if [ ${tpid} ]; then
 echo 'Stop Process...'
 kill -15 $tpid
 fi
 sleep 5
+
 tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
 if [ ${tpid} ]; then
 echo 'Kill Process!'
@@ -54,21 +76,43 @@ kill -9 $tpid
 else
 echo 'Stop Success!'
 fi
- 
+
+```
+restart.sh
+
+```
+#!/bin/sh
+RESOURCE_NAME=demo-0.0.1-SNAPSHOT.jar
+
+tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
+if [ ${tpid} ]; then
+echo 'Stop Process...'
+kill -15 $tpid
+fi
+sleep 5
+
+tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
+if [ ${tpid} ]; then
+echo 'Kill Process!'
+kill -9 $tpid
+else
+echo 'Stop Success!'
+fi
+
 tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
 if [ ${tpid} ]; then
     echo 'App is running.'
 else
     echo 'App is NOT running.'
 fi
- 
+
 rm -f tpid
 nohup java -jar ./$RESOURCE_NAME --spring.profiles.active=test &
 echo $! > tpid
 echo Start Success!
 ```
 
-(ps：如果你懒，在shell文件夹下我给你写好了一个，你自己上传运行即可)
+(ps：如果你懒，在shell文件夹下我给你写好了，你自己上传运行即可)
 
 (pps：shell代码其实是我抄的，来源：https://blog.csdn.net/whh18254122507/article/details/78011713?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight)
 
