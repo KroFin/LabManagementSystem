@@ -93,6 +93,7 @@ echo Start Success!
 ### 项目代码预览
 ```
 ├─controller(页面控制)
+│  ├─APIController(API接口控制器)
 │  ├─BillController
 │  ├─DeviceController
 │  ├─IndexController

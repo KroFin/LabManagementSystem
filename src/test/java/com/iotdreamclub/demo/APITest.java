@@ -7,6 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.servlet.http.HttpUtils;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,12 +34,5 @@ public class APITest {
         params.put("p-list", pLists);
 
         String url = "http://localhost:8080/api/get-info";
-
-//        try {
-////            String rs = HttpUtil(url, null, params);
-////            System.out.println(rs);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 }

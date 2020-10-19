@@ -2,11 +2,9 @@ package com.iotdreamclub.demo;
 
 import com.iotdreamclub.demo.dao.DeviceMapper;
 import com.iotdreamclub.demo.dao.MatchMapper;
-import com.iotdreamclub.demo.dao.RoleMapper;
 import com.iotdreamclub.demo.dao.RoleModuleMapper;
 import com.iotdreamclub.demo.entity.DeviceInfo;
 import com.iotdreamclub.demo.entity.RoleModule;
-import com.iotdreamclub.demo.service.RoleModuleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
