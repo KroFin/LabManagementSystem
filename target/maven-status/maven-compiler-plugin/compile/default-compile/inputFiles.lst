@@ -26,6 +26,7 @@ E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\realm\User
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\impl\UserServiceImpl.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\MatchBillService.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\dao\DeviceMapper.java
+E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\controller\APIController.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\impl\MatchServiceImpl.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\User.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\RoleService.java

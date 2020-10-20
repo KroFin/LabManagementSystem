@@ -24,6 +24,7 @@ com\iotdreamclub\demo\service\FunctionService.class
 com\iotdreamclub\demo\service\RoleService.class
 com\iotdreamclub\demo\service\impl\BillServiceImpl.class
 com\iotdreamclub\demo\controller\MatchController.class
+com\iotdreamclub\demo\controller\APIController.class
 com\iotdreamclub\demo\controller\UserController.class
 com\iotdreamclub\demo\service\MatchBillService.class
 com\iotdreamclub\demo\controller\indexController.class
