@@ -44,22 +44,6 @@ public class BillController {
         return "success";
     }
 
-//    @RequestMapping("addNewMatchRecord")
-//    @ResponseBody
-//    public String addNewMatchRecord(float billMoney , int billType , String billComment , Date billTime , HttpServletResponse response) throws IOException {
-//        if (billType == 1){
-//            float billBalance = matchBillService.sumBillMoney() + billMoney;
-//            matchBillService.add(billMoney,billType,billComment,billTime,billBalance);
-//            response.sendRedirect("/index_match_economics_management");
-//            return "success";
-//        }
-//        billMoney = billMoney - billMoney*2;
-//        float billBalance = matchBillService.sumBillMoney() + billMoney;
-//        matchBillService.add(billMoney,billType,billComment,billTime,billBalance);
-//        response.sendRedirect("/index_match_economics_management");
-//        return "success";
-//    }
-
     @RequestMapping("deleteBillInfo/{billId}")
     @ResponseBody
     public String deleteBillInfo(@PathVariable Long billId , HttpServletResponse response , HttpSession session) throws IOException {
@@ -86,17 +70,5 @@ public class BillController {
         }
         return " ";
     }
-
-//    @RequestMapping("deleteMatchBillInfo/{matchBillId}")
-//    @ResponseBody
-//    public String deleteMatchBillInfo(@PathVariable Long matchBillId , HttpServletResponse response){
-//        matchBillService.deleteBillInfo(matchBillId);
-//        try {
-//            response.sendRedirect("/index_match_economics_management");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        return " ";
-//    }
 
 }
