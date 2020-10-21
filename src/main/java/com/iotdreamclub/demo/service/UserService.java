@@ -1,7 +1,9 @@
 package com.iotdreamclub.demo.service;
 
 import com.iotdreamclub.demo.entity.User;
+import com.iotdreamclub.demo.entity.UserLoginInfo;
 
+import java.sql.Date;
 import java.util.List;
 
 public interface UserService {
@@ -11,4 +13,7 @@ public interface UserService {
     User selectUserByName(String username);
     User selectLimitByName(String userlimit);
     List<User> selectAll();
+
+    void insertLoginInfo(String username , String loginAddr , Date loginTime);
+    List<UserLoginInfo> selectAllLoginInfo();
 }

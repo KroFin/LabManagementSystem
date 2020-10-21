@@ -10,9 +10,22 @@
         <result property="userLimit" column="user_limit"/>
     </resultMap>
 
+    <resultMap id="userLoginMap" type="com.iotdreamclub.demo.entity.UserLoginInfo">
+        <result property="loginUserName" column="login_user_name"/>
+        <result property="loginTime" column="login_time"/>
+        <result property="loginIpAddress" column="login_ip_addr"/>
+    </resultMap>
+
     <insert id="register" parameterType="java.lang.String">
         insert tb_user value (#{username},#{password},null,null,null,'2')
     </insert>
+
+    <insert id="insertLoginInfo">
+        insert tb_user_login_info value (#{username} , #{loginTime} , #{loginIpAddress})
+    </insert>
+    <select id="selectAllLoginInfo" resultType="com.iotdreamclub.demo.entity.UserLoginInfo">
+        select * from tb_user_login_info order by login_time limit 5
+    </select>
 
     <update id="changePersonalInfomation" parameterType="java.lang.String" >
         update tb_user set
@@ -36,4 +49,5 @@
     <select id="selectAll" resultType="com.iotdreamclub.demo.entity.User" parameterType="java.util.ArrayList">
         select * from tb_user
     </select>
+
 </mapper>

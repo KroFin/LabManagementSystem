@@ -23,4 +23,10 @@ public class FunctionServiceImpl implements FunctionService {
     public void getDeviceInfoAPi() {
 
     }
+
+    @Override
+    public String getRemoteAddr(HttpServletRequest request) {
+        String addr = request.getRemoteAddr();
+        return addr;
+    }
 }

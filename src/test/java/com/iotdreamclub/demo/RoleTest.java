@@ -5,12 +5,16 @@ import com.iotdreamclub.demo.dao.MatchMapper;
 import com.iotdreamclub.demo.dao.RoleModuleMapper;
 import com.iotdreamclub.demo.entity.DeviceInfo;
 import com.iotdreamclub.demo.entity.RoleModule;
+import com.iotdreamclub.demo.service.FunctionService;
+import com.iotdreamclub.demo.service.impl.FunctionServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;

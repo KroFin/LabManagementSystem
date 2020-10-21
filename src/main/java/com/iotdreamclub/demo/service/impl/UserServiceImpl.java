@@ -2,10 +2,12 @@ package com.iotdreamclub.demo.service.impl;
 
 import com.iotdreamclub.demo.dao.UserDao;
 import com.iotdreamclub.demo.entity.User;
+import com.iotdreamclub.demo.entity.UserLoginInfo;
 import com.iotdreamclub.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -42,5 +44,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> selectAll() {
         return userDao.selectAll();
+    }
+
+    @Override
+    public void insertLoginInfo(String username, String loginAddr, Date loginTime) {
+        userDao.insertLoginInfo(username,loginAddr,loginTime);
+    }
+
+    @Override
+    public List<UserLoginInfo> selectAllLoginInfo() {
+        return userDao.selectAllLoginInfo();
     }
 }
