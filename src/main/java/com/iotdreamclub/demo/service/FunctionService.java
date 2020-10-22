@@ -7,4 +7,6 @@ public interface FunctionService {
     String getCookieValue(String cookieName , HttpServletRequest request);
     void getDeviceInfoAPi();
     String getRemoteAddr(HttpServletRequest request);
+
+    void getAddrInfoFromDB(String addr , String language);
 }

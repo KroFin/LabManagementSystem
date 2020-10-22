@@ -1,5 +1,3 @@
-
-
 /**
  *
  *  页面刷新函数
@@ -31,3 +29,4 @@ function getCookie(cname) {
     }
     return "";
 }
+

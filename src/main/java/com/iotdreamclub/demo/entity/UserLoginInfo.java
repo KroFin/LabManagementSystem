@@ -1,13 +1,12 @@
 package com.iotdreamclub.demo.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName("tb_user_login_info")
 public class UserLoginInfo {
 
   private String loginUserName;
   private java.sql.Date loginTime;
   private String loginIpAddress;
+  private String loginAddress;
 
 
   public String getLoginUserName() {
@@ -34,6 +33,15 @@ public class UserLoginInfo {
 
   public void setLoginIpAddress(String loginIpAddress) {
     this.loginIpAddress = loginIpAddress;
+  }
+
+
+  public String getLoginAddress() {
+    return loginAddress;
+  }
+
+  public void setLoginAddress(String loginAddress) {
+    this.loginAddress = loginAddress;
   }
 
 }

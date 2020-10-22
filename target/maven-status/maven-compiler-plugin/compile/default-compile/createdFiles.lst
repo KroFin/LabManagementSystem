@@ -1,6 +1,7 @@
 com\iotdreamclub\demo\DemoApplication.class
 com\iotdreamclub\demo\dao\RoleModuleMapper.class
 com\iotdreamclub\demo\service\impl\MatchServiceImpl.class
+com\iotdreamclub\demo\entity\UserLoginInfo.class
 com\iotdreamclub\demo\service\impl\DeviceServiceImpl.class
 com\iotdreamclub\demo\realm\UserRealm.class
 com\iotdreamclub\demo\entity\User.class

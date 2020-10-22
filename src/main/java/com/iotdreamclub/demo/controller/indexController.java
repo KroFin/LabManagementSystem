@@ -44,6 +44,7 @@ public class indexController {
     @RequestMapping("member_management")
     public String memberManagement(Model model){
         List<User> users = userService.selectAll();
+        List<UserLoginInfo> userLoginInfos = userService.selectAllLoginInfo();
         for (User user : users){
             String userLimit = user.getUserLimit();
             if (userLimit.equals("1")){
@@ -51,6 +52,7 @@ public class indexController {
             }
         }
         model.addAttribute("Members",userService.selectAll());
+        model.addAttribute("userLoginInfo",userLoginInfos);
         return "index_member_management";
     }
 

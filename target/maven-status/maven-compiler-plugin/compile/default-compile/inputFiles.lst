@@ -37,5 +37,6 @@ E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\Rol
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\MatchBillInfo.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\dao\MatchBillMapper.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\dao\MatchMapper.java
+E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\UserLoginInfo.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\controller\UserController.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\DeviceService.java

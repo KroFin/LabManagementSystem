@@ -47,8 +47,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void insertLoginInfo(String username, String loginAddr, Date loginTime) {
-        userDao.insertLoginInfo(username,loginAddr,loginTime);
+    public void insertLoginInfo(String username, String loginIpAddress,String loginAddress) {
+        userDao.insertLoginInfo(username,loginIpAddress,loginAddress);
     }
 
     @Override

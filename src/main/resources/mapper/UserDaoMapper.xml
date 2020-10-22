@@ -13,7 +13,8 @@
     <resultMap id="userLoginMap" type="com.iotdreamclub.demo.entity.UserLoginInfo">
         <result property="loginUserName" column="login_user_name"/>
         <result property="loginTime" column="login_time"/>
-        <result property="loginIpAddress" column="login_ip_addr"/>
+        <result property="loginIpAddress" column="login_ip_address"/>
+        <result property="loginAddress" column="login_address"/>
     </resultMap>
 
     <insert id="register" parameterType="java.lang.String">
@@ -21,10 +22,10 @@
     </insert>
 
     <insert id="insertLoginInfo">
-        insert tb_user_login_info value (#{username} , #{loginTime} , #{loginIpAddress})
+        insert tb_user_login_info value (#{username},NOW(),#{loginIpAddress},#{loginAddress})
     </insert>
     <select id="selectAllLoginInfo" resultType="com.iotdreamclub.demo.entity.UserLoginInfo">
-        select * from tb_user_login_info order by login_time limit 5
+        select * from tb_user_login_info order by login_time desc limit 5
     </select>
 
     <update id="changePersonalInfomation" parameterType="java.lang.String" >

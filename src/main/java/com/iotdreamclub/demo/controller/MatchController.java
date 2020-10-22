@@ -53,7 +53,6 @@ public class MatchController {
         matchService.createNewMatchBillTable(matchNameFormat);
         matchService.initializeTabel(matchNameFormat);
         matchService.addNewMatchInfo(matchName , matchTime , matchNameFormat);
-        response.sendRedirect("/index_match_management");
     }
 
     //删除比赛数据表

@@ -17,6 +17,6 @@ public interface UserDao extends BaseMapper<User> {
     User selectUserByName(String username);
     User selectLimitByName(String userlimit);
 
-    void insertLoginInfo(String username , String loginAddr , Date loginTime);
+    void insertLoginInfo(String username , String loginIpAddress ,String loginAddress);
     List<UserLoginInfo> selectAllLoginInfo();
 }

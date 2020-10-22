@@ -2,6 +2,8 @@ package com.iotdreamclub.demo.controller;
 
 import com.iotdreamclub.demo.entity.Role;
 import com.iotdreamclub.demo.entity.User;
+import com.iotdreamclub.demo.entity.UserLoginInfo;
+import com.iotdreamclub.demo.service.FunctionService;
 import com.iotdreamclub.demo.service.RoleModuleService;
 import com.iotdreamclub.demo.service.RoleService;
 import com.iotdreamclub.demo.service.UserService;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -37,6 +40,9 @@ public class UserController {
     @Autowired
     private RoleModuleService roleModuleService;
 
+    @Autowired
+    private FunctionService functionService;
+
     @RequestMapping("CUI/{username}")
     public String cui(@PathVariable String username , Model model){
         User user = userService.selectUserByName(username);
@@ -44,6 +50,12 @@ public class UserController {
         model.addAttribute("roleLists",roleList);
         model.addAttribute("users",user);
         return "edit_change_user_info";
+    }
+
+    @RequestMapping("showUserLoginInfo")
+    public void showUserLoginInfo(Model model){
+        List<UserLoginInfo> userLoginInfos = userService.selectAllLoginInfo();
+        model.addAttribute("userLoginInfo",userLoginInfos);
     }
 
     @RequestMapping("change_User_Info")
@@ -88,7 +100,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "login",method = RequestMethod.POST)
-    public String login(Model model, HttpSession session, String username , String password , RedirectAttributes redirectAttributes , HttpServletResponse response) throws IOException {
+    public String login(Model model,
+                        HttpSession session,
+                        String username ,
+                        String password ,
+                        HttpServletRequest request,
+                        HttpServletResponse response) throws IOException {
         UsernamePasswordToken token = new UsernamePasswordToken();
         token.setUsername(username);
         token.setPassword(password.toCharArray());
@@ -100,6 +117,11 @@ public class UserController {
                 session.setAttribute("limit",limit);
                 session.setAttribute("username",username);
                 model.addAttribute("loginUser",userService.selectUserByName(username));
+                try {
+                    userService.insertLoginInfo(username,functionService.getRemoteAddr(request),"");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 return "redirect:/index";
             } catch ( UnknownAccountException uae ) {
                 System.out.println("用户名不存在");
@@ -160,9 +182,4 @@ public class UserController {
         model.addAttribute("msg","注册成功出错");
         return "redirect:/login.html";
     }
-
-//    @RequestMapping("logout")
-//    public ModelAndView logout(HttpSession session , ){
-//
-//    }
 }

@@ -14,6 +14,6 @@ public interface UserService {
     User selectLimitByName(String userlimit);
     List<User> selectAll();
 
-    void insertLoginInfo(String username , String loginAddr , Date loginTime);
+    void insertLoginInfo(String username , String loginIpAddress ,String loginAddress);
     List<UserLoginInfo> selectAllLoginInfo();
 }

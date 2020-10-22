@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
 </head>
 <body onload="setparentheight()">
-    <table class="table table-bordered">
+
+    <h2>用户信息表</h2>
+    <hr>
+
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>
@@ -59,6 +63,32 @@
             </td>
         </tr>
         </tbody>
+    </table>
+
+    <h2>登陆记录</h2>
+    <hr>
+
+    <table class="table table-striped">
+        <tr>
+            <th>用户名</th>
+            <th>IP地址</th>
+            <th>登陆时间</th>
+            <th>登陆地点</th>
+        </tr>
+        <tr th:each="userloginInfos:${userLoginInfo}">
+            <td th:text="${userloginInfos.getLoginUserName()}">
+                XX
+            </td>
+            <td th:text="${userloginInfos.getLoginIpAddress()}">
+                XX
+            </td>
+            <td th:text="${userloginInfos.getLoginTime()}">
+                XX
+            </td>
+            <td th:text="${userloginInfos.getLoginAddress()}">
+                XX
+            </td>
+        </tr>
     </table>
 
 </body>
