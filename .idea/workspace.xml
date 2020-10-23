@@ -4,17 +4,10 @@
     <list default="true" id="48866f2b-2018-45e1-8a06-ea41d887bafc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/FunctionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/FunctionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/db/ipipfree.ipdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ipipfree.ipdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/iotdreamclub/demo/RoleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iotdreamclub/demo/RoleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.iotdreamclub.demo.DemoApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.iotdreamclub.demo.DemoApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.iotdreamclub.demo.RoleTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.iotdreamclub.demo.RoleTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.iotdreamclub.demo.DemoApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.iotdreamclub.demo.DemoApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.iotdreamclub.demo.RoleTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.iotdreamclub.demo.RoleTest.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,13 +44,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="LabManagement: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="LabManagement@49.234.181.182" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="LabManagement: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="tb_user_login_info: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -66,29 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/logo.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/APIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+            <state relative-caret-position="450">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,13 +65,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/UserServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/BillController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="648">
+              <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
               <folding>
-                <element signature="e#1695#1696#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="47" column="118" selection-start-line="47" selection-start-column="118" selection-end-line="47" selection-end-column="118" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/net/ipip/ipdb/1.1.3/ipdb-1.1.3.jar!/net/ipip/ipdb/City.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -111,11 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/iotdreamclub/demo/RoleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1044">
-              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-452">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -146,8 +132,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2862">
-              <caret line="184" column="38" selection-start-line="184" selection-start-column="38" selection-end-line="184" selection-end-column="38" />
+            <state relative-caret-position="-38">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
             </state>
           </provider>
         </entry>
@@ -164,7 +150,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserDaoMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
+            <state relative-caret-position="900">
               <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
             </state>
           </provider>
@@ -235,10 +221,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/143b481d-b58a-41a1-ae54-4b1901f8f42a/console.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserDaoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/FunctionService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/iotdreamclub/demo/RoleTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -299,9 +285,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="91" />
-    <option name="y" value="104" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="128" />
+    <option name="y" value="114" />
     <option name="width" value="1663" />
     <option name="height" value="901" />
   </component>
@@ -413,72 +399,6 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="realm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -486,112 +406,7 @@
               <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="iotdreamclub" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap.bundle.js" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap.js" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="jquery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LabManagementSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LabManagementSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -678,23 +493,23 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\大三Java\LabManagementSystem\src\main\resources\static\img" />
-      <recent name="E:\大三Java\LabManagementSystem\src\main\resources\templates" />
-      <recent name="E:\大三Java\LabManagementSystem\src\main\resources\templates\img" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\大三Java\LabManagementSystem\src\main\resources" />
+      <recent name="E:\大三Java\LabManagementSystem\src\main\resources\static\img" />
+      <recent name="E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\db" />
+      <recent name="E:\大三Java\LabManagementSystem\SQLScript" />
+      <recent name="E:\大三Java\LabManagementSystem\screenshot" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.iotdreamclub.demo.service" />
       <recent name="com.iotdreamclub.demo.realm" />
       <recent name="com.iotdreamclub.demo.config" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\大三Java\LabManagementSystem\src\main\resources\static\img" />
-      <recent name="E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\db" />
-      <recent name="E:\大三Java\LabManagementSystem\SQLScript" />
-      <recent name="E:\大三Java\LabManagementSystem\screenshot" />
-      <recent name="E:\大三Java\LabManagementSystem\src\main\resources\static" />
+      <recent name="E:\大三Java\LabManagementSystem\src\main\resources\templates" />
+      <recent name="E:\大三Java\LabManagementSystem\src\main\resources\templates\img" />
+      <recent name="E:\大三Java\LabManagementSystem\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -742,22 +557,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoleTest.testDeviceInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LabManagementSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iotdreamclub.demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iotdreamclub.demo" />
-      <option name="MAIN_CLASS_NAME" value="com.iotdreamclub.demo.RoleTest" />
-      <option name="METHOD_NAME" value="testDeviceInfo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RoleTest.testDeviceInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LabManagementSystem" />
       <extension name="coverage">
@@ -790,6 +589,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RoleTest.testInsertIntoLoginInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LabManagementSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iotdreamclub.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iotdreamclub.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.iotdreamclub.demo.RoleTest" />
+      <option name="METHOD_NAME" value="testInsertIntoLoginInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="LabManagementSystem" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.iotdreamclub.demo.DemoApplication" />
@@ -800,20 +615,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.RoleTest.testDeviceInfo" />
       <item itemvalue="JUnit.RoleTest.testDeviceInsert" />
       <item itemvalue="JUnit.RoleTest.testCreateNewBillTable" />
       <item itemvalue="JUnit.RoleTest.testGetRemoteAddr" />
       <item itemvalue="JUnit.RoleTest.testAddressDatabase" />
       <item itemvalue="Spring Boot.DemoApplication" />
+      <item itemvalue="JUnit.RoleTest.testInsertIntoLoginInfo" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RoleTest.testAddressDatabase" />
+        <item itemvalue="JUnit.RoleTest.testInsertIntoLoginInfo" />
         <item itemvalue="JUnit.RoleTest.testGetRemoteAddr" />
         <item itemvalue="JUnit.RoleTest.testCreateNewBillTable" />
         <item itemvalue="JUnit.RoleTest.testDeviceInsert" />
-        <item itemvalue="JUnit.RoleTest.testDeviceInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -880,25 +695,11 @@
       <workItem from="1603326128154" duration="8222000" />
       <workItem from="1603412519907" duration="1264000" />
       <workItem from="1603414155451" duration="1822000" />
+      <workItem from="1603424528225" duration="3471000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RoleTest_testCreateNewBillTable - 2020.10.10 at 19h 54m 04s.xml">
-      <configuration name="RoleTest.testCreateNewBillTable" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoleTest_testCreateNewBillTable - 2020.10.10 at 20h 51m 21s.xml">
-      <configuration name="RoleTest.testCreateNewBillTable" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoleTest_testCreateNewBillTable - 2020.10.10 at 20h 53m 34s.xml">
-      <configuration name="RoleTest.testCreateNewBillTable" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoleTest_testCreateNewBillTable - 2020.10.11 at 21h 36m 50s.xml">
-      <configuration name="RoleTest.testCreateNewBillTable" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoleTest_testCreateNewBillTable - 2020.10.11 at 21h 37m 53s.xml">
-      <configuration name="RoleTest.testCreateNewBillTable" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RoleTest_testGetRemoteAddr - 2020.10.21 at 08h 59m 12s.xml">
       <configuration name="RoleTest.testGetRemoteAddr" configurationId="JUnit" />
     </history-entry>
@@ -914,9 +715,24 @@
     <history-entry file="RoleTest_testAddressDatabase - 2020.10.23 at 08h 38m 39s.xml">
       <configuration name="RoleTest.testAddressDatabase" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RoleTest_testInsertIntoLoginInfo - 2020.10.23 at 12h 35m 36s.xml">
+      <configuration name="RoleTest.testInsertIntoLoginInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleTest_testAddressDatabase - 2020.10.23 at 12h 38m 32s.xml">
+      <configuration name="RoleTest.testAddressDatabase" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleTest_testAddressDatabase - 2020.10.23 at 12h 46m 30s.xml">
+      <configuration name="RoleTest.testAddressDatabase" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleTest_testAddressDatabase - 2020.10.23 at 12h 48m 59s.xml">
+      <configuration name="RoleTest.testAddressDatabase" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoleTest_testAddressDatabase - 2020.10.23 at 12h 50m 49s.xml">
+      <configuration name="RoleTest.testAddressDatabase" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321444000" />
+    <option name="totallyTimeSpent" value="324915000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -928,10 +744,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="91" y="104" width="1663" height="901" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.19713038" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.1705757" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -941,7 +757,7 @@
       <window_info id="Web" order="7" sideWeight="0.5008347" side_tool="true" weight="0.15565032" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.19631237" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.4067245" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5506396" weight="0.38394794" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -962,7 +778,7 @@
       <window_info anchor="right" id="Maven" order="3" weight="0.19151591" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.17155334" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.14818764" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -1028,24 +844,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/dao/DeviceMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/entity/LoginUserInfo.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="das://143b481d-b58a-41a1-ae54-4b1901f8f42a/schema/LabManagement/table/tb_match_bill_info_20201019160517" />
     <entry file="file://$PROJECT_DIR$/Note/file.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -1075,16 +873,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index_persional_info_change.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/APIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/143b481d-b58a-41a1-ae54-4b1901f8f42a/console_1.sql">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1192,16 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/BillController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index_member_management.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -1255,13 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/143b481d-b58a-41a1-ae54-4b1901f8f42a/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="18" column="7" selection-start-line="18" selection-end-line="18" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1292,15 +1063,19 @@
     <entry file="file://$PROJECT_DIR$/shell/restart.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+        <state relative-caret-position="250">
+          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/logo.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1312,17 +1087,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/iotdreamclub/demo/RoleTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+        <state relative-caret-position="234">
+          <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/BillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://143b481d-b58a-41a1-ae54-4b1901f8f42a/schema/LabManagement/table/tb_user_login_info">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/APIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/143b481d-b58a-41a1-ae54-4b1901f8f42a/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="18" column="7" selection-start-line="18" selection-end-line="18" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://143b481d-b58a-41a1-ae54-4b1901f8f42a/schema/LabManagement/table/tb_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true">
@@ -1341,37 +1147,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://143b481d-b58a-41a1-ae54-4b1901f8f42a/schema/LabManagement/table/tb_match_bill_info_20201022084520">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://143b481d-b58a-41a1-ae54-4b1901f8f42a/schema/LabManagement/table/tb_match_bill_info_20201023082336">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://143b481d-b58a-41a1-ae54-4b1901f8f42a/schema/LabManagement/table/tb_user_login_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/iotdreamclub/demo/RoleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-452">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2862">
-          <caret line="184" column="38" selection-start-line="184" selection-start-column="38" selection-end-line="184" selection-end-column="38" />
+        <state relative-caret-position="-38">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/dao/UserDao.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/net/ipip/ipdb/1.1.3/ipdb-1.1.3.jar!/net/ipip/ipdb/City.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="19" column="85" selection-start-line="19" selection-start-column="85" selection-end-line="19" selection-end-column="85" />
+        <state relative-caret-position="216">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserDaoMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iotdreamclub/demo/service/impl/FunctionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+        <state relative-caret-position="168">
+          <caret line="47" column="118" selection-start-line="47" selection-start-column="118" selection-end-line="47" selection-end-column="118" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

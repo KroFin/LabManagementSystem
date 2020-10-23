@@ -4,15 +4,22 @@ import com.iotdreamclub.demo.service.FunctionService;
 import net.ipip.ipdb.City;
 import net.ipip.ipdb.CityInfo;
 import net.ipip.ipdb.IPFormatException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 
 @Service
 public class FunctionServiceImpl implements FunctionService {
+
+    @Autowired
+    ResourceLoader resourceLoader;
+
     @Override
     public String getCookieValue(String cookieName , HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
@@ -38,7 +45,8 @@ public class FunctionServiceImpl implements FunctionService {
     @Override
     public CityInfo getAddrInfoFromDB(String addr) {
         try {
-            City db = new City("E:\\大三Java\\LabManagementSystem\\src\\main\\java\\com\\iotdreamclub\\demo\\db\\ipipfree.ipdb");
+            InputStream inputStream = FunctionServiceImpl.class.getClassLoader().getResourceAsStream("ipipfree.ipdb");
+            City db = new City(inputStream);
             CityInfo cityInfo = db.findInfo(addr, "CN");
             System.out.println(cityInfo);
             return cityInfo;

@@ -121,6 +121,7 @@ public class UserController {
                 try {
                     String remoteAddr = functionService.getRemoteAddr(request);
                     CityInfo cityInfo = functionService.getAddrInfoFromDB(remoteAddr);
+
                     userService.insertLoginInfo(username,remoteAddr,cityInfo.getCountryName()+"-"+cityInfo.getRegionName()+"-"+cityInfo.getCityName());
                 }catch (Exception e){
                     e.printStackTrace();
