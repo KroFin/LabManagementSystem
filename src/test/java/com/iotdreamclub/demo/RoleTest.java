@@ -56,4 +56,10 @@ public class RoleTest {
         SimpleDateFormat dateNow = new SimpleDateFormat(dateFormat);
         matchMapper.createNewMatchBillTable(dateNow.format(new Date()));
     }
+
+    @Test
+    public void testAddressDatabase(){
+        FunctionService functionService = new FunctionServiceImpl();
+        System.out.println(functionService.getAddrInfoFromDB("171.82.159.241"));
+    }
 }

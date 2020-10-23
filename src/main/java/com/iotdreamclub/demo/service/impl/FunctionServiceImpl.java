@@ -2,6 +2,7 @@ package com.iotdreamclub.demo.service.impl;
 
 import com.iotdreamclub.demo.service.FunctionService;
 import net.ipip.ipdb.City;
+import net.ipip.ipdb.CityInfo;
 import net.ipip.ipdb.IPFormatException;
 import org.springframework.stereotype.Service;
 
@@ -35,17 +36,17 @@ public class FunctionServiceImpl implements FunctionService {
     }
 
     @Override
-    public void getAddrInfoFromDB(String addr , String language) {
-
+    public CityInfo getAddrInfoFromDB(String addr) {
         try {
             City db = new City("E:\\大三Java\\LabManagementSystem\\src\\main\\java\\com\\iotdreamclub\\demo\\db\\ipipfree.ipdb");
-            //db.find(addr,language);
-            System.out.println(Arrays.toString(db.find("1.1.1.1","CN")));
+            CityInfo cityInfo = db.findInfo(addr, "CN");
+            System.out.println(cityInfo);
+            return cityInfo;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IPFormatException e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 }

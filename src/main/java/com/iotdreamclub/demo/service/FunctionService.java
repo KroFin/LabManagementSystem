@@ -1,5 +1,7 @@
 package com.iotdreamclub.demo.service;
 
+import net.ipip.ipdb.CityInfo;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,5 +10,5 @@ public interface FunctionService {
     void getDeviceInfoAPi();
     String getRemoteAddr(HttpServletRequest request);
 
-    void getAddrInfoFromDB(String addr , String language);
+    CityInfo getAddrInfoFromDB(String addr);
 }

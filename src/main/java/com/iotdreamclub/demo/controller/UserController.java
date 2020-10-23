@@ -7,6 +7,7 @@ import com.iotdreamclub.demo.service.FunctionService;
 import com.iotdreamclub.demo.service.RoleModuleService;
 import com.iotdreamclub.demo.service.RoleService;
 import com.iotdreamclub.demo.service.UserService;
+import net.ipip.ipdb.CityInfo;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -118,7 +119,9 @@ public class UserController {
                 session.setAttribute("username",username);
                 model.addAttribute("loginUser",userService.selectUserByName(username));
                 try {
-                    userService.insertLoginInfo(username,functionService.getRemoteAddr(request),"");
+                    String remoteAddr = functionService.getRemoteAddr(request);
+                    CityInfo cityInfo = functionService.getAddrInfoFromDB(remoteAddr);
+                    userService.insertLoginInfo(username,remoteAddr,cityInfo.getCountryName()+"-"+cityInfo.getRegionName()+"-"+cityInfo.getCityName());
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -132,7 +135,6 @@ public class UserController {
             } catch ( AuthenticationException ae ) {
                 System.out.println("严重的错误");
             }
-            //redirectAttributes.addFlashAttribute("msg", "密码错误");
             response.setContentType("text/html; charset=UTF-8"); //转码
             PrintWriter out = response.getWriter();
             out.flush();
