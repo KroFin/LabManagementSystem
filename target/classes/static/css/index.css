@@ -1,0 +1,58 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: orangered;
+	text-decoration: none;
+}
+
+.padd-top {
+	padding-top: 10px;
+}
+
+.search_input {
+	width: 400px;
+	height: 36px;
+	border: 2px solid #ffc900;
+	padding-left: 10px;
+	float: left;
+	outline: 0px;
+}
+
+.search-button {
+	float: left;
+	width: 90px;
+	height: 36px;
+	background-color: #ffc900;
+	border: 1px solid #ffc900;
+	line-height: 36px;
+	text-align: center;
+}
+
+.jx_top {
+	margin-top: 15px;
+	border-bottom: 2px solid #ffc900;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	margin-bottom: 5px;
+}
+
+.route{
+	border: 1px solid gainsboro
+}
+
+.company {
+	font-size: 12px;
+	background-color: #ffc900;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
