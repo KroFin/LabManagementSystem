@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 @RestController
 @RequestMapping("/api")
@@ -18,8 +19,12 @@ public class APIController {
     private DeviceService deviceService;
 
     @PostMapping("/getDeviceInfoAPI")
-    public String getDeviceInfoAPI(HttpServletRequest request){
+    public String getDeviceInfoAPI(HttpServletRequest request) throws IOException {
         StringBuffer jsonStr = RequestUtil.getRequestURL(request);
+
+        FileWriter fileWriter = new FileWriter("log",true);
+        fileWriter.write(String.valueOf(jsonStr));
+
         System.out.println(jsonStr);
         return "";
     }
