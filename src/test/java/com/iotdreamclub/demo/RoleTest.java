@@ -48,10 +48,10 @@ public class RoleTest {
         deviceInfos.forEach(deviceInfo -> System.out.println(deviceInfo));
     }
 
-    @Test
-    public void testDeviceInsert(){
-        deviceMapper.changeDeviceInfo("test01","test01",1,"test01",5L);
-    }
+//    @Test
+//    public void testDeviceInsert(){
+//        deviceMapper.changeDeviceInfo("test01","test01",1,"test01",5L);
+//    }
 
 //    @Test
 //    public void testCreateNewBillTable(){
@@ -65,10 +65,10 @@ public class RoleTest {
         System.out.println(functionService.getAddrInfoFromDB("171.82.159.241"));
     }
 
-    @Test
-    public void testInsertIntoLoginInfo(){
-        FunctionService functionService = new FunctionServiceImpl();
-        CityInfo cityInfo = functionService.getAddrInfoFromDB("171.82.159.241");
-        userDao.insertLoginInfo("Test","171.82.159.241",cityInfo.getCountryName()+"-"+cityInfo.getRegionName()+"-"+cityInfo.getCityName());
-    }
+//    @Test
+//    public void testInsertIntoLoginInfo(){
+//        FunctionService functionService = new FunctionServiceImpl();
+//        CityInfo cityInfo = functionService.getAddrInfoFromDB("171.82.159.241");
+//        userDao.insertLoginInfo("Test","171.82.159.241",cityInfo.getCountryName()+"-"+cityInfo.getRegionName()+"-"+cityInfo.getCityName());
+//    }
 }

@@ -34,6 +34,11 @@ public class PageController {
         return "support";
     }
 
+    @RequestMapping("backstage")
+    public String backstage(){
+        return "backstage";
+    }
+
     @RequestMapping("/logout")
     public String logout(HttpSession session, Model model , HttpServletRequest request ){
         Subject subject = SecurityUtils.getSubject();

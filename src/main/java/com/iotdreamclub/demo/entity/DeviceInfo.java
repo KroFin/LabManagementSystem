@@ -13,6 +13,16 @@ public class DeviceInfo {
   private int deviceNumber;
   private String deviceComment;
 
+  @Override
+  public String toString() {
+    return "DeviceInfo{" +
+            "deviceId=" + deviceId +
+            ", deviceName='" + deviceName + '\'' +
+            ", deviceType='" + deviceType + '\'' +
+            ", deviceNumber=" + deviceNumber +
+            ", deviceComment='" + deviceComment + '\'' +
+            '}';
+  }
 
   public long getDeviceId() {
     return deviceId;
