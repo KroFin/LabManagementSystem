@@ -87,14 +87,14 @@
         table.render({
             elem: '#demo'
             ,height: 312
-            ,width: 600
+            ,width: 650
             ,url: '/api/returnLoginInfo' //数据接口
             ,page: true //开启分页
             ,cols:
                 [
                 [ //表头
                 {field: 'loginUserName', title: '用户名', width:100, fixed: 'left'}
-                ,{field: 'loginTime', title: '登陆时间', width:100}
+                ,{field: 'loginTime', title: '登陆时间', width:150}
                 ,{field: 'loginIpAddress', title: '登录IP地址', width:200}
                 ,{field: 'loginAddress', title: '地址', width:200}
             ]

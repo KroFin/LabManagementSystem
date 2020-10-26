@@ -24,7 +24,11 @@ public class APIController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/getDeviceInfoAPI")
+    private int pageCount;
+
+    private int pageLimit;
+
+  @PostMapping("/getDeviceInfoAPI")
     public String getDeviceInfoAPI(HttpServletRequest request) throws IOException {
         StringBuffer jsonStr = RequestUtil.getRequestURL(request);
 
