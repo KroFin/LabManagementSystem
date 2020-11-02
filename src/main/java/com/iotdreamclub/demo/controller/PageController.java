@@ -34,6 +34,11 @@ public class PageController {
         return "support";
     }
 
+    @RequestMapping("passwordFindBack")
+    public String passwordFindBack(){
+        return "passwordFindBack";
+    }
+
     @RequestMapping("backstage")
     public String backstage(){
         return "backstage";

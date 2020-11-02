@@ -28,8 +28,9 @@ public class APIController {
 
     private int pageLimit;
 
-  @PostMapping("/getDeviceInfoAPI")
+    @PostMapping("/getDeviceInfoAPI")
     public String getDeviceInfoAPI(HttpServletRequest request) throws IOException {
+
         StringBuffer jsonStr = RequestUtil.getRequestURL(request);
 
         FileWriter fileWriter = new FileWriter("log",true);

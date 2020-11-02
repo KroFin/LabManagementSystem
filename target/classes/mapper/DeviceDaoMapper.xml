@@ -24,7 +24,11 @@
         update tb_device_info set device_number = device_number - 1 where device_id = #{deviceId}
     </update>
     <update id="changeDeviceInfo">
-        update tb_device_info set device_name = #{deviceName}, device_type =  #{deviceType}, device_number = #{deviceNumber} , device_comment = #{deviceComment}  where device_id = #{deviceId}
+        update tb_device_info set
+        device_name = #{deviceName},
+        device_type =  #{deviceType},
+        device_number = #{deviceNumber} ,
+        device_comment = #{deviceComment}  where device_id = #{deviceId}
     </update>
     <delete id="deleteDevice">
         delete from tb_device_info where device_id = #{deviceId}

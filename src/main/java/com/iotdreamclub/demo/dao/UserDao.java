@@ -19,4 +19,5 @@ public interface UserDao extends BaseMapper<User> {
 
     void insertLoginInfo(String username , String loginIpAddress ,String loginAddress);
     List<UserLoginInfo> selectAllLoginInfo();
+    void changeUserPassword(String password , String userIdNumber);
 }

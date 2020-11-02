@@ -37,6 +37,9 @@
         user_limit = #{userLimit}
         Where user_name = #{username}
     </update>
+    <update id="changeUserPassword">
+        update tb_user set user_password = #{password} where user_id_number = #{userIdNumber}
+    </update>
 
     <select id="login" resultMap="userMap" parameterType="java.lang.String">
         select * from tb_user where user_name = #{username} and user_password = #{password}

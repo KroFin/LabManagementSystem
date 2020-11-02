@@ -37,6 +37,11 @@ public class RoleTest {
     private UserDao userDao ;
 
     @Test
+    public void testfindByCondition(){
+
+    }
+
+    @Test
     public void testRoleSelectByUsername(){
         List<RoleModule> roleModules = roleModuleMapper.selectAllByLimit("1");
         roleModules.forEach(roleModule -> System.out.println(roleModule));
