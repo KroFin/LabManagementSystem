@@ -13,6 +13,16 @@ public class DeviceInfo {
   private int deviceNumber;
   private String deviceComment;
 
+  private DeviceLend deviceLend;
+
+  public DeviceLend getDeviceLend() {
+    return deviceLend;
+  }
+
+  public void setDeviceLend(DeviceLend deviceLend) {
+    this.deviceLend = deviceLend;
+  }
+
   @Override
   public String toString() {
     return "DeviceInfo{" +
