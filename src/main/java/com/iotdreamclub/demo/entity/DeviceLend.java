@@ -6,6 +6,7 @@ public class DeviceLend {
   private String lendPeople;
   private String lendDevice;
   private java.sql.Date lendTime;
+  private Long lendId;
 
 
   public String getLendPeople() {
@@ -34,4 +35,11 @@ public class DeviceLend {
     this.lendTime = lendTime;
   }
 
+  public Long getLendId() {
+    return lendId;
+  }
+
+  public void setLendId(Long lendId) {
+    this.lendId = lendId;
+  }
 }

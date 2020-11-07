@@ -13,6 +13,7 @@
         <th>借用人</th>
         <th>设备名称</th>
         <th>借用时间</th>
+        <th>操作</th>
     </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
         <td th:text="${deviceLend.lendPeople}">Tanmay</td>
         <td th:text="${deviceLend.lendDevice}">Bangalore</td>
         <td th:text="${deviceLend.lendTime}">560001</td>
+        <td><a th:href="${'/deleteDevice/' + deviceLend.lendId}">删除记录</a></td>
     </tr>
     </tbody>
 </table>

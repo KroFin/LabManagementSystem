@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Service
-public class DeviceServiceImpl  extends ServiceImpl<DeviceMapper,DeviceInfo> implements DeviceService {
+public class DeviceServiceImpl extends ServiceImpl<DeviceMapper,DeviceInfo> implements DeviceService {
 
     @Autowired
     private DeviceMapper deviceMapper;
@@ -20,11 +20,6 @@ public class DeviceServiceImpl  extends ServiceImpl<DeviceMapper,DeviceInfo> imp
     @Override
     public List<DeviceInfo> selectAll() {
         return deviceMapper.selectAll();
-    }
-
-    @Override
-    public void addDeviceNumber(Long deviceId) {
-        deviceMapper.addDeviceNumber(deviceId);
     }
 
     @Override
@@ -63,8 +58,17 @@ public class DeviceServiceImpl  extends ServiceImpl<DeviceMapper,DeviceInfo> imp
     }
 
     @Override
-    public void addDeviceLendInfo(String lendPeople, String lendDevice, Date lendTime) {
-        deviceMapper.addDeviceLendInfo(lendPeople,lendDevice,lendTime);
+    public void addDeviceLendInfo(Long lendId, String lendPeople, String lendDevice, Date lendTime) {
+        deviceMapper.addDeviceLendInfo(lendId,lendPeople,lendDevice,lendTime);
     }
 
+    @Override
+    public void deleteDeviceLendInfo(Long lendId) {
+        deviceMapper.deleteDeviceLendInfo(lendId);
+    }
+
+    @Override
+    public void addDeviceNumber(Long lendId) {
+        deviceMapper.addDeviceNumber(lendId);
+    }
 }

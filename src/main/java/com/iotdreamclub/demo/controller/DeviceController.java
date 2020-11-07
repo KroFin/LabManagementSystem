@@ -2,8 +2,10 @@ package com.iotdreamclub.demo.controller;
 
 import com.iotdreamclub.demo.entity.DeviceInfo;
 import com.iotdreamclub.demo.service.DeviceService;
+import org.apache.ibatis.transaction.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
 
@@ -56,20 +59,6 @@ public class DeviceController {
 
     //弃用函数
 
-    @RequestMapping("add_device_number")
-    @ResponseBody
-    public String addDeviceNumber(long deviceId){
-        try {
-            deviceService.addDeviceNumber(deviceId);
-            return "success";
-        }catch (Exception e){
-            e.printStackTrace();
-            return "failed";
-        }
-    }
-
-    //弃用函数
-
     @RequestMapping("deCrease")
     @ResponseBody
     public String deCrease(long deviceId){
@@ -108,9 +97,8 @@ public class DeviceController {
     //普通用户借用设备登记
 
     @RequestMapping("borrowDevice/{deviceId}")
-    public String borrowDevice(Model model, @PathVariable Long deviceId, HttpServletRequest request ,HttpServletResponse response , HttpSession session){
+    public String borrowDevice(Model model, @PathVariable Long deviceId ,HttpServletResponse response , HttpSession session){
         try {
-            session.setAttribute("deviceId",deviceId);
             DeviceInfo deviceInfoLend = deviceService.selectByDeviceId(deviceId);
             model.addAttribute("deviceInfoLends",deviceInfoLend);
             int deviceNumber = deviceService.checkDeviceNumber(deviceId);
@@ -124,7 +112,6 @@ public class DeviceController {
                 out.println("</script>");
                 return "index_device_table";
             }
-            deviceService.deCrease(deviceId);
             return "device_lend_apply";
         }catch (Exception e){
             e.printStackTrace();
@@ -137,16 +124,32 @@ public class DeviceController {
     @RequestMapping("insertLendInfo")
     @ResponseBody
     public String insertLendInfo(String lendPeople , String lendDevice , Date lendTime , HttpServletResponse response , Long deviceId, HttpSession session , HttpServletRequest request){
+        session.setAttribute("deviceId",deviceId);
+        try {
+            deviceService.addDeviceLendInfo(deviceId,lendPeople,lendDevice,lendTime);
+            deviceService.deCrease(deviceId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         session = request.getSession(false);
-        deviceService.addDeviceLendInfo(lendPeople,lendDevice,lendTime);
-        //deviceService.deCrease((Long) session.getAttribute("deviceId"));
-        int deviceNumber = deviceService.checkDeviceNumber(deviceId);
         session.removeAttribute("deviceId");
         try {
-            response.sendRedirect("device_change");
+            response.sendRedirect("index_device_table");
         } catch (IOException e) {
             e.printStackTrace();
         }
         return " ";
+    }
+
+    @RequestMapping("returnDevice/{lendId}")
+    @Transactional
+    public String returnDevice(@PathVariable Long lendId){
+        try {
+            deviceService.deleteDeviceLendInfo(lendId);
+            deviceService.addDeviceNumber(lendId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "index_device_lend";
     }
 }

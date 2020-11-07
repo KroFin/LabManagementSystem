@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface DeviceService extends IService<DeviceInfo> {
     List<DeviceInfo> selectAll();
-    void addDeviceNumber (Long deviceId);
     void deCrease(Long deviceId);
     void addNewDevice(String deviceName , String deviceType , int deviceNumber , String deviceComment);
     void deleteDevice(Long deviceId);
@@ -18,5 +17,7 @@ public interface DeviceService extends IService<DeviceInfo> {
     int checkDeviceNumber(Long deviceId);
 
     List<DeviceLend> selectAllLendInfo();
-    void addDeviceLendInfo(String lendPeople , String lendDevice , Date lendTime);
+    void addDeviceLendInfo(Long lendId, String lendPeople , String lendDevice , Date lendTime);
+    void deleteDeviceLendInfo(Long lendId);
+    void addDeviceNumber(Long lendId);
 }

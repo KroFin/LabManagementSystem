@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface DeviceMapper extends BaseMapper<DeviceInfo> {
     List<DeviceInfo> selectAll();
-    void addDeviceNumber (Long deviceId);
     void deCrease(Long deviceId);
     void addNewDevice(String deviceName , String deviceType , int deviceNumber , String deviceComment );
     void deleteDevice(Long deviceId);
@@ -20,5 +19,8 @@ public interface DeviceMapper extends BaseMapper<DeviceInfo> {
     int checkDeviceNumber(Long deviceId);
 
     List<DeviceLend> selectAllLendInfo();
-    void addDeviceLendInfo(String lendPeople , String lendDevice , Date lendTime);
+    void addDeviceLendInfo(Long lendId, String lendPeople , String lendDevice , Date lendTime);
+    void deleteDeviceLendInfo(Long lendId);
+    String findDeviceNameByLendId(Long lendId);
+    void addDeviceNumber(Long lendId);
 }
