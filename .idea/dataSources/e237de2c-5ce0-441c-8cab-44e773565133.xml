@@ -1019,11 +1019,12 @@
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="255" parent="228" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>lend_id</ColNames>
-      <Primary>1</Primary>
-    </key>
+    <column id="255" parent="228" name="lend_order_id">
+      <Position>5</Position>
+      <Comment>订单编号</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
     <column id="256" parent="229" name="match_id">
       <Position>1</Position>
       <Comment>比赛Id</Comment>

@@ -5,6 +5,7 @@
     <title>Title</title>
     <base th:href="${#request.getContextPath()+'/'}">
     <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+
 </head>
 <body onload="setparentheight()">
 <table class="table table-striped">
@@ -21,15 +22,20 @@
         <td th:text="${deviceLend.lendPeople}">Tanmay</td>
         <td th:text="${deviceLend.lendDevice}">Bangalore</td>
         <td th:text="${deviceLend.lendTime}">560001</td>
-        <td><a th:href="${'/deleteDevice/' + deviceLend.lendId}">删除记录</a></td>
+        <td><a th:href="${'/returnDevice/' + deviceLend.lendOrderId}" onclick="reloadPage()">删除记录</a></td>
     </tr>
     </tbody>
 </table>
+<div style="margin-top: 10vh">
+    <h2>注意事项</h2>
+    <hr>
+    <p>管理人员点击删除记录的连接后，目标设备数量会自动恢复完成这笔订单之前的数量，即+1</p>
+</div>
 </body>
 <script src="../static/js/jquery/jquery.min.js"></script>
 <script src="../static/js/popper/popper.min.js"></script>
 <script src="../static/js/bootstrap/bootstrap.min.js"></script>
-
+<script src="../static/js/script.js"></script>
 <script type="text/javascript">
     function setparentheight(){
         parent.document.all(self.name).height=document.body.scrollHeight;

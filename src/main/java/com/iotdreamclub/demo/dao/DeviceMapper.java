@@ -19,8 +19,8 @@ public interface DeviceMapper extends BaseMapper<DeviceInfo> {
     int checkDeviceNumber(Long deviceId);
 
     List<DeviceLend> selectAllLendInfo();
-    void addDeviceLendInfo(Long lendId, String lendPeople , String lendDevice , Date lendTime);
+    void addDeviceLendInfo(Long lendId, String lendPeople , String lendDevice , Date lendTime , String lendOrderId);
     void deleteDeviceLendInfo(Long lendId);
-    String findDeviceNameByLendId(Long lendId);
+    Long findDeviceIdByLendOrderId(Long lendOrderId);
     void addDeviceNumber(Long lendId);
 }

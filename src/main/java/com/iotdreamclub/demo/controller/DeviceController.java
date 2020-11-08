@@ -2,6 +2,7 @@ package com.iotdreamclub.demo.controller;
 
 import com.iotdreamclub.demo.entity.DeviceInfo;
 import com.iotdreamclub.demo.service.DeviceService;
+import com.iotdreamclub.demo.service.FunctionService;
 import org.apache.ibatis.transaction.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,9 @@ public class DeviceController {
     @Autowired
     private DeviceService deviceService;
 
+    @Autowired
+    private FunctionService functionService;
+
     @GetMapping
     public ModelAndView queryAllDevice(Model model){
         List<DeviceInfo> deviceInfos = deviceService.selectAll();
@@ -47,6 +51,7 @@ public class DeviceController {
 
     @RequestMapping("change_device_info")
     @ResponseBody
+    @Transactional(rollbackFor = Exception.class)
     public String changeDeviceInfo(String deviceName, String deviceType, Integer deviceNumber, String deviceComment , Long deviceId , HttpServletResponse response){
         deviceService.changeDeviceInfo(deviceName,deviceType,deviceNumber,deviceComment,deviceId);
         try {
@@ -61,6 +66,7 @@ public class DeviceController {
 
     @RequestMapping("deCrease")
     @ResponseBody
+    @Transactional(rollbackFor = Exception.class)
     public String deCrease(long deviceId){
         try {
             deviceService.deCrease(deviceId);
@@ -84,6 +90,7 @@ public class DeviceController {
 
     @RequestMapping("deleteDevice/{deviceId}")
     @ResponseBody
+    @Transactional(rollbackFor = Exception.class)
     public String deleteDevice(@PathVariable Long deviceId ,HttpServletResponse response){
         deviceService.deleteDevice(deviceId);
         try {
@@ -97,6 +104,7 @@ public class DeviceController {
     //普通用户借用设备登记
 
     @RequestMapping("borrowDevice/{deviceId}")
+    @Transactional(rollbackFor = Exception.class)
     public String borrowDevice(Model model, @PathVariable Long deviceId ,HttpServletResponse response , HttpSession session){
         try {
             DeviceInfo deviceInfoLend = deviceService.selectByDeviceId(deviceId);
@@ -123,30 +131,34 @@ public class DeviceController {
 
     @RequestMapping("insertLendInfo")
     @ResponseBody
-    public String insertLendInfo(String lendPeople , String lendDevice , Date lendTime , HttpServletResponse response , Long deviceId, HttpSession session , HttpServletRequest request){
+    public String insertLendInfo(String lendPeople ,
+                               String lendDevice ,
+                               Date lendTime ,
+                               Long deviceId,
+                               HttpSession session ,
+                               HttpServletRequest request ,
+                               HttpServletResponse response){
         session.setAttribute("deviceId",deviceId);
-        try {
-            deviceService.addDeviceLendInfo(deviceId,lendPeople,lendDevice,lendTime);
-            deviceService.deCrease(deviceId);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        String lendOrderId = functionService.createAnOrderId();
+        deviceService.addDeviceLendInfo(deviceId,lendPeople,lendDevice,lendTime,lendOrderId);
+        deviceService.deCrease(deviceId);
         session = request.getSession(false);
         session.removeAttribute("deviceId");
         try {
-            response.sendRedirect("index_device_table");
+            response.sendRedirect("device_change");
         } catch (IOException e) {
             e.printStackTrace();
         }
         return " ";
     }
 
-    @RequestMapping("returnDevice/{lendId}")
-    @Transactional
-    public String returnDevice(@PathVariable Long lendId){
+    @RequestMapping("returnDevice/{lendOrderId}")
+    @Transactional(rollbackFor = Exception.class)
+    public String returnDevice(@PathVariable Long lendOrderId){
         try {
-            deviceService.deleteDeviceLendInfo(lendId);
-            deviceService.addDeviceNumber(lendId);
+            Long deviceId = deviceService.findDeviceIdByLendOrderId(lendOrderId);
+            deviceService.addDeviceNumber(deviceId);
+            deviceService.deleteDeviceLendInfo(lendOrderId);
         }catch (Exception e){
             e.printStackTrace();
         }

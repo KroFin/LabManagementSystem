@@ -100,10 +100,4 @@ public class indexController {
         return "index_device_lend";
     }
 
-//    @RequestMapping("findList")
-//    public String roleList( , ){
-//
-//        return "index";
-//    }
-
 }

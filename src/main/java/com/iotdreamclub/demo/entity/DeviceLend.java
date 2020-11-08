@@ -7,7 +7,15 @@ public class DeviceLend {
   private String lendDevice;
   private java.sql.Date lendTime;
   private Long lendId;
+  private String lendOrderId;
 
+  public String getLendOrderId() {
+    return lendOrderId;
+  }
+
+  public void setLendOrderId(String lendOrderId) {
+    this.lendOrderId = lendOrderId;
+  }
 
   public String getLendPeople() {
     return lendPeople;

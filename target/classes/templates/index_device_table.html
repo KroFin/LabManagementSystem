@@ -85,7 +85,7 @@
                                         <input type="text" name="deviceComment" class="form-control" id="deviceComment" placeholder="注释">
                                     </div>
                                     <div class="modal-footer">
-                                        <button onclick="deleteItem()" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                                        <button class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
                                         <button onclick="subm()" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
                                     </div>
                                 </form>
@@ -107,24 +107,24 @@
 
 
 
-    function deleteItem() {
-        var serializeArray = $("#addnewdevice").serializeArray();
-        $.ajax({
-            type:"POST",
-            dataType:"json",
-            url:"/deleteDevice",
-            data:serializeArray,
-            success: function (result) {
-                console.log(result);
-                if (result.resultCode === 200){
-                    alert("SUCCESS")
-                }
-            },
-            error: function () {
-                reloadPage()
-            }
-        });
-    }
+    // function deleteItem() {
+    //     var serializeArray = $("#addnewdevice").serializeArray();
+    //     $.ajax({
+    //         type:"POST",
+    //         dataType:"json",
+    //         url:"/deleteDevice",
+    //         data:serializeArray,
+    //         success: function (result) {
+    //             console.log(result);
+    //             if (result.resultCode === 200){
+    //                 alert("SUCCESS")
+    //             }
+    //         },
+    //         error: function () {
+    //             reloadPage()
+    //         }
+    //     });
+    // }
 
     function subm(){
         var serializeArray = $("#addnewdevice").serializeArray();

@@ -11,4 +11,5 @@ public interface FunctionService {
     String getRemoteAddr(HttpServletRequest request);
 
     CityInfo getAddrInfoFromDB(String addr);
+    String createAnOrderId();
 }

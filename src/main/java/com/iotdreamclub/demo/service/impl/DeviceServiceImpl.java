@@ -58,8 +58,13 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper,DeviceInfo> impl
     }
 
     @Override
-    public void addDeviceLendInfo(Long lendId, String lendPeople, String lendDevice, Date lendTime) {
-        deviceMapper.addDeviceLendInfo(lendId,lendPeople,lendDevice,lendTime);
+    public void addDeviceLendInfo(Long lendId, String lendPeople, String lendDevice, Date lendTime, String lendOrderId) {
+        deviceMapper.addDeviceLendInfo(lendId,lendPeople,lendDevice,lendTime,lendOrderId);
+    }
+
+    @Override
+    public Long findDeviceIdByLendOrderId(Long lendOrderId) {
+        return deviceMapper.findDeviceIdByLendOrderId(lendOrderId);
     }
 
     @Override

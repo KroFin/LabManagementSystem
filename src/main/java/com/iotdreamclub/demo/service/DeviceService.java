@@ -17,7 +17,8 @@ public interface DeviceService extends IService<DeviceInfo> {
     int checkDeviceNumber(Long deviceId);
 
     List<DeviceLend> selectAllLendInfo();
-    void addDeviceLendInfo(Long lendId, String lendPeople , String lendDevice , Date lendTime);
+    void addDeviceLendInfo(Long lendId, String lendPeople , String lendDevice , Date lendTime, String lendOrderId);
+    Long findDeviceIdByLendOrderId(Long lendOrderId);
     void deleteDeviceLendInfo(Long lendId);
     void addDeviceNumber(Long lendId);
 }
