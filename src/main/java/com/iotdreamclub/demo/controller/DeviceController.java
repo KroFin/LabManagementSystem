@@ -131,6 +131,7 @@ public class DeviceController {
 
     @RequestMapping("insertLendInfo")
     @ResponseBody
+    @Transactional(rollbackFor = Exception.class)
     public String insertLendInfo(String lendPeople ,
                                String lendDevice ,
                                Date lendTime ,
