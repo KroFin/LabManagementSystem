@@ -150,7 +150,7 @@ public class DeviceController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return " ";
+        return "0";
     }
 
     @RequestMapping("returnDevice/{lendOrderId}")

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IOT实验室综合管理系统</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+    <link rel="icon" href="../static/img/favicon.png">
+    <style type="text/css">
+        .carousel-inner img {
+
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand d-lg-none" href="#">IOT实验室综合管理系统</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigations-02"><span class="navbar-toggltb_role_adminer-icon"></span></button>
+        <div class="collapse navbar-collapse justify-content-md-center" id="navigations-02">
+            <div class="row w-100">
+                <div class="col-4 pl-lg-0">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="#">首页<span class="sr-only">(current)</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">F&Q</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">技术支持</a></li>
+                    </ul>
+                </div>
+                <div class="col-4 navbar-nav text-center pr-0 d-none d-lg-block"><a class="navbar-brand mr-0" href="#">IOT实验室综合管理系统</a></div>
+                <div class="col-4 pr-lg-0">
+                    <ul class="navbar-nav justify-content-end">
+                        <li class="nav-item"><a class="nav-link" th:href="@{backstage}" th:text="${session.username}">XX</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">登出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="m-auto">
+        <video src="">
+
+        </video>
+    </div>
+
+    <footer class="py-3" style="margin-top: 10vh">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-column flex-md-row border-bottom pb-2">
+                <ul class="nav order-2 order-md-1">
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/SteveMiller233/LabManagementSystem">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://blog.krofin.icu">KroFin.icu</a></li>
+                </ul>
+                <h5 class="mr-0 mr-md-5 mb-0 order-1 order-md-2">IOTDreamClub</h5>
+                <ul class="nav order-3 order-md-3">
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/SteveMiller233/LabManagementSystem/blob/master/README.md">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://www.apache.org/licenses/LICENSE-2.0.txt">Licenses</a></li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <p class="mb-0 mt-2 small text-muted">&copy; 2020 IOTDreamClub. All right reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    // $(function() {
+    //     var height=document.documentElement.clientHeight;
+    //     document.getElementById('iframe-page-content').style.height=height+'px';
+    // });
+    var menuClick = function(menuUrl) {
+        $("#iframe-page-content").attr('src',menuUrl);
+    };
+
+</script>
+</body>
+</html>
