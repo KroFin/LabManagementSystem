@@ -62,6 +62,9 @@
     <select id="findDeviceIdByLendOrderId" resultType="java.lang.Long">
         select lend_id from tb_device_lend where lend_order_id = #{lendOrderId}
     </select>
+    <select id="selectAllByPage" resultType="com.iotdreamclub.demo.entity.DeviceInfo">
+        select * from tb_device_info
+    </select>
     <insert id="addDeviceLendInfo">
         insert tb_device_lend value (#{lendId},#{lendPeople},#{lendDevice},#{lendTime},#{lendOrderId})
     </insert>

@@ -14,6 +14,9 @@
     </style>
 </head>
 <body onload="setparentheight()">
+                    <div>
+                        <button id="btn_add" class="btn btn-primary" th:if="${session.limit} == 1" style="margin-bottom: 10px;">添加新的设备</button>
+                    </div>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -36,29 +39,64 @@
                         </thead>
                         <tbody>
 
-                        <tr th:each="deviceInfos:${deviceInfo}">
-                            <td th:text="${deviceInfos.deviceName}">
-                                TB - Monthly
-                            </td>
-                            <td th:text="${deviceInfos.deviceType}">
-                                01/04/2012
-                            </td>
-                            <td th:text="${deviceInfos.deviceNumber}" class="deviceNumber">
-                                Default
-                            </td>
-                            <td th:text="${deviceInfos.deviceComment}">
-                                XX
-                            </td>
-                            <td>
-                                <a th:href="${'/CDI/'+deviceInfos.deviceId}" th:if="${session.limit} == 1" onclick="reloadPage()">修改</a>
-                                <a th:href="${'/deleteDevice/'+deviceInfos.deviceId}" th:if="${session.limit} == 1">删除</a>
-                                <a th:href="${'/borrowDevice/'+deviceInfos.deviceId}" th:if="${session.limit} != 1">借用</a>
-                            </td>
-                        </tr>
+<!--                        <tr th:each="deviceInfos:${deviceInfo}">-->
+<!--                            <td th:text="${deviceInfos.deviceName}">-->
+<!--                                TB - Monthly-->
+<!--                            </td>-->
+<!--                            <td th:text="${deviceInfos.deviceType}">-->
+<!--                                01/04/2012-->
+<!--                            </td>-->
+<!--                            <td th:text="${deviceInfos.deviceNumber}" class="deviceNumber">-->
+<!--                                Default-->
+<!--                            </td>-->
+<!--                            <td th:text="${deviceInfos.deviceComment}">-->
+<!--                                XX-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <a th:href="${'/CDI/'+deviceInfos.deviceId}" th:if="${session.limit} == 1" onclick="reloadPage()">修改</a>-->
+<!--                                <a th:href="${'/deleteDevice/'+deviceInfos.deviceId}" th:if="${session.limit} == 1">删除</a>-->
+<!--                                <a th:href="${'/borrowDevice/'+deviceInfos.deviceId}" th:if="${session.limit} != 1">借用</a>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+
+                            <tr th:each="deviceInfo:${deviceInfos}">
+                                <td th:text="${deviceInfo.deviceName}">
+                                    TB - Monthly
+                                </td>
+                                <td th:text="${deviceInfo.deviceType}">
+                                    01/04/2012
+                                </td>
+                                <td th:text="${deviceInfo.deviceNumber}" class="deviceNumber">
+                                    Default
+                                </td>
+                                <td th:text="${deviceInfo.deviceComment}">
+                                    XX
+                                </td>
+                                <td>
+                                    <a th:href="${'/CDI/'+deviceInfo.deviceId}" th:if="${session.limit} == 1" onclick="reloadPage()">修改</a>
+                                    <a th:href="${'/deleteDevice/'+deviceInfo.deviceId}" th:if="${session.limit} == 1">删除</a>
+                                    <a th:href="${'/borrowDevice/'+deviceInfo.deviceId}" th:if="${session.limit} != 1">借用</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
 
-                    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} == 1">添加新的设备</button>
+                    <div>
+                        <div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item" th:if="${pageInfo.hasPreviousPage}">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true" th:href="'showDeviceTable?pageNum='+${pageInfo.prePage}">Previous</a>
+                                    </li>
+                                    <li class="page-item" th:each="nav:${pageInfo.navigatepageNums}">
+                                        <a class="page-link" href="#" th:href="'showDeviceTable?pageNum='+${nav}" th:text="${nav}">1</a>
+                                    <li class="page-item" th:if="${pageInfo.hasNextPage}">
+                                        <a class="page-link" href="#" th:href="'showDeviceTable?pageNum='+${pageInfo.nextPage}">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
 
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
@@ -105,27 +143,6 @@
         $('#myModal').modal();
     });
 
-
-
-    // function deleteItem() {
-    //     var serializeArray = $("#addnewdevice").serializeArray();
-    //     $.ajax({
-    //         type:"POST",
-    //         dataType:"json",
-    //         url:"/deleteDevice",
-    //         data:serializeArray,
-    //         success: function (result) {
-    //             console.log(result);
-    //             if (result.resultCode === 200){
-    //                 alert("SUCCESS")
-    //             }
-    //         },
-    //         error: function () {
-    //             reloadPage()
-    //         }
-    //     });
-    // }
-
     function subm(){
         var serializeArray = $("#addnewdevice").serializeArray();
         $.ajax({
@@ -165,8 +182,5 @@
 
 
     });
-        function setparentheight(){
-            parent.document.all(self.name).height=document.body.scrollHeight;
-        }
 </script>
 </html>

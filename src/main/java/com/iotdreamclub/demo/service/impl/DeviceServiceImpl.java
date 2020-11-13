@@ -76,4 +76,9 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper,DeviceInfo> impl
     public void addDeviceNumber(Long lendId) {
         deviceMapper.addDeviceNumber(lendId);
     }
+
+    @Override
+    public List<DeviceInfo> selectAllByPage(Integer pageNum, Integer pageSize) {
+        return deviceMapper.selectAllByPage();
+    }
 }

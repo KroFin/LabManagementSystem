@@ -54,19 +54,19 @@
             url:"/insertLendInfo",
             data:serializeArray,
             success: function (result) {
-                if (result === '0'){
+                if (result === "0"){
                     window.location.href = "index_device_table.html"
                 }
             },
             error:function (result) {
-                if(result === '0'){
+                console.log(result);
+                if (result === "0"){
                     window.location.href = "index_device_table.html"
                 }
             }
         });
         window.location.href = "index_device_table.html";
     }
-
     function setparentheight(){
         parent.document.all(self.name).height=document.body.scrollHeight;
     }

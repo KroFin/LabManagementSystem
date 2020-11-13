@@ -30,3 +30,7 @@ function getCookie(cname) {
     return "";
 }
 
+function setparentheight(){
+    parent.document.all(self.name).height=document.body.scrollHeight + 20;
+}
+

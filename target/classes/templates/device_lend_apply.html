@@ -53,16 +53,20 @@
             dataType:"json",
             url:"/insertLendInfo",
             data:serializeArray,
-            success: function () {
-                window.location.href = "index_device_table.html";
+            success: function (result) {
+                if (result === "0"){
+                    window.location.href = "index_device_table.html"
+                }
             },
-            error:function () {
-
+            error:function (result) {
+                console.log(result);
+                if (result === "0"){
+                    window.location.href = "index_device_table.html"
+                }
             }
         });
         window.location.href = "index_device_table.html";
     }
-
     function setparentheight(){
         parent.document.all(self.name).height=document.body.scrollHeight;
     }

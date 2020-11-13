@@ -1,6 +1,7 @@
 package com.iotdreamclub.demo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.pagehelper.PageInfo;
 import com.iotdreamclub.demo.entity.DeviceInfo;
 import com.iotdreamclub.demo.entity.DeviceLend;
 
@@ -21,4 +22,6 @@ public interface DeviceService extends IService<DeviceInfo> {
     Long findDeviceIdByLendOrderId(Long lendOrderId);
     void deleteDeviceLendInfo(Long lendId);
     void addDeviceNumber(Long lendId);
+
+    List<DeviceInfo> selectAllByPage(Integer pageNum, Integer pageSize);
 }

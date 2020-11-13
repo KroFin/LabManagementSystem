@@ -1,6 +1,7 @@
 package com.iotdreamclub.demo.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.pagehelper.PageInfo;
 import com.iotdreamclub.demo.entity.DeviceInfo;
 import com.iotdreamclub.demo.entity.DeviceLend;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,6 @@ public interface DeviceMapper extends BaseMapper<DeviceInfo> {
     void deleteDeviceLendInfo(Long lendId);
     Long findDeviceIdByLendOrderId(Long lendOrderId);
     void addDeviceNumber(Long lendId);
+
+    List<DeviceInfo> selectAllByPage();
 }
