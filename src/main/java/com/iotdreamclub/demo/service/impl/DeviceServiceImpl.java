@@ -7,6 +7,7 @@ import com.iotdreamclub.demo.entity.DeviceLend;
 import com.iotdreamclub.demo.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Date;
 import java.util.List;
@@ -80,5 +81,16 @@ public class DeviceServiceImpl extends ServiceImpl<DeviceMapper,DeviceInfo> impl
     @Override
     public List<DeviceInfo> selectAllByPage(Integer pageNum, Integer pageSize) {
         return deviceMapper.selectAllByPage();
+    }
+
+    @Override
+    public List<DeviceInfo> selectAllByKeyword(String searchContent, String searchKeywords) {
+        DeviceInfo deviceInfo = new DeviceInfo();
+        if (searchKeywords.equals("deviceName")){
+            deviceInfo.setDeviceName(searchContent);
+        }else if (searchKeywords.equals("deviceType")){
+            deviceInfo.setDeviceType(searchContent);
+        }
+        return deviceMapper.selectAllByKeyword(deviceInfo);
     }
 }

@@ -65,6 +65,15 @@
     <select id="selectAllByPage" resultType="com.iotdreamclub.demo.entity.DeviceInfo">
         select * from tb_device_info
     </select>
+    <select id="selectAllByKeyword" resultType="com.iotdreamclub.demo.entity.DeviceInfo">
+        select * from tb_device_info  where 1=1
+            <if test="deviceName != null and deviceName != ''">
+                and device_name like CONCAT('%',#{deviceName , jdbcType=VARCHAR},'%')
+            </if>
+            <if test="deviceType != null and deviceType != ''">
+                and device_type like CONCAT('%',#{deviceType , jdbcType=VARCHAR},'%')
+            </if>
+    </select>
     <insert id="addDeviceLendInfo">
         insert tb_device_lend value (#{lendId},#{lendPeople},#{lendDevice},#{lendTime},#{lendOrderId})
     </insert>

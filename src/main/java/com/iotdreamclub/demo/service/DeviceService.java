@@ -24,4 +24,5 @@ public interface DeviceService extends IService<DeviceInfo> {
     void addDeviceNumber(Long lendId);
 
     List<DeviceInfo> selectAllByPage(Integer pageNum, Integer pageSize);
+    List<DeviceInfo> selectAllByKeyword(String searchContent, String searchKeywords);
 }

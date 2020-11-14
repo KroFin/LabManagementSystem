@@ -13,7 +13,26 @@ public class DeviceInfo {
   private int deviceNumber;
   private String deviceComment;
 
+  private String searchKeywords;
+  private String searchContent;
+
   private DeviceLend deviceLend;
+
+  public String getSearchContent() {
+    return searchContent;
+  }
+
+  public void setSearchContent(String searchContent) {
+    this.searchContent = searchContent;
+  }
+
+  public String getSearchKeywords() {
+    return searchKeywords;
+  }
+
+  public void setSearchKeywords(String searchKeywords) {
+    this.searchKeywords = searchKeywords;
+  }
 
   public DeviceLend getDeviceLend() {
     return deviceLend;

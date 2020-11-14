@@ -26,4 +26,5 @@ public interface DeviceMapper extends BaseMapper<DeviceInfo> {
     void addDeviceNumber(Long lendId);
 
     List<DeviceInfo> selectAllByPage();
+    List<DeviceInfo> selectAllByKeyword(DeviceInfo deviceInfo);
 }

@@ -3,7 +3,6 @@ package com.iotdreamclub.demo.controller;
 import com.iotdreamclub.demo.entity.DeviceInfo;
 import com.iotdreamclub.demo.service.DeviceService;
 import com.iotdreamclub.demo.service.FunctionService;
-import org.apache.ibatis.transaction.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -164,5 +163,13 @@ public class DeviceController {
             e.printStackTrace();
         }
         return "index_device_lend";
+    }
+
+    @RequestMapping("searchDevice")
+    public String searchDevice(@RequestParam String searchContent ,@RequestParam String searchKeywords, Model model){
+        System.out.println(searchContent);
+        List<DeviceInfo> deviceInfoList = deviceService.selectAllByKeyword(searchContent,searchKeywords);
+        model.addAttribute("deviceInfoLists",deviceInfoList);
+        return "index_device_searchDetail";
     }
 }

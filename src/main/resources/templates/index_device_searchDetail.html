@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+</head>
+<body onload="setparentheight()">
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>
+            设备名称
+        </th>
+        <th>
+            设备类型
+        </th>
+        <th>
+            设备数量
+        </th>
+        <th>
+            注释
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="deviceInfo:${deviceInfoLists}">
+        <td th:text="${deviceInfo.deviceName}">
+            TB - Monthly
+        </td>
+        <td th:text="${deviceInfo.deviceType}">
+            01/04/2012
+        </td>
+        <td th:text="${deviceInfo.deviceNumber}" class="deviceNumber">
+            Default
+        </td>
+        <td th:text="${deviceInfo.deviceComment}">
+            XX
+        </td>
+        <td>
+            <a th:href="${'/CDI/'+deviceInfo.deviceId}" th:if="${session.limit} == 1" onclick="reloadPage()">修改</a>
+            <a th:href="${'/deleteDevice/'+deviceInfo.deviceId}" th:if="${session.limit} == 1">删除</a>
+            <a th:href="${'/borrowDevice/'+deviceInfo.deviceId}" th:if="${session.limit} != 1">借用</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+<script src="../static/js/script.js"></script>
+</html>
