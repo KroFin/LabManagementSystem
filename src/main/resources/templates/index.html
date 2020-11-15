@@ -78,49 +78,44 @@
 
     </div>
 
-    <div style="margin-top: 25px">
+    <div style="margin-top: 25px" class="container" onload="SetWinHeight(this)">
         <div class="row">
-            <div class="col-1">
-
-            </div>
-            <div class="row col-10">
-                <div class="col-lg-2">
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="menuClick('showDeviceTable')">
-                            设备管理
-                        </a>
-                        <a th:if="${session.limit} == 1 or ${session.limit} == 3" class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-profile" aria-selected="false" onclick="menuClick('member_management')">
-                            人员管理
-                        </a>
-                        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false" onclick="menuClick('persional_info_change/{username}')">
-                            个人信息管理
-                        </a>
-                        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="menuClick('economics_management')">
-                            账目查询
-                        </a>
-                        <a th:if="${session.limit} != 2" class="nav-link" id="v-pills-match-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="menuClick('index_match_management')">
-                            竞赛账目记录
-                        </a>
-                        <a th:if="${session.limit} == 1" class="nav-link" id="v-pills-device-lend" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="menuClick('select_all_lend_info')">
-                            设备借用查询
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row col-lg-10 container-fluid">
-                    <!--                    <iframe id="iframe-page-content" src="/device_change" width="100%" frameborder="no" border="0" marginwidth="0"-->
-                    <!--                            marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>-->
-                    <iframe src="/showDeviceTable" id="iframe-page-content" name="iframe-page-content" frameborder="0"  hspace="0" vspace="0"
-                            style="padding: 0; margin: 0;border: 0; width: 100%"></iframe>
+            <div class="col-lg-2">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="menuClick('showDeviceTable')">
+                        设备管理
+                    </a>
+                    <a th:if="${session.limit} == 1 or ${session.limit} == 3" class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-profile" aria-selected="false" onclick="menuClick('member_management')">
+                        人员管理
+                    </a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false" onclick="menuClick('persional_info_change/{username}')">
+                        个人信息管理
+                    </a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="menuClick('economics_management')">
+                        账目查询
+                    </a>
+                    <a th:if="${session.limit} != 2" class="nav-link" id="v-pills-match-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="menuClick('index_match_management')">
+                        竞赛账目记录
+                    </a>
+                    <a th:if="${session.limit} == 1" class="nav-link" id="v-pills-device-lend" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="menuClick('select_all_lend_info')">
+                        设备借用查询
+                    </a>
+                    <a class="nav-link" id="v-pills-file_upload" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="menuClick('toFileUploadPage')">
+                        文件共享
+                    </a>
                 </div>
             </div>
-            <div class="col-1">
 
+            <div class="row col-lg-10 container-fluid">
+                <!--                    <iframe id="iframe-page-content" src="/device_change" width="100%" frameborder="no" border="0" marginwidth="0"-->
+                <!--                            marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>-->
+                <iframe src="/showDeviceTable" id="iframe-page-content" name="iframe-page-content" frameborder="0"  hspace="0" vspace="0"
+                        style="padding: 0; margin: 0;border: 0; width: 100%"></iframe>
             </div>
         </div>
     </div>
 
-    <footer class="py-3">
+    <footer class="py-3 container">
         <div class="text-center">
             <div class="d-flex justify-content-between align-items-center flex-column flex-md-row border-bottom pb-2">
                 <ul class="nav order-2 order-md-1">
@@ -149,7 +144,28 @@
     // $(function() {
     //     var height=document.documentElement.clientHeight;
     //     document.getElementById('iframe-page-content').style.height=height+'px';
-    // });
+    // }
+
+    function SetWinHeight(obj)
+    {
+        var win=obj;
+        if (document.getElementById)
+        {
+            if (win && !window.opera)
+            {
+                if (win.contentDocument && win.contentDocument.body.offsetHeight)
+                {
+                    if(win.contentDocument.body.offsetHeight<1080){
+                        win.height = 1080;//设置最小高度
+                    }else{
+                        win.height = win.contentDocument.body.offsetHeight;
+                    }
+                }
+                else if(win.Document && win.Document.body.scrollHeight)
+                    win.height = win.Document.body.scrollHeight;
+            }
+        }
+    }
 
     var menuClick = function(menuUrl) {
         $("#iframe-page-content").attr('src', menuUrl);

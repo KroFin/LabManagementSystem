@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotdreamclub.demo.dao.FileMapper">
+    <resultMap id="fileMap" type="com.iotdreamclub.demo.entity.FileUpload">
+        <result property="fileId" column="file_id"/>
+        <result property="fileName" column="file_name"/>
+        <result property="fileDate" column="file_date"/>
+        <result property="fileUploader" column="file_uploader"/>
+        <result property="fileUrl" column="file_url"/>
+    </resultMap>
+    <insert id="insertFileDetail">
+        insert tb_file_upload values (#{fileId}, #{fileName}, NOW(), #{fileUploader} ,#{fileUrl})
+    </insert>
+    <select id="selectAllFile" resultType="com.iotdreamclub.demo.entity.FileUpload">
+        select * from tb_file_upload
+    </select>
+</mapper>

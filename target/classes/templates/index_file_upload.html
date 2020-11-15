@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+    <style type="text/css">
+
+        .modal-backdrop {
+            opacity: 0 !important;
+            filter: alpha(opacity=0) !important;
+        }
+
+    </style>
+    <script src="../static/js/fileinput.js"></script>
+</head>
+<body onload="setparentheight()">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>文件名</th>
+            <th>上传用户</th>
+            <th>上传时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="fileUpload:${fileUploads}">
+            <td th:text="${fileUpload.fileName}">Tanmay</td>
+            <td th:text="${fileUpload.fileUploader}">Bangalore</td>
+            <td th:text="${fileUpload.fileDate}">560001</td>
+            <td>
+                <a th:href="${'/deleteMatchBillInfo/'}">下载</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} == 1 or ${session.limit} == 4">上传新的文件</button>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                </div>
+                <form class="modal-body" action="/fileUpload" method="post" id="fileUpload" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input id="add_file" type="file" name="file_upload" multiple>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                        <button onclick='document.getElementById("fileUpload").submit()' id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    $("#btn_add").click(function () {
+        $("#myModalLabel").text("");
+        $('#myModal').modal();
+    });
+
+    // function subm(){
+    //     var file_obj = document.getElementById('add_file').file[0];
+    //     var formdata = new FormData;
+    //     formdata.append("file", file_obj);
+    //     var serializeArray = $("#fileUpload").serializeArray();
+    //     $.ajax({
+    //         type:"POST",
+    //         url:"/fileUpload",
+    //         data:formdata,
+    //         contentType:"multipart",
+    //         success: function (result) {
+    //             console.log(result);
+    //             if (result.resultCode === 200){
+    //                 alert("SUCCESS")
+    //             }
+    //         },
+    //     });
+    // }
+
+    // function setparentheight(){
+    //     var modalHeight = document.getElementById("#myModal");
+    //     parent.document.all(self.name).height=document.body.scrollHeight + modalHeight.height;
+    // }
+</script>
+</html>

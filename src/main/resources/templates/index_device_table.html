@@ -18,14 +18,14 @@
         <div class="form-group">
             <input id="searchContent" type="text" class="form-control" name="searchContent" placeholder="搜索内容">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="margin-left: 10px">
             <input id="searchKeywords" class="form-control" type="text" name="searchKeywords" list="deviceSearchList" placeholder="搜索条件">
             <datalist id="deviceSearchList">
                 <option value="deviceName">设备名称</option>
                 <option value="deviceType">设备类型</option>
             </datalist>
         </div>
-        <button class="btn btn-primary" type="submit">搜索</button>
+        <button class="btn btn-primary" type="submit" style="margin-left: 10px">搜索</button>
     </form>
 
     <table class="table table-bordered">
@@ -130,6 +130,8 @@
 <script src="../static/js/script.js"></script>
 
 <script type="text/javascript">
+
+
 
     $("#btn_add").click(function () {
         $("#myModalLabel").text("");

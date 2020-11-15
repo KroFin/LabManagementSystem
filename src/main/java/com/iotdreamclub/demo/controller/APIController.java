@@ -24,13 +24,9 @@ public class APIController {
     @Autowired
     private UserService userService;
 
-    private int pageCount;
-
-    private int pageLimit;
-
     @PostMapping("/getDeviceInfoAPI")
-    public String getDeviceInfoAPI(HttpServletResponse response) {
-        response.getHeader("DeviceInfo");
+    public String getDeviceInfoAPI(HttpServletResponse response , JSONObject jsonObject) {
+
         return "";
     }
 

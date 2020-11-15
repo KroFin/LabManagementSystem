@@ -33,6 +33,9 @@ public class indexController {
 
     @Autowired
     private MatchBillService matchBillService;
+    
+    @Autowired
+    private FileService fileService;
 
     @RequestMapping("index")
     public String hello(HttpSession session , Model model){
@@ -135,6 +138,13 @@ public class indexController {
         List<DeviceLend> deviceLend = deviceService.selectAllLendInfo();
         model.addAttribute("deviceLends",deviceLend);
         return "index_device_lend";
+    }
+
+    @RequestMapping("toFileUploadPage")
+    public String toFileUploadPage(Model model){
+        List<FileUpload> fileUpload = fileService.selectAllFile();
+        model.addAttribute("fileUploads",fileUpload);
+        return "index_file_upload";
     }
 
 }

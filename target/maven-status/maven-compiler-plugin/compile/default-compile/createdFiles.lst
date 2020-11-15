@@ -1,6 +1,7 @@
 com\iotdreamclub\demo\service\impl\MatchServiceImpl.class
 com\iotdreamclub\demo\service\impl\DeviceServiceImpl.class
 com\iotdreamclub\demo\service\impl\UserServiceImpl.class
+com\iotdreamclub\demo\config\FtpConfig.class
 com\iotdreamclub\demo\dao\UserDao.class
 com\iotdreamclub\demo\entity\RoleModule.class
 com\iotdreamclub\demo\controller\PageController.class
@@ -8,14 +9,19 @@ com\iotdreamclub\demo\entity\MatchBillInfo.class
 com\iotdreamclub\demo\service\impl\RoleModuleServiceImpl.class
 com\iotdreamclub\demo\service\RoleModuleService.class
 com\iotdreamclub\demo\dao\DeviceMapper.class
+com\iotdreamclub\demo\service\FileService.class
+com\iotdreamclub\demo\utils\UploadUtils.class
 com\iotdreamclub\demo\service\UserService.class
 com\iotdreamclub\demo\service\impl\RoleServiceImpl.class
 com\iotdreamclub\demo\service\RoleService.class
+com\iotdreamclub\demo\dao\FileMapper.class
 com\iotdreamclub\demo\controller\MatchController.class
 com\iotdreamclub\demo\controller\UserController.class
 com\iotdreamclub\demo\controller\indexController.class
 com\iotdreamclub\demo\service\MatchService.class
 com\iotdreamclub\demo\entity\DeviceLend.class
+com\iotdreamclub\demo\service\impl\FileServiceImpl.class
+com\iotdreamclub\demo\controller\FileController.class
 com\iotdreamclub\demo\dao\RoleMapper.class
 com\iotdreamclub\demo\service\BillService.class
 com\iotdreamclub\demo\DemoApplication.class
@@ -27,8 +33,10 @@ com\iotdreamclub\demo\dao\BillMapper.class
 com\iotdreamclub\demo\entity\DeviceInfo.class
 com\iotdreamclub\demo\controller\BillController.class
 com\iotdreamclub\demo\service\impl\MatchBillServiceImpl.class
+com\iotdreamclub\demo\controller\MailController.class
 com\iotdreamclub\demo\entity\Match.class
 com\iotdreamclub\demo\service\impl\FunctionServiceImpl.class
+com\iotdreamclub\demo\utils\FTPUtil.class
 com\iotdreamclub\demo\service\FunctionService.class
 com\iotdreamclub\demo\service\impl\BillServiceImpl.class
 com\iotdreamclub\demo\controller\APIController.class
@@ -36,6 +44,7 @@ com\iotdreamclub\demo\service\MatchBillService.class
 com\iotdreamclub\demo\controller\DeviceController.class
 com\iotdreamclub\demo\dao\MatchBillMapper.class
 com\iotdreamclub\demo\entity\Bill.class
+com\iotdreamclub\demo\entity\FileUpload.class
 com\iotdreamclub\demo\config\ShiroConfig.class
 com\iotdreamclub\demo\entity\Role.class
 com\iotdreamclub\demo\dao\MatchMapper.class

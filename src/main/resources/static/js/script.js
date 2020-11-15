@@ -31,6 +31,13 @@ function getCookie(cname) {
 }
 
 function setparentheight(){
-    parent.document.all(self.name).height=document.body.scrollHeight + 20;
+
+    var bodyHeight = document.body.scrollHeight + 20;
+
+    if (bodyHeight <= 420){
+        parent.document.all(self.name).height=420;
+    } else {
+        parent.document.all(self.name).height=bodyHeight;
+    }
 }
 
