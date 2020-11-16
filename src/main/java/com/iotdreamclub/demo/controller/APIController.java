@@ -25,9 +25,15 @@ public class APIController {
     private UserService userService;
 
     @PostMapping("/getDeviceInfoAPI")
-    public String getDeviceInfoAPI(HttpServletResponse response , JSONObject jsonObject) {
-
-        return "";
+    @ResponseBody
+    public int getDeviceInfoAPI(HttpServletRequest request , @RequestParam JSONObject jsonObject) {
+        String device = jsonObject.get("id").toString();
+        String deviceName = jsonObject.get("name").toString();
+        jsonObject.getJSONObject("type");
+        jsonObject.getJSONObject("0/1");
+        //return 0/1 失败/成功
+        System.out.println("穿透成功");
+        return 1;
     }
 
     @RequestMapping("/returnLoginInfo")

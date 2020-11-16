@@ -31,7 +31,7 @@
             <td th:text="${fileUpload.fileUploader}">Bangalore</td>
             <td th:text="${fileUpload.fileDate}">560001</td>
             <td>
-                <a th:href="${'/deleteMatchBillInfo/'}">下载</a>
+                <a th:href="${'http://49.234.181.182:8090/' + fileUpload.fileName}">下载</a>
             </td>
         </tr>
         </tbody>
@@ -46,7 +46,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel"></h4>
                 </div>
-                <form class="modal-body" action="/fileUpload" method="post" id="fileUpload" enctype="multipart/form-data">
+                <form class="modal-body" action="/zuul/fileUpload" method="post" id="fileUpload" enctype="multipart/form-data">
                     <div class="form-group">
                         <input id="add_file" type="file" name="file_upload" multiple>
                     </div>
