@@ -49,10 +49,16 @@
 
               <span id="password_error" style="margin: 0;padding: 0" ></span>
 
-              <label class="sr-only" for="input4-signin-02">系统注册邀请码</label>
-              <input class="form-control my-3 bg-light" id="input4-signin-02" type="text" placeholder="系统注册邀请码" name="registerPassword">
+              <div class="row d-flex" style="margin: 0;padding: 0">
+                <label class="sr-only" for="input4-signin-02">手机号码</label>
+                <input class="form-control bg-light col-8" style="display: inline"  maxlength="11" id="input4-signin-02" type="text" placeholder="手机号码" name="userPhone">
+                <button class="btn btn-primary col-4" style="display: inline;" id="submitVerifyNum" onclick="">验证码发送</button>
+              </div>
 
-              <span id="registerPassword_error" style="margin: 0;padding: 0"></span>
+              <label class="sr-only" for="smsCode">验证码</label>
+              <input class="form-control my-3 bg-light" id="smsCode" type="text" placeholder="验证码" name="verifyNumber" onblur="checkSmsCode()">
+
+              <span id="verifyNumber_error" style="margin: 0;padding: 0"></span>
 
               <div class="d-flex">
                 <button class="btn btn-primary btn-block py-2 mt-0" type="submit">注册</button>
@@ -88,6 +94,41 @@
   <script src="../static/js/popper/popper.min.js"></script>
   <script src="../static/js/bootstrap/bootstrap.min.js"></script>
   <script type="text/javascript">
+
+    function sendVerifyNum() {
+      let userPhone = $("#input4-signin-02").val();
+      $.ajax({
+        cache:false,
+        type:'POST',
+        dataType: 'text',
+        url:"/sendVerifyNumber?userPhone=" + userPhone,
+        success:function (resp) {
+
+        }
+      })
+    }
+
+    function checkSmsCode() {
+      let smsCode = $("#smsCode").val();
+      // 发送请求校验
+      let flag=true;
+      $.get({
+        url:"/checkCode?smsCode="+smsCode,
+        success:function(resp){
+          // alert(resp)
+          if(resp !== "ok"){
+            // 错误
+            $("#verifyNumber_error").html("验证码过期或错误，请重新输入！");
+            flag= false;
+          }else {
+            flag= true;
+            $(".verifyNumber").css("display","none");
+          }
+        },
+      });
+      return flag;
+    }
+
     function ifUserNameIsExisted() {
 
       let username = $("#input2-signin-02").val();

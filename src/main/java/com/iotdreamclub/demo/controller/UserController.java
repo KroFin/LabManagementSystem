@@ -1,6 +1,7 @@
 package com.iotdreamclub.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.iotdreamclub.demo.config.RedisConfig;
 import com.iotdreamclub.demo.entity.JsonResult;
 import com.iotdreamclub.demo.entity.Role;
 import com.iotdreamclub.demo.entity.User;
@@ -14,6 +15,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -154,7 +156,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "register",method = RequestMethod.POST)
-    public String register(Model model, String username , String password ,String registerPassword,HttpServletResponse response) throws IOException {
+    public String register(Model model, String username , String password ,HttpServletResponse response) throws IOException {
         User user = userService.selectUserByName(username);
         if (user != null ){
             //model.addAttribute("msg","用户名已存在");
@@ -163,17 +165,6 @@ public class UserController {
             out.flush();
             out.println("<script>");
             out.println("alert('用户名已存在');");
-            out.println("history.back();");
-            out.println("</script>");
-            return "forward:/register.html";
-        }
-        if (!registerPassword.equals("IOTDreamClub.")){
-            model.addAttribute("msg","注册密码出错，无法注册");
-            response.setContentType("text/html; charset=UTF-8"); //转码
-            PrintWriter out = response.getWriter();
-            out.flush();
-            out.println("<script>");
-            out.println("alert('注册密码出错，无法注册');");
             out.println("history.back();");
             out.println("</script>");
             return "forward:/register.html";
@@ -192,5 +183,33 @@ public class UserController {
             return "0";
         }
         return "1";
+    }
+
+    @RequestMapping("sendVerifyNumber")
+    @ResponseBody
+    public void sendVerifyNumber(@RequestParam String userPhone){
+        try {
+            userService.sendSMSCode(userPhone);
+            // 暂时把生成的验证码放在sesion域对象,后期会使用redis
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("验证码发送失败！");
+        }
+    }
+
+    @RequestMapping("/checkCode")
+    @ResponseBody
+    public String checkCode(String smsCode) {
+        RedisTemplate redisTemplate = RedisConfig.getRedisTemplate();
+        Object o = redisTemplate.opsForValue().get("smscode");
+        if(o==null){
+            return "验证码过期";  // 表示验证码过期
+        }else {
+            if(smsCode.equals(o)){
+                return "ok";  // 表示验证码没有问题
+            }else {
+                return "验证码错误";  // 表示验证码错误
+            }
+        }
     }
 }
