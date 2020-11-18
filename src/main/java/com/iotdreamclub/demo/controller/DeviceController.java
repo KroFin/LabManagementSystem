@@ -93,7 +93,7 @@ public class DeviceController {
     public String deleteDevice(@PathVariable Long deviceId ,HttpServletResponse response){
         deviceService.deleteDevice(deviceId);
         try {
-            response.sendRedirect("/device_change");
+            response.sendRedirect("/showDeviceTable?pageNum=1");
         }catch (Exception e){
             e.printStackTrace();
         }

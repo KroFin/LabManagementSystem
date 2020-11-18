@@ -6,8 +6,6 @@ import com.iotdreamclub.demo.service.FileService;
 import com.iotdreamclub.demo.service.FunctionService;
 import com.iotdreamclub.demo.service.impl.FunctionServiceImpl;
 import com.iotdreamclub.demo.utils.FTPUtil;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;

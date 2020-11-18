@@ -47,6 +47,8 @@ public class ShiroConfig {
         map.put("/register","anon");
         map.put("/api/getDeviceInfoAPI","anon");
         map.put("api/getDeviceInfoAPI","anon");
+        map.put("userNameExisted","anon");
+        map.put("/userNameExisted","anon");
         map.put("login","anon");
         map.put("register","anon");
         map.put("/static/**","anon");

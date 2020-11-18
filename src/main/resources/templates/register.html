@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>IOT实验室综合管理系统-注册</title>
+    <base th:href="${#request.getContextPath()+'/'}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -37,16 +38,26 @@
       <section >
         <div class="container text-center">
           <div class="row align-items-lg-center justify-content-center" style="height: 80vh">
-            <form class="col-md-5 col-lg-4" method="post" action="/register">
-              <label class="sr-only" for="input2-signin-02">用户名</label>
-              <input class="form-control my-3 bg-light" id="input2-signin-02" type="text" placeholder="用户名" name="username">
+            <form class="col-md-5 col-lg-4" method="post" action="/register" id="register_form">
+              <label class="sr-only" for="input2-signin-02" onblur="ifUserNameIsExisted()">用户名</label>
+              <input class="form-control my-3 bg-light" id="input2-signin-02" type="text" placeholder="用户名" name="username" onblur="ifUserNameIsExisted()">
+
+              <span id="username_error" style="margin: 0;padding: 0"></span>
+
               <label class="sr-only" for="input3-signin-02">密码</label>
-              <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="密码" name="password">
+              <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="密码" name="password" onblur="checkPassword()">
+
+              <span id="password_error" style="margin: 0;padding: 0" ></span>
+
               <label class="sr-only" for="input4-signin-02">系统注册邀请码</label>
               <input class="form-control my-3 bg-light" id="input4-signin-02" type="text" placeholder="系统注册邀请码" name="registerPassword">
+
+              <span id="registerPassword_error" style="margin: 0;padding: 0"></span>
+
               <div class="d-flex">
                 <button class="btn btn-primary btn-block py-2 mt-0" type="submit">注册</button>
               </div>
+
               <p class="text-secondary text-muted mt-3">注册后我们会默认您同意我们的<a href="#">用户守则</a> 和 <a href="#">隐私条例</a>.</p>
             </form>
           </div>
@@ -72,8 +83,65 @@
         </div>
       </footer>
     </div>
-    <script src="../static/js/jquery/jquery.min.js"></script>
-    <script src="../static/js/popper/popper.min.js"></script>
-    <script src="../static/js/bootstrap/bootstrap.min.js"></script>
   </body>
+  <script src="../static/js/jquery/jquery.min.js"></script>
+  <script src="../static/js/popper/popper.min.js"></script>
+  <script src="../static/js/bootstrap/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    function ifUserNameIsExisted() {
+
+      let username = $("#input2-signin-02").val();
+
+      let usernamereg = /^[A-Za-z0-9]{4,15}$/;
+      if(!usernamereg.test(username)){
+        $("#username_error").html("用户名必须是4~15位的字母和数字组成！");
+        $(".username").css("display","block");
+        return false;
+      }
+
+      $.get({
+        cache:false,
+        async:false,
+        type:'POST',
+        dataType:'text',
+        url:"/userNameExisted?username=" + username,
+        success:function (resp) {
+          if (resp === "1"){
+            $("#username_error").html("<div class=\"alert alert-success\">\n" +
+                    "    <strong>用户名可以使用!</strong> \n" +
+                    "  </div>");
+          }else if (resp === "0"){
+            $("#username_error").html("<div class=\"alert alert-danger\">\n" +
+                    "    <strong>用户名已存在!</strong>\n" +
+                    "  </div>");
+          }
+        },
+        error:function (resp) {
+
+        },
+      });
+    }
+
+    function checkPassword() {
+      $("#password_error").html("");
+      // 获取用户输入的用户名值
+      let password = $("#password").val();
+
+      // 对用户输入的密码进行正则校验
+      let pwdreg = /^[A-Za-z0-9]{5,20}$/;
+      if(!pwdreg.test(password)){
+        // 提出提示
+        $("#password_error").html("<div class=\"alert alert-danger\">\n" +
+                "    <strong>密码不符合规范，请输入5-10个字符！</strong>\n" +
+                "  </div>");
+        // 返回，阻止继续向下执行
+        return false;
+      }else {
+        $("#password_error").html("<div class=\"alert alert-success\">\n" +
+                "    <strong>密码符合规范</strong>\n" +
+                "  </div>");
+        return true;
+      }
+    }
+  </script>
 </html>
