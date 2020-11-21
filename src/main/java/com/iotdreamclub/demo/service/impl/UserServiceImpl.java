@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void register(String username, String password) {
-        userDao.register(username,password);
+    public void register(String username, String password ,String userPhone) {
+        userDao.register(username,password,userPhone);
     }
 
     @Override
@@ -39,6 +39,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selectUserByName(String username) {
         return userDao.selectUserByName(username);
+    }
+
+    @Override
+    public User selectUserByPhone(String userPhone) {
+        return userDao.selectUserByPhone(userPhone);
     }
 
     @Override
@@ -68,6 +73,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void sendSMSCode(String userPhone) {
+
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i <6 ; i++) {
             stringBuffer.append(new Random().nextInt(9) + 1);
@@ -80,6 +86,6 @@ public class UserServiceImpl implements UserService {
         // 3、发送成，就直接讲验证码存入Redis中
         RedisTemplate redisTemplate = RedisConfig.getRedisTemplate();
         // 设置短信验证码有效期为1分钟（60s）
-        redisTemplate.opsForValue().set("smscode",code,1, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set("smscode",code,15, TimeUnit.MINUTES);
     }
 }

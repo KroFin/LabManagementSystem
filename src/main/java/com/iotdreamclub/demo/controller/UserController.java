@@ -156,10 +156,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "register",method = RequestMethod.POST)
-    public String register(Model model, String username , String password ,HttpServletResponse response) throws IOException {
-        User user = userService.selectUserByName(username);
-        if (user != null ){
-            //model.addAttribute("msg","用户名已存在");
+    public String register(Model model, String username , String password , String userPhone ,String verifyNumber, HttpServletResponse response) throws IOException {
+        User userByName = userService.selectUserByName(username);
+        if (userByName != null ){
             response.setContentType("text/html; charset=UTF-8"); //转码
             PrintWriter out = response.getWriter();
             out.flush();
@@ -167,11 +166,45 @@ public class UserController {
             out.println("alert('用户名已存在');");
             out.println("history.back();");
             out.println("</script>");
-            return "forward:/register.html";
+            return "forward:/register";
         }
-        userService.register(username,password);
-        model.addAttribute("msg","注册成功出错");
-        return "redirect:/login.html";
+        User userByPhone = userService.selectUserByPhone(userPhone);
+        if (userByPhone != null){
+            response.setContentType("text/html; charset=UTF-8"); //转码
+            PrintWriter out = response.getWriter();
+            out.flush();
+            out.println("<script>");
+            out.println("alert('手机号已存在');");
+            out.println("history.back();");
+            out.println("</script>");
+            return "forward:/register";
+        }
+        RedisTemplate redisTemplate = RedisConfig.getRedisTemplate();
+        Object o = redisTemplate.opsForValue().get("smscode");
+        if(o==null){
+            response.setContentType("text/html; charset=UTF-8"); //转码
+            PrintWriter out = response.getWriter();
+            out.flush();
+            out.println("<script>");
+            out.println("alert('验证码已过期');");
+            out.println("history.back();");
+            out.println("</script>");
+            return "forward:/register";  // 表示验证码过期
+        }else {
+            if(verifyNumber.equals(o)){
+                userService.register(username,password,userPhone);
+                return "redirect:/login";  // 表示验证码没有问题
+            }else {
+                response.setContentType("text/html; charset=UTF-8"); //转码
+                PrintWriter out = response.getWriter();
+                out.flush();
+                out.println("<script>");
+                out.println("alert('验证码错误');");
+                out.println("history.back();");
+                out.println("</script>");
+                return "forward:/register";  // 表示验证码错误
+            }
+        }
     }
 
     @RequestMapping("userNameExisted")
@@ -190,7 +223,6 @@ public class UserController {
     public void sendVerifyNumber(@RequestParam String userPhone){
         try {
             userService.sendSMSCode(userPhone);
-            // 暂时把生成的验证码放在sesion域对象,后期会使用redis
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("验证码发送失败！");

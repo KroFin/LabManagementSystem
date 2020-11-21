@@ -30,7 +30,7 @@ public class SmsUtil {
      * @param code         验证码
      */
     public static void sendSms(String phoneNumbers, String code) {
-        sendSms(phoneNumbers, "IOTDreamClub", "SMS_186395423", "{\"code\":\"" + code + "\"}");
+        sendSms(phoneNumbers, "IOTDreamClub", "SMS_205575326", "{\"code\":\"" + code + "\"}");
     }
 
     /**
@@ -71,6 +71,11 @@ public class SmsUtil {
 
             //hint 此处可能会抛出异常，注意catch
             SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
+
+            if(sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
+                System.out.println("请求成功");
+            }
+
         } catch (Exception e) {
             System.out.println("发送短信失败");
             e.printStackTrace();
@@ -117,6 +122,6 @@ public class SmsUtil {
 
 
     public static void main(String[] args) {
-        sendSms("13717594450", "厚浦旅游网", "SMS_186395423", "{\"code\":\"123456\"}");
+        sendSms("17340526910", "IOTDreamClub", "SMS_205575326", "{\"code\":\"123456\"}");
     }
 }

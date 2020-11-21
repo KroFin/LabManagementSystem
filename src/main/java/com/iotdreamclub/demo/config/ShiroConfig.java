@@ -49,10 +49,15 @@ public class ShiroConfig {
         map.put("api/getDeviceInfoAPI","anon");
         map.put("userNameExisted","anon");
         map.put("/userNameExisted","anon");
+        map.put("sendVerifyNumber","anon");
+        map.put("/sendVerifyNumber","anon");
+        map.put("checkCode","anon");
+        map.put("/checkCode","anon");
         map.put("login","anon");
         map.put("register","anon");
         map.put("/static/**","anon");
         map.put("logout","anon");
+
         map.put("/**","authc");         //拦截其余的所有资源
         factoryBean.setFilterChainDefinitionMap(map); //配置拦截的规则
         return factoryBean;

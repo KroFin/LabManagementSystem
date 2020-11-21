@@ -36,7 +36,22 @@
         </tbody>
     </table>
 
-    <button id="btn_add" class="btn btn-primary" style="float: right" th:if="${session.limit} == 1 or ${session.limit} == 4">添加新的交易记录</button>
+    <div>
+        <button id="btn_add" class="btn btn-primary" style="float: left" th:if="${session.limit} == 1 or ${session.limit} == 4">添加新的交易记录</button>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item" th:if="${pageInfo.hasPreviousPage}">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true" th:href="'economics_management?pageNum='+${pageInfo.prePage}">Previous</a>
+            </li>
+            <li class="page-item" th:each="nav:${pageInfo.navigatepageNums}">
+                <a class="page-link" href="#" th:href="'economics_management?pageNum='+${nav}" th:text="${nav}">1</a>
+            <li class="page-item" th:if="${pageInfo.hasNextPage}">
+                <a class="page-link" href="#" th:href="'economics_management?pageNum='+${pageInfo.nextPage}">Next</a>
+            </li>
+        </ul>
+    </nav>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">

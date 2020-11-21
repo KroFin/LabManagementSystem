@@ -45,14 +45,22 @@
               <span id="username_error" style="margin: 0;padding: 0"></span>
 
               <label class="sr-only" for="input3-signin-02">密码</label>
-              <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="密码" name="password">
+              <input class="form-control my-3 bg-light" id="input3-signin-02" type="password" placeholder="密码" name="password" onchange="checkPassword()">
 
               <span id="password_error" style="margin: 0;padding: 0" ></span>
 
-              <label class="sr-only" for="input4-signin-02">系统注册邀请码</label>
-              <input class="form-control my-3 bg-light" id="input4-signin-02" type="text" placeholder="系统注册邀请码" name="registerPassword">
+              <div class="row d-flex" style="margin: 0;padding: 0">
+                <label class="sr-only" for="input4-signin-02">手机号码</label>
+                <input class="form-control bg-light col-8" style="display: inline"  maxlength="11" id="input4-signin-02" type="text" placeholder="手机号码" name="userPhone">
+<!--                <span class="col-4" style="display: inline;" onclick="sendVerifyNum()" id="submitVerifyNum"><a-->
+<!--                        href="">验证码发送</a></span>-->
+                <input type="button" class="btn btn-primary col-4" style="display: inline;" id="submitVerifyNum" onclick="sendVerifyNum()" value="验证码发送">
+              </div>
 
-              <span id="registerPassword_error" style="margin: 0;padding: 0"></span>
+              <label class="sr-only" for="smsCode">验证码</label>
+              <input class="form-control my-3 bg-light" id="smsCode" type="text" placeholder="验证码" name="verifyNumber" onchange="checkSmsCode()">
+
+              <span id="verifyNumber_error" style="margin: 0;padding: 0"></span>
 
               <div class="d-flex">
                 <button class="btn btn-primary btn-block py-2 mt-0" type="submit">注册</button>
@@ -88,13 +96,89 @@
   <script src="../static/js/popper/popper.min.js"></script>
   <script src="../static/js/bootstrap/bootstrap.min.js"></script>
   <script type="text/javascript">
+
+
+    function time(object){
+
+    }
+
+    // $("#sendVerifyNum").on("click",
+    //         function sendVerifyNum() {
+    //           let userPhone = $("#input4-signin-02").val();
+    //           $.ajax({
+    //             cache:false,
+    //             type:'POST',
+    //             dataType: 'text',
+    //             url:"/sendVerifyNumber?userPhone=" + userPhone,
+    //             success:function (resp) {
+    //
+    //             }
+    //           })
+    //         }
+    // );
+    let flag = 1;
+    let i = 60;
+
+    function countDown() {
+      i = i - 1;
+      document.getElementById('submitVerifyNum').value = "("+ i +")";
+      if (i === 0) {
+        flag = 1;
+        i = 60;
+        $("#submitVerifyNum").attr("disabled",false);
+        document.getElementById('submitVerifyNum').value = "发送验证码";
+        return;
+      }
+      setTimeout(countDown,1000);
+    }
+
+    function sendVerifyNum() {
+      let userPhone = $("#input4-signin-02").val();
+      $('#submitVerifyNum').attr("disabled",true);
+      $.ajax({
+        cache:false,
+        type:'POST',
+        dataType: 'text',
+        url:"/sendVerifyNumber?userPhone=" + userPhone,
+        success:function (resp) {
+
+        }
+      });
+      countDown();
+
+
+    }
+
+    function checkSmsCode() {
+      let smsCode = $("#smsCode").val();
+      // 发送请求校验
+      let flag=true;
+      $.get({
+        url:"/checkCode?smsCode="+smsCode,
+        success:function(resp){
+          // alert(resp)
+          if(resp !== "ok"){
+            // 错误
+            $("#verifyNumber_error").html("验证码过期或错误，请重新输入！");
+            flag= false;
+          }else {
+            flag= true;
+            $(".verifyNumber").css("display","none");
+          }
+        },
+      });
+      return flag;
+    }
+
     function ifUserNameIsExisted() {
 
       let username = $("#input2-signin-02").val();
 
       let usernamereg = /^[A-Za-z0-9]{4,15}$/;
       if(!usernamereg.test(username)){
-        $("#username_error").html("用户名必须是4~15位的字母和数字组成！");
+        $("#username_error").html("<div class=\"alert alert-danger\">\n" +
+                "    <strong>用户名不符合规范，请输入4-15个字符！</strong>\n" +
+                "  </div>");
         $(".username").css("display","block");
         return false;
       }
@@ -117,17 +201,31 @@
           }
         },
         error:function (resp) {
-          if (resp === "1"){
-            $("#username_error").html("<div class=\"alert alert-success\">\n" +
-                    "    <strong>用户名可以使用!</strong> \n" +
-                    "  </div>");
-          }else if (resp === "0"){
-            $("#username_error").html("<div class=\"alert alert-danger\">\n" +
-                    "    <strong>用户名已存在!</strong> \n" +
-                    "  </div>");
-          }
+
         },
       });
+    }
+
+    function checkPassword() {
+      $("#password_error").html("");
+      // 获取用户输入的用户名值
+      let password = $("#password").val();
+
+      // 对用户输入的密码进行正则校验
+      let pwdreg = /^[A-Za-z0-9]{6,16}$/;
+      if(!pwdreg.test(password)){
+        // 提出提示
+        $("#password_error").html("<div class=\"alert alert-danger\">\n" +
+                "    <strong>密码不符合规范，请输入6-16个字符！</strong>\n" +
+                "  </div>");
+        // 返回，阻止继续向下执行
+        return false;
+      }else {
+        $("#password_error").html("<div class=\"alert alert-success\">\n" +
+                "    <strong>密码符合规范，可以使用</strong>\n" +
+                "  </div>");
+        return true;
+      }
     }
   </script>
 </html>

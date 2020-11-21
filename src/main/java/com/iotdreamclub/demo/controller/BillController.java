@@ -34,13 +34,13 @@ public class BillController {
         if (billType == 1){
             float billBalance = billService.sumBillMoney() + billMoney;
             billService.add(billMoney,billType,billComment,billTime,billBalance);
-            response.sendRedirect("/economics_management");
+            response.sendRedirect("/economics_management?pageNum=1");
             return "success";
         }
         billMoney = billMoney - billMoney*2;
         float billBalance = billService.sumBillMoney() + billMoney;
         billService.add(billMoney,billType,billComment,billTime,billBalance);
-        response.sendRedirect("/economics_management");
+        response.sendRedirect("/economics_management?pageNum=1");
         return "success";
     }
 
@@ -59,12 +59,12 @@ public class BillController {
             out.println("alert('权限不足无法操作');");
             out.println("history.back();");
             out.println("</script>");
-            response.sendRedirect("/economics_management");
+            response.sendRedirect("/economics_management?pageNum=1");
         }else {
             billService.deleteBillInfo(billId);
         }
         try {
-            response.sendRedirect("/economics_management");
+            response.sendRedirect("/economics_management?pageNum=1");
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -18,7 +18,7 @@
     </resultMap>
 
     <insert id="register" parameterType="java.lang.String">
-        insert tb_user value (#{username},#{password},null,null,null,'2')
+        insert tb_user value (#{username},#{password},null,#{userPhone},null,'2')
     </insert>
 
     <insert id="insertLoginInfo">
@@ -52,6 +52,9 @@
     </select>
     <select id="selectAll" resultType="com.iotdreamclub.demo.entity.User" parameterType="java.util.ArrayList">
         select * from tb_user
+    </select>
+    <select id="selectUserByPhone" resultType="com.iotdreamclub.demo.entity.User">
+        select * from tb_user where user_phone = #{userPhone}
     </select>
 
 </mapper>

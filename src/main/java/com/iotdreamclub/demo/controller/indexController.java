@@ -104,6 +104,38 @@ public class indexController {
         return "index_device_table";
     }
 
+    //实验室经费管理
+
+    @RequestMapping("economics_management")
+    public String economicsManagement(Model model,
+                                      @RequestParam(defaultValue = "1")Integer pageNum ,
+                                      @RequestParam(defaultValue = "10")Integer pageSize){
+        if(pageNum == null){
+            pageNum = 1;
+        }
+        if(pageNum <= 0){
+            pageNum = 1;
+        }
+        if(pageSize == null){
+            pageSize = 10;
+        }
+        System.out.println("当前页是："+pageNum+"显示条数是："+pageSize);
+
+        PageHelper.startPage(pageNum,pageSize);
+
+        try {
+            List<Bill> bills = billService.selectAll();
+            System.out.println("分页数据："+ bills);
+            PageInfo<Bill> pageInfo = new PageInfo<>(bills,pageSize);
+            model.addAttribute("pageInfo",pageInfo);
+            model.addAttribute("bill",bills);
+        }finally {
+            PageHelper.clearPage();
+        }
+
+        return "index_economics_management";
+    }
+
     //个人信息管理
 
     @RequestMapping("persional_info_change/{username}")
@@ -113,14 +145,7 @@ public class indexController {
         return "index_persional_info_change";
     }
 
-    //实验室经费管理
 
-    @RequestMapping("economics_management")
-    public String economicsManagement(Model model){
-        List<Bill> bills = billService.selectAll();
-        model.addAttribute("bill",bills);
-        return "index_economics_management";
-    }
 
     //竞赛经费管理
 

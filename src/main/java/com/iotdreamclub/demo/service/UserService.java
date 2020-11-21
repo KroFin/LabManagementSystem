@@ -8,9 +8,10 @@ import java.util.List;
 
 public interface UserService {
     User login (String username , String password);
-    void register (String username , String password);
+    void register (String username , String password ,String userPhone);
     void changePersonalInfomation(String username, String password ,String userIdNumber , String userPhone , String userClassName , String userLimit);
     User selectUserByName(String username);
+    User selectUserByPhone(String userPhone);
     User selectLimitByName(String userlimit);
     List<User> selectAll();
 

@@ -97,7 +97,7 @@ public class DeviceController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return " ";
+        return "success";
     }
 
     //普通用户借用设备登记

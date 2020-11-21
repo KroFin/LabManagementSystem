@@ -1,3 +1,4 @@
+E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\config\RedisConfig.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\controller\FileController.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\impl\BillServiceImpl.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\FileUpload.java
@@ -8,12 +9,14 @@ E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\utils\FTPU
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\dao\RoleMapper.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\impl\FunctionServiceImpl.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\impl\RoleModuleServiceImpl.java
+E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\JsonResult.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\impl\UserServiceImpl.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\FileService.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\dao\DeviceMapper.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\impl\MatchServiceImpl.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\User.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\RoleService.java
+E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\config\ShiroRegisterConfig.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\utils\UploadUtils.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\BillService.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\DemoApplication.java
@@ -44,6 +47,7 @@ E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\Fu
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\realm\UserRealm.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\service\MatchBillService.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\controller\APIController.java
+E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\utils\SmsUtil.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\Match.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\entity\MatchBillInfo.java
 E:\大三Java\LabManagementSystem\src\main\java\com\iotdreamclub\demo\dao\MatchMapper.java

@@ -3,6 +3,7 @@ com\iotdreamclub\demo\service\impl\DeviceServiceImpl.class
 com\iotdreamclub\demo\service\impl\UserServiceImpl.class
 com\iotdreamclub\demo\config\FtpConfig.class
 com\iotdreamclub\demo\dao\UserDao.class
+com\iotdreamclub\demo\config\RedisConfig.class
 com\iotdreamclub\demo\entity\RoleModule.class
 com\iotdreamclub\demo\controller\PageController.class
 com\iotdreamclub\demo\entity\MatchBillInfo.class
@@ -18,6 +19,8 @@ com\iotdreamclub\demo\dao\FileMapper.class
 com\iotdreamclub\demo\controller\MatchController.class
 com\iotdreamclub\demo\controller\UserController.class
 com\iotdreamclub\demo\controller\indexController.class
+com\iotdreamclub\demo\entity\JsonResult.class
+com\iotdreamclub\demo\config\ShiroRegisterConfig.class
 com\iotdreamclub\demo\service\MatchService.class
 com\iotdreamclub\demo\entity\DeviceLend.class
 com\iotdreamclub\demo\service\impl\FileServiceImpl.class
@@ -32,6 +35,7 @@ com\iotdreamclub\demo\entity\User.class
 com\iotdreamclub\demo\dao\BillMapper.class
 com\iotdreamclub\demo\entity\DeviceInfo.class
 com\iotdreamclub\demo\controller\BillController.class
+com\iotdreamclub\demo\utils\SmsUtil.class
 com\iotdreamclub\demo\service\impl\MatchBillServiceImpl.class
 com\iotdreamclub\demo\controller\MailController.class
 com\iotdreamclub\demo\entity\Match.class
