@@ -140,6 +140,7 @@ echo Start Success!
 │  ├─APIController(API接口控制器)
 │  ├─BillController
 │  ├─DeviceController
+│  ├─FileController
 │  ├─IndexController
 │  ├─MatchController
 │  ├─PageController
@@ -147,6 +148,7 @@ echo Start Success!
 ├─dao(后端函数方法)
 │  ├─BillMapper
 │  ├─DeviceMapper
+│  ├─FileMapper
 │  ├─RoleMapper(废案)
 │  ├─MatchMapper
 │  ├─RoleModuleMapper(废案)
@@ -161,18 +163,23 @@ echo Start Success!
 ├─Service(服务层接口)
 │  ├─BillService
 │  ├─DeviceService
+│  ├─FileService
 │  ├─RoleModuleService(废案)
 │  ├─FunctionService(之后的所有非关键的功能函数都会写在这里)
 │  ├─MatchService    
 │  └─UserService
 └─其他
    ├─ShiroConfig(shiro安全框架配置参数)
-   └─UserRealm(登陆安全检测参数)
+   ├─UserRealm(登陆安全检测参数)
+   ├─SmsUtil
+   └─FTPUtil
 ```
 
 ### 项目功能
  
 * 实验室设备管理
+
+    * 设备的查询
     
     * 设备的新增和删改
     
@@ -181,6 +188,8 @@ echo Start Success!
 * 实验室人员管理
 
     * 人员相关信息展示
+    
+    * 人员信息修改
 
 * 实验室资金记录
 
