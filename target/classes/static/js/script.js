@@ -4,6 +4,10 @@
  *
  */
 
+$.extend({
+
+});
+
 function reloadPage(){
     location.reload()
 }

@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.security.MessageDigest;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -46,6 +45,9 @@ public class FileController {
         if (!file.isDirectory()){
             file.mkdirs();
         }
+
+        System.out.println(multipartFile.getSize());
+
         String oldName = multipartFile.getOriginalFilename();
 
         String[] fileType = oldName.split("\\.");

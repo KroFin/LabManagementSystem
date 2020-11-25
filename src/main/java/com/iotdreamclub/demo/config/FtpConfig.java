@@ -8,7 +8,7 @@ public class FtpConfig {
     /**
      * 获取ip地址
      */
-    @Value("49.234.181.182")
+    @Value("123.57.252.81")
     private String FTP_ADDRESS;
 
     /**
@@ -20,18 +20,18 @@ public class FtpConfig {
     /**
      * 用户名
      */
-    @Value("YunHome")
+    @Value("ftp_123_57_252_81")
     private String FTP_USERNAME;
 
     /**
      * 密码
      */
-    @Value("123456")
+    @Value("PxhZiizhAJSmBF8F")
     private String FTP_PASSWORD;
 
     /**基本路径
      */
-    @Value("/www/wwwroot/49.234.181.182")
+    @Value("/www/wwwroot/123.57.252.81")
     private String FTP_BASEPATH;
 
     public FtpConfig() {

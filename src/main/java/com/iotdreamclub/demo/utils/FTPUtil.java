@@ -72,13 +72,13 @@ public class FTPUtil {
                 byte[] bytes = file.getName().getBytes("ISO-8859-1");
                 file.setName(new String(bytes, "utf-8"));
                 System.out.println("name: " + file.getName());//
-                if (filename.equalsIgnoreCase(file.getName())) {//判断找到所下载的文件，file.getName就是服务器上对应的文件
-//下面就是通过文件id再去数据库查找文件的中文名，将这个作为文件名下载到本地目录
+                if (filename.equalsIgnoreCase(file.getName())) {
+
                     String fileName = file.getName().substring(0, file.getName().lastIndexOf("."));
                     System.out.println("该文件的id："+fileName);
                     File localFile = new File(basePath + "/" + fileName);
-                    os = new FileOutputStream(localFile);//得到文件的输出流
-                    ftp.retrieveFile(file.getName(), os);//开始下载文件
+                    os = new FileOutputStream(localFile);
+                    ftp.retrieveFile(file.getName(), os);
                     os.close();
                 }
                 ftp.logout();

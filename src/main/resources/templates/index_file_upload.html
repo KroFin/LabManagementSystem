@@ -31,7 +31,7 @@
             <td th:text="${fileUpload.fileUploader}">Bangalore</td>
             <td th:text="${fileUpload.fileDate}">560001</td>
             <td>
-                <a th:href="${'http://49.234.181.182:8090/' + fileUpload.fileName}">下载</a>
+                <a th:href="${'/fileDownload/' + fileUpload.fileName}">下载</a>
             </td>
         </tr>
         </tbody>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
-                        <button onclick='document.getElementById("fileUpload").submit()' id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                        <button onclick="subm()" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
                     </div>
                 </form>
             </div>
@@ -89,9 +89,36 @@
     //     });
     // }
 
+    function subm() {
+        let formData = new FormData($("#fileUpload")[0]);
+
+        // let fileObj = $('#fileUpload').files[0];
+        //
+        // let formData = $('#fileUpload').serialize();
+        //
+        // formData.append('fileObj',fileObj);
+
+        $.ajax({
+            type:'POST',
+            url:"/zuul/fileUpload",
+            data:formData,
+            async: false,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success:function () {
+
+            },
+            error:function () {
+                alert("文件上传失败");
+            }
+        })
+    }
+
     // function setparentheight(){
     //     var modalHeight = document.getElementById("#myModal");
     //     parent.document.all(self.name).height=document.body.scrollHeight + modalHeight.height;
     // }
+
 </script>
 </html>

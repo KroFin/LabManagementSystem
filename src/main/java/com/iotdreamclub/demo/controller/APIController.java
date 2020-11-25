@@ -1,6 +1,7 @@
 package com.iotdreamclub.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iotdreamclub.demo.service.DeviceService;
 import com.iotdreamclub.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class APIController {
     @PostMapping("/getDeviceInfoAPI")
     @ResponseBody
     public int getDeviceInfoAPI(HttpServletRequest request , @RequestParam JSONObject jsonObject) {
+
         String device = jsonObject.get("id").toString();
         String deviceName = jsonObject.get("name").toString();
         jsonObject.getJSONObject("type");

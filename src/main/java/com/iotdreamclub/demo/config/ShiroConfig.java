@@ -1,7 +1,6 @@
 package com.iotdreamclub.demo.config;
 
 import com.iotdreamclub.demo.realm.UserRealm;
-import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;

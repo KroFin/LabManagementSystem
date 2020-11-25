@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="showAd()">
+<button id="btn_start">开始</button>
+<button class="btn_end">结束</button>
+<button id="btn_show_addr">ShowAddr</button>
+<!--<div id="ad" style="display: none">-->
+<!--    <img src="../static/img/404_background.jpg" alt="" style="width: 100%">-->
+<!--</div>-->
+
+<div>
+    <img id="img1ID" src="" alt="">
+</div>
+
+<li>北京</li>
+<li>上海</li>
+<li>深圳</li>
+<li>广州</li>
+
+<script src="../static/js/jquery/jquery.min.js"></script>
+<script src="../static/js/popper/popper.min.js"></script>
+<script src="../static/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('#btn_01').on('click',function () {
+        alert('btn01 clicked')
+    });
+
+    function showAd(){
+        $('#ad').slideDown('slow')
+    }
+    function hideAd(){
+        $('#ad').slideUp('slow')
+    }
+
+    setTimeout(hideAd,3000);
+
+    let imgs = [
+        "",
+        "",
+    ];
+
+    $('#btn_start').click(function () {
+        $(this).attr("disabled","disabled");
+        $('#btn_end').removeAttr("disabled");
+
+        setInterval(changePic,1000);
+    });
+
+    function changePic() {
+        let index = Math.floor(Math.random()*imgs.length);
+
+        $('#img1ID').attr("src",imgs[index])
+    }
+
+    $('#btn_show_addr').click(function () {
+        $('li').each(function () {
+            console.log($(this).text())
+        })
+    })
+
+
+</script>
+</body>
+</html>
